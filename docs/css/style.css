@@ -153,7 +153,7 @@ ul, ol {
     color: black;
 }
 
-.icons li a svg, .icons li a img {
+.icons li a svg, .icons li a img, .icons li a png, .icons li a webp {
     height: 65%;
     width: 65%;
     transition: fill 0.375s ease;
