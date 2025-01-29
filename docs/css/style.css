@@ -93,8 +93,16 @@ ul, ol {
     background-color: #4267B2;
 }
 
+.icons .bereal {
+    background-color: #FFFFFF;
+}
+
 .icons .tiktok {
     background-color: #25F4EE;
+}
+
+.icons .rednote {
+    background-color: #FF4500;
 }
 
 .icons .linkedin {
