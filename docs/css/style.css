@@ -160,6 +160,7 @@ ul, ol {
     height: 65%;
     width: 65%;
     transition: fill 0.375s ease;
+    object-fit: contain;
 }
 
 .icons li a {
