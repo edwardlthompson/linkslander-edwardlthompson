@@ -106,12 +106,6 @@ main ul {
     background-color: #ffffff;
 }
 
-.github-text {
-    font-weight: bold;
-    color: #000;
-    font-size: 0.8em;
-}
-
 /* Dark background overrides */
 .icons .twitter {
     background-color: #000000;
