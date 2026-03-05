@@ -1,34 +1,67 @@
 body {
-    background-image: radial-gradient(rgba(65, 59, 60, 0.8),rgba(36, 34, 34, 0.8), rgba(0, 0, 0, 0.8)), url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20L0 20z' fill='%23000000' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+    font-family: 'Inter', sans-serif;
+    background-image: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(42, 42, 42, 0.9)), url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20L0 20z' fill='%23000000' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
     background-position: center;
+    transition: background-color 0.3s ease;
+}
+body.light-mode .profile-img {
+    border-color: #000000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.profile-img {
-    width: 100px;
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode footer p {
+    color: #212529;
+}
+
+body.light-mode .icons a {
+    color: #000;
+}
+
+body.light-mode .download-btn {
+    color: #000;
+    background-color: #fff;
+    border-color: #000;
+}
+
+body.light-mode .download-btn:hover {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+body.light-mode .download-btn {
+    color: #000;
+    background-color: #fff;
+    border-color: #000;
+}
+
+body.light-mode .download-btn:hover {
+    background-color: #000;
+    border-color: #000;
+    color: #fff
     height: 100px;
     border-radius: 50%;
     margin: 0 auto;
     display: block;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
     border: #000000 4px solid;
 }
 
 main h1 {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: bold;
 }
 
 main h2 {
-    font-size: 16px;
+    font-size: 1rem;
 }
 main ul {
     list-style: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-ul, ol {
-    padding-left: 0;
 }
 
 .icons {
@@ -53,104 +86,43 @@ ul, ol {
     display: none;
 }
 
-.icons .telegram {
+/* Default white background for all social icons */
+.icons .telegram,
+.icons .whatsapp,
+.icons .fb-messenger,
+.icons .discord,
+.icons .phone,
+.icons .email,
+.icons .snapchat,
+.icons .instagram,
+.icons .fb,
+.icons .bereal,
+.icons .rednote,
+.icons .linkedin,
+.icons .youtube,
+.icons .steam,
+.icons .imdb,
+.icons .upwork,
+.icons .github,
+.icons .IWWYV,
+.icons .paypal,
+.icons .venmo,
+.icons .bitcoin,
+.icons .ethereum {
     background-color: #ffffff;
 }
 
-.icons .whatsapp {
-    background-color: #ffffff;
-}
-
-.icons .fb-messenger {
-    background-color: #ffffff;
-}
-
-.icons .discord {
-    background-color: #ffffff;
-}
-
-.icons .phone {
-    background-color: #ffffff;
-}
-
-.icons .email {
-    background-color: #ffffff;
-}
-
-.icons .snapchat {
-    background-color: #ffffff;
-}
-
+/* Dark background overrides */
 .icons .twitter {
     background-color: #000000;
-}
-
-.icons .instagram {
-    background-color: #FFFFFF;
-}
-
-.icons .fb {
-    background-color: #FFFFFF;
-}
-
-.icons .bereal {
-    background-color: #FFFFFF;
 }
 
 .icons .tiktok {
     background-color: #000000;
 }
 
-.icons .rednote {
-    background-color: #FFFFFF;
-}
-
-.icons .linkedin {
-    background-color: #FFFFFF;
-}
-
-.icons .youtube {
-    background-color: #FFFFFF;
-}
-
-.icons .steam {
-    background-color: #FFFFFF;
-}
-
-.icons .imdb {
-    background-color: #FFFFFF;
-}
-
-.icons .upwork {
-    background-color: #FFFFFF;
-}
-
 .icons .tripadvisor {
     background-color: #7D7F7C;
-}
-
-.icons .IWWYV {
-    background-color: #FFFFFF;
-}
-
-.icons .paypal {
-    background-color: #FFFFFF;
-}
-
-.icons .venmo {
-    background-color: #FFFFFF;
-}
-
-.icons .zelle {
-    background-color: #FFFFFF;
-}
-
-.icons .bitcoin {
-    background-color: #FFFFFF;
-}
-
-.icons .ethereum {
-    background-color: #FFFFFF;
 }
 
 .icons a {
@@ -172,8 +144,75 @@ ul, ol {
     align-items: center;
     transition: transform 0.375s ease;
     box-shadow: 0rem 0rem 0rem 0.125rem #000000;
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.icons li:nth-child(1) a { animation-delay: 0.1s; }
+.icons li:nth-child(2) a { animation-delay: 0.2s; }
+.icons li:nth-child(3) a { animation-delay: 0.3s; }
+.icons li:nth-child(4) a { animation-delay: 0.4s; }
+.icons li:nth-child(5) a { animation-delay: 0.5s; }
+.icons li:nth-child(6) a { animation-delay: 0.6s; }
+.icons li:nth-child(7) a { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icons li a:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
 }
 
 .icons li a:hover {
     transform: scale(1.1);
+}
+
+
+/* Responsive design for mobile and tablet */
+@media (max-width: 768px) {
+    .profile-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    main h1 {
+        font-size: 1.5rem;
+    }
+    
+    .icons li a {
+        height: 2.5em;
+        width: 2.5em;
+    }
+    
+    .icons li a svg, .icons li a img {
+        height: 70%;
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    main h1 {
+        font-size: 1.25rem;
+    }
+    
+    .icons li a {
+        height: 2em;
+        width: 2em;
+    }
+    
+    .icons li a svg, .icons li a img {
+        height: 75%;
+        width: 75%;
+    }
 }
