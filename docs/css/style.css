@@ -133,15 +133,13 @@ main {
 .icons .venmo,
 .icons .bitcoin,
 .icons .ethereum,
-.icons .upwork {
+.icons .upwork,
+.icons .IWWYV,
+.icons .gv {
     background-color: #ffffff;
 }
 
 /* Dark background overrides */
-.icons .twitter {
-    background-color: #000000;
-}
-
 .icons .tiktok {
     background-color: #000000;
 }
