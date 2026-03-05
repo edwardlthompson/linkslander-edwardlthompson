@@ -66,6 +66,7 @@ main ul {
 
 .icons {
     gap: 1em;
+    justify-content: center;
 }
 
 .download-btn {
