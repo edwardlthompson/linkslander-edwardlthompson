@@ -6,7 +6,7 @@
 
 /* animated gradient background */
 body, body.text-bg-dark {
-    background: linear-gradient(120deg, #e0eafc, #cfdef3, #f9f6e7, #f7d9e3, #e0eafc);
+    background: linear-gradient(120deg, #232526, #414345, #283e51, #485563, #232526);
     background-size: 200% 200%;
     animation: animatedGradientBG 18s ease-in-out infinite;
 }
