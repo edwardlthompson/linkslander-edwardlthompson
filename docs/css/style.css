@@ -6,15 +6,21 @@
 
 /* animated gradient background */
 body, body.text-bg-dark {
-    background: linear-gradient(270deg, #e5e7eb, #cfd9df, #e5e7eb, #bfc9d1) !important;
-    background-size: 400% 400% !important;
-    animation: gradientBG 16s ease-in-out infinite !important;
+    background: linear-gradient(120deg, #e0eafc, #cfdef3, #f9f6e7, #f7d9e3, #e0eafc);
+    background-size: 200% 200%;
+    animation: animatedGradientBG 18s ease-in-out infinite;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+@keyframes animatedGradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 body.light-mode .profile-img {
