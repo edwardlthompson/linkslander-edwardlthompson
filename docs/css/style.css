@@ -6,9 +6,9 @@
 
 /* animated gradient background */
 body, body.text-bg-dark {
-    background: linear-gradient(135deg, #1a1a1a, #2a2a2a) !important;
+    background: linear-gradient(270deg, #e5e7eb, #cfd9df, #e5e7eb, #bfc9d1) !important;
     background-size: 400% 400% !important;
-    animation: gradientBG 20s ease infinite !important;
+    animation: gradientBG 16s ease-in-out infinite !important;
 }
 
 @keyframes gradientBG {
@@ -150,22 +150,22 @@ main {
 .icons .upwork,
 .icons .IWWYV,
 .icons .gv {
-    background-color: #ffffff;
+    background-color: #e5e7eb !important;
 }
 
 /* Dark background overrides */
 .icons .tiktok {
-    background-color: #000000;
+    background-color: #e5e7eb !important;
 }
 
-/* ensure twitter icon uses white bg */
+/* ensure twitter icon uses gray bg */
 .icons .twitter {
-    background-color: #ffffff !important;
+    background-color: #e5e7eb !important;
 }
 
 
 .icons .tripadvisor {
-    background-color: #7D7F7C;
+    background-color: #e5e7eb !important;
 }
 
 .icons a {
@@ -214,9 +214,9 @@ main {
 
 .icons li a:hover {
     /* keep the translateY zero when hovered so icon doesn't jump */
-    transform: translateY(0) scale(1.25);
-    box-shadow: 0 0 1rem rgba(0,0,0,0.4);
-    background-color: #f8f9fa; /* slight lift effect */
+    transform: translateY(0) scale(1.5);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22), 0 2px 8px 0 rgba(0,0,0,0.12);
+    background-color: #e5e7eb !important;
 }
 
 
