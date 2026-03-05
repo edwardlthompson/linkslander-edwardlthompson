@@ -5,10 +5,10 @@
 }
 
 /* animated gradient background */
-body {
-    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-    background-size: 400% 400%;
-    animation: gradientBG 20s ease infinite;
+body, body.text-bg-dark {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a) !important;
+    background-size: 400% 400% !important;
+    animation: gradientBG 20s ease infinite !important;
 }
 
 @keyframes gradientBG {
@@ -158,6 +158,12 @@ main {
     background-color: #000000;
 }
 
+/* ensure twitter icon uses white bg */
+.icons .twitter {
+    background-color: #ffffff !important;
+}
+
+
 .icons .tripadvisor {
     background-color: #7D7F7C;
 }
@@ -208,8 +214,8 @@ main {
 
 .icons li a:hover {
     /* keep the translateY zero when hovered so icon doesn't jump */
-    transform: translateY(0) scale(1.1);
-    box-shadow: 0 0 0.5rem rgba(0,0,0,0.3);
+    transform: translateY(0) scale(1.25);
+    box-shadow: 0 0 1rem rgba(0,0,0,0.4);
     background-color: #f8f9fa; /* slight lift effect */
 }
 
