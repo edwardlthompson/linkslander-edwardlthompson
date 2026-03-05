@@ -3,6 +3,20 @@
     flex-direction: column;
     align-items: center;
 }
+
+/* animated gradient background */
+body {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 body.light-mode .profile-img {
     border-color: #000000;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -195,6 +209,8 @@ main {
 .icons li a:hover {
     /* keep the translateY zero when hovered so icon doesn't jump */
     transform: translateY(0) scale(1.1);
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.3);
+    background-color: #f8f9fa; /* slight lift effect */
 }
 
 
