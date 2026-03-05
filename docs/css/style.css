@@ -81,6 +81,8 @@ main {
     gap: 0.75em;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;    /* center each row */
+    align-content: center;      /* center multi-line groups */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -126,7 +128,12 @@ main {
 .icons .youtube,
 .icons .steam,
 .icons .imdb,
-.icons .github {
+.icons .github,
+.icons .paypal,
+.icons .venmo,
+.icons .bitcoin,
+.icons .ethereum,
+.icons .upwork {
     background-color: #ffffff;
 }
 
@@ -188,7 +195,8 @@ main {
 }
 
 .icons li a:hover {
-    transform: scale(1.1);
+    /* keep the translateY zero when hovered so icon doesn't jump */
+    transform: translateY(0) scale(1.1);
 }
 
 
