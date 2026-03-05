@@ -1,5 +1,7 @@
 .section {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 body.light-mode .profile-img {
     border-color: #000000;
@@ -55,20 +57,39 @@ main h2 {
     font-size: 1rem;
     text-align: center;
 }
-main ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+
+main {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+@media (min-width: 576px) {
+    main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    main {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 }
 
 .icons {
-    gap: 1em;
+    gap: 0.75em;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+@media (min-width: 768px) {
+    .icons {
+        gap: 1em;
+    }
 }
 
 .download-btn {
