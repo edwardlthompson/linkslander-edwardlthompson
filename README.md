@@ -7,7 +7,9 @@ A modern, responsive personal landing page for Edward Lee Thompson, providing qu
 - **Official App Icons:** All contact and social links use official, high-quality icons for brand consistency and trust.
 - **Responsive Design:** Looks great on desktop, tablet, and mobile devices.
 - **Animated Dark Background:** Subtle, animated gradient background for visual interest and strong contrast with white text.
-- **Accessible:** Large, touch-friendly icons and semantic HTML for screen readers.
+- **Theme Toggle:** Switch between light and dark modes easily, saving preferences locally.
+- **Rich Aesthetics:** Modern glassmorphism panels and dynamic brand-colored glowing hover effects.
+- **Accessible:** Large, touch-friendly icons, semantic HTML, and Bootstrap tooltips for screen readers.
 - **Downloadable vCard:** One-click download of Edward's contact card.
 - **PWA Support:** Includes manifest for mobile home screen installation.
 
