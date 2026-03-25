@@ -6,9 +6,28 @@
 
 /* animated gradient background */
 body, body.text-bg-dark {
-    background: linear-gradient(120deg, #232526, #414345, #283e51, #485563, #232526);
-    background-size: 200% 200%;
-    animation: animatedGradientBG 18s ease-in-out infinite;
+    background: transparent !important;
+}
+
+# Matrix effect fixes
+.text-bg-dark, .cover-container {
+    background: transparent !important;
+}
+/* Matrix background canvas */
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Ensure main content is above background */
+main, .cover-container, .container {
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes animatedGradientBG {
