@@ -1,4 +1,3 @@
-
 # Edward Lee Thompson – Links Lander
 
 A modern, responsive personal landing page for Edward Lee Thompson, providing quick access to all direct contact methods and social profiles in one place.
@@ -7,8 +6,8 @@ A modern, responsive personal landing page for Edward Lee Thompson, providing qu
 
 - **Official App Icons:** All contact and social links use official, high-quality icons for brand consistency and trust.
 - **Responsive Design:** Looks great on desktop, tablet, and mobile devices.
-- **Animated Matrix Background:** Interactive Matrix-style effect with mouse and ripple interactions, layered behind all content.
-- **Theme Toggle:** Switch between light and dark modes easily, saving preferences locally.
+- **Animated Matrix Background:** Interactive Matrix-style effect with mouse and ripple interactions, now with improved layering, glassmorphism, and performance (debounced resize, wide character rendering).
+- **Dark Mode Only:** Site is now always in dark mode for optimal Matrix effect and legibility.
 - **Rich Aesthetics:** Modern glassmorphism panels and dynamic brand-colored glowing hover effects.
 - **Accessible:** Large, touch-friendly icons, semantic HTML, and Bootstrap tooltips for screen readers.
 - **Downloadable vCard:** One-click download of Edward's contact card.
@@ -41,12 +40,16 @@ linkslander-edwardlthompson/
 
 ## Customization
 - To update contact links or add new platforms, edit `docs/index.html` and add the appropriate icon to `docs/img/`.
-- To change the Matrix background effect or color scheme, edit `docs/js/matrix.js` and `docs/css/style.css`.
+- To change the Matrix background effect, glassmorphism, or color scheme, edit `docs/js/matrix.js` and `docs/css/style.css`.
 
 ## Credits
 - All app icons are official assets from their respective brands.
 - Built with [Bootstrap 5](https://getbootstrap.com/) and custom CSS.
 
----
+## Recent Improvements
+- Removed theme toggle; site is now always dark mode.
+- Fixed Matrix z-index and glassmorphism for better readability and accessibility.
+- Debounced Matrix resize for smoother performance.
+- Cleaned up merge artifacts and ensured no missing asset references.
 
 **Created and maintained by Edward Lee Thompson.**

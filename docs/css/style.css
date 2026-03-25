@@ -1,10 +1,14 @@
+html {
+    background-color: #000;
+}
+
 .section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 70, 0.2);
     border-radius: 1rem;
     padding: 1rem;
     margin: 0 auto 1.5rem auto;
@@ -13,11 +17,6 @@
     max-width: 600px;
 }
 
-body.light-mode .section {
-    background: rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
 
 /* animated gradient background */
 body, body.text-bg-dark {
@@ -57,34 +56,10 @@ main, .cover-container, .container {
     }
 }
 
-body.light-mode .profile-img {
-    border-color: #000000;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
 
-body.light-mode h1,
-body.light-mode h2,
-body.light-mode footer p {
-    color: #212529;
-}
 
-body.light-mode .icons a {
-    color: #000;
-}
 
-body.light-mode .download-btn {
-    color: #000;
-    background-color: #fff;
-    border-color: #000;
-    transition: all 0.3s ease;
-}
 
-body.light-mode .download-btn:hover {
-    background-color: #000;
-    border-color: #000;
-    color: #fff;
-    transform: scale(1.05);
-}
 
 main h1 {
     font-size: 2rem;
@@ -329,14 +304,7 @@ main {
     background: rgba(255, 255, 255, 0.2);
 }
 
-body.light-mode .theme-toggle-btn {
-    background: rgba(0, 0, 0, 0.05);
-    color: black;
-}
 
-body.light-mode .theme-toggle-btn:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
 
 /* Floating animation for profile picture */
 .profile-img {

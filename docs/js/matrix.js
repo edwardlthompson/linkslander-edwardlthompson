@@ -54,7 +54,12 @@ function resize() {
     }
 }
 
-window.addEventListener('resize', resize);
+// Debounced resize to prevent jank
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resize, 150);
+});
 window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
 window.addEventListener('mousedown', () => {
     initAudio();
