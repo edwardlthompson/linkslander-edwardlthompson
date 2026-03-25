@@ -2,6 +2,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0 auto 1.5rem auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+body.light-mode .section {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* animated gradient background */
@@ -61,30 +76,14 @@ body.light-mode .download-btn {
     color: #000;
     background-color: #fff;
     border-color: #000;
+    transition: all 0.3s ease;
 }
 
 body.light-mode .download-btn:hover {
     background-color: #000;
     border-color: #000;
     color: #fff;
-}
-
-body.light-mode .download-btn {
-    color: #000;
-    background-color: #fff;
-    border-color: #000;
-}
-
-body.light-mode .download-btn:hover {
-    background-color: #000;
-    border-color: #000;
-    color: #fff
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto;
-    display: block;
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
-    border: #000000 4px solid;
+    transform: scale(1.05);
 }
 
 main h1 {
@@ -139,12 +138,14 @@ main {
     font-size: 1em;
     padding: 0 1.25rem;
     line-height: 2rem;
+    transition: all 0.3s ease;
 }
 
 .download-btn:hover {
     background-color: #ffffff;
     border-color: #ffffff;
     color: #000;
+    transform: scale(1.05);
 }
 
 .icons li a .label {
@@ -240,9 +241,23 @@ main {
 .icons li a:hover {
     /* keep the translateY zero when hovered so icon doesn't jump */
     transform: translateY(0) scale(1.5);
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 8px 32px 0 var(--hover-glow, rgba(0,0,0,0.22)), 0 2px 8px 0 rgba(0,0,0,0.12);
     background-color: #e5e7eb !important;
 }
+
+.icons a.telegram:hover { --hover-glow: rgba(0, 136, 204, 0.5); }
+.icons a.whatsapp:hover { --hover-glow: rgba(37, 211, 102, 0.5); }
+.icons a.fb-messenger:hover { --hover-glow: rgba(0, 106, 255, 0.5); }
+.icons a.discord:hover { --hover-glow: rgba(88, 101, 242, 0.5); }
+.icons a.snapchat:hover { --hover-glow: rgba(255, 252, 0, 0.5); }
+.icons a.email:hover { --hover-glow: rgba(234, 67, 53, 0.5); }
+.icons a.twitter:hover { --hover-glow: rgba(0, 0, 0, 0.5); }
+.icons a.instagram:hover { --hover-glow: rgba(225, 48, 108, 0.5); }
+.icons a.fb:hover { --hover-glow: rgba(24, 119, 242, 0.5); }
+.icons a.tiktok:hover { --hover-glow: rgba(255, 0, 80, 0.5); }
+.icons a.linkedin:hover { --hover-glow: rgba(10, 102, 194, 0.5); }
+.icons a.youtube:hover { --hover-glow: rgba(255, 0, 0, 0.5); }
+.icons a.github:hover { --hover-glow: rgba(36, 41, 46, 0.5); }
 
 
 /* Responsive design for mobile and tablet */
@@ -286,4 +301,50 @@ main {
         height: 70%;
         width: 70%;
     }
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.light-mode .theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.05);
+    color: black;
+}
+
+body.light-mode .theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Floating animation for profile picture */
+.profile-img {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }

@@ -1,3 +1,4 @@
+
 # Edward Lee Thompson – Links Lander
 
 A modern, responsive personal landing page for Edward Lee Thompson, providing quick access to all direct contact methods and social profiles in one place.
@@ -7,7 +8,9 @@ A modern, responsive personal landing page for Edward Lee Thompson, providing qu
 - **Official App Icons:** All contact and social links use official, high-quality icons for brand consistency and trust.
 - **Responsive Design:** Looks great on desktop, tablet, and mobile devices.
 - **Animated Matrix Background:** Interactive Matrix-style effect with mouse and ripple interactions, layered behind all content.
-- **Accessible:** Large, touch-friendly icons and semantic HTML for screen readers.
+- **Theme Toggle:** Switch between light and dark modes easily, saving preferences locally.
+- **Rich Aesthetics:** Modern glassmorphism panels and dynamic brand-colored glowing hover effects.
+- **Accessible:** Large, touch-friendly icons, semantic HTML, and Bootstrap tooltips for screen readers.
 - **Downloadable vCard:** One-click download of Edward's contact card.
 - **PWA Support:** Includes manifest for mobile home screen installation.
 
@@ -27,6 +30,7 @@ linkslander-edwardlthompson/
 │   └── edward_lee_thompson_.vcf # Downloadable contact card
 ├── README.md             # Project documentation
 ```
+
 
 
 ## How to Use
