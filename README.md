@@ -1,42 +1,29 @@
-# Edward Lee Thompson – Links Lander
+# Edward Lee Thompson – Digital Portal V2.0
 
-A modern, responsive personal landing page for Edward Lee Thompson, providing quick access to all direct contact methods and social profiles in one place.
+A high-performance, interactive personal landing page and PWA. This portal features a custom-built Matrix-style physics engine, glassmorphism UI, and offline accessibility.
 
-## Features
+## 🚀 Advanced Features
 
-- **Official App Icons:** All contact and social links use official, high-quality icons for brand consistency and trust.
-- **Responsive Design:** Looks great on desktop, tablet, and mobile devices.
-- **Animated Matrix Background:** Interactive Matrix-style effect with mouse and ripple interactions, now with improved layering, glassmorphism, and performance (debounced resize, wide character rendering).
-- **Dark Mode Only:** Site is now always in dark mode for optimal Matrix effect and legibility.
-- **Rich Aesthetics:** Modern glassmorphism panels and dynamic brand-colored glowing hover effects.
-- **Accessible:** Large, touch-friendly icons, semantic HTML, and Bootstrap tooltips for screen readers.
-- **Downloadable vCard:** One-click download of Edward's contact card.
-- **PWA Support:** Includes manifest for mobile home screen installation.
+* **Persistent 3D-Grid Engine:** A custom HTML5 Canvas background where characters stay in fixed 3D space, revealed only by falling "data drops."
+* **Gravitational Singularity:** The background reacts to cursor movement, physically warping and "swallowing" data characters near the pointer.
+* **Tactile Interaction:** Clicking triggers a high-velocity "Ripple" shockwave with synchronized "Whoosh" audio feedback.
+* **PWA Core:** Fully installable as a standalone app on iOS and Android with offline caching via Service Workers.
+* **Retro-Tech Aesthetic:** CRT-style scanlines, phosphor-green color grading, and wide-body terminal typography.
+* **Dual-Contact vCard:** Integrated .vcf download with primary (+1-787) and secondary (+1-469) line support.
 
-## Live Preview
-Hosted via GitHub Pages or your preferred static site host. Just open `docs/index.html` in your browser.
+## 🛠️ Tech Stack
+* **Engine:** Vanilla JavaScript / HTML5 Canvas API
+* **Audio:** Web Audio API (OscillatorNode/GainNode)
+* **UI:** Bootstrap 5 + Custom CSS Glassmorphism
+* **PWA:** Service Worker (Cache-First Strategy) + Web App Manifest
 
-## Project Structure
+## 📱 Mobile Optimization
+* **Thumb-Friendly:** All touch targets meet 48x48px accessibility standards.
+* **Dynamic Scaling:** Profile and Name panels scale proportionally for mobile devices.
+* **Battery Conscious:** Optimized render loop for stable frame rates.
 
-```
-linkslander-edwardlthompson/
-├── docs/
-│   ├── index.html         # Main landing page
-│   ├── css/
-│   │   └── style.css     # Custom styles and animations
-│   ├── img/              # Official app icons and profile image
-│   ├── manifest.json     # PWA manifest
-│   └── edward_lee_thompson_.vcf # Downloadable contact card
-├── README.md             # Project documentation
-```
-
-
-
-## How to Use
-1. Clone or download this repository.
-2. Open `docs/index.html` in your browser to view the site locally.
-3. For real-time editing, use the "Live Preview" or "Live Server" extension in VS Code for instant browser updates as you work.
-4. To deploy, upload the `docs/` folder to your static hosting provider (e.g., GitHub Pages, Netlify).
+---
+**Maintained by Edward Lee Thompson.**
 
 ## Customization
 - To update contact links or add new platforms, edit `docs/index.html` and add the appropriate icon to `docs/img/`.

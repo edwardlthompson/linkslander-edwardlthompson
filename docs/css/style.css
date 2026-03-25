@@ -1,3 +1,165 @@
+/* Name Card Glass Panel (shrink-wrap, glassmorphism, scanline) */
+.name-card {
+    display: block;
+    max-width: fit-content;
+    padding: 12px 20px !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    /* Inherit glass-panel styles and scanline effect */
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 70, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    text-align: center;
+}
+.matrix-identity {
+        /* ...existing code... */
+}
+
+.matrix-cta {
+        /* ...existing code... */
+}
+
+@media (max-width: 480px) {
+    .matrix-identity {
+        letter-spacing: 1px;
+        font-size: 1.4rem;
+    }
+    .matrix-cta {
+        font-size: 0.95rem;
+    }
+}
+@media (max-width: 768px) {
+    .glass-panel::before {
+        /* Slightly thicker lines for mobile to prevent visual interference */
+        background-size: 100% 6px;
+        opacity: 0.2; /* Mute the intensity on smaller screens */
+    }
+}
+/* Tightened Header Spacing */
+.matrix-header {
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+/* Identity/CTA brand match */
+.matrix-identity {
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px #00ff46, 0 0 18px #00ff46, 0 0 24px rgba(0,255,70,0.5);
+    font-size: 2rem;
+    text-align: center;
+    display: block;
+    margin: 0;
+}
+
+.matrix-cta {
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(0, 255, 70, 0.5), 0 0 10px rgba(0, 255, 70, 0.2);
+    text-align: center;
+    display: block;
+}
+
+/* Standardized Glass Padding */
+.matrix-panel-body {
+    padding: 12px 20px !important;
+}
+/* MATRIX SINGULARITY DESIGN SYSTEM 
+    ---------------------------------
+    Primary Green:    #00ff46 (Bright/Ripple)
+    Phosphor Green:   #1a4d1a (Muted/Static)
+    Background:       #000000 (Pure Black)
+  
+    Glow Standard:    text-shadow: 0 0 5px rgba(0, 255, 70, 0.5);
+    Glass Standard:   background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(12px);
+    Scanline Overlay: background-size: 100% 4px; opacity: 0.3;
+*/
+@keyframes monitor-flicker {
+    0% { opacity: 0.15; }
+    50% { opacity: 0.22; }
+    100% { opacity: 0.15; }
+}
+/* CRT Scanline Effect for glass panels */
+.section, .glass-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-panel::before, .section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.15;
+    animation: monitor-flicker 0.1s infinite;
+}
+
+/* Ensure main content in glass panels is above scanlines */
+.section > *, .glass-panel > * {
+    position: relative;
+    z-index: 2;
+}
+/* Phosphor Glow for all headers and links */
+h1, h2, h3, h4, h5, h6, a, .download-btn, .icons li a {
+    text-shadow: 0 0 5px rgba(0, 255, 70, 0.5), 0 0 10px rgba(0, 255, 70, 0.2);
+}
+
+/* Pulse animation for profile image border */
+.profile-img {
+    /* Existing floating animation preserved */
+    animation: floating 3s ease-in-out infinite, profilePulse 2.5s ease-in-out infinite;
+    border: 2px solid rgba(0, 255, 70, 0.4);
+    box-shadow: 0 0 12px 2px rgba(0,255,70,0.25);
+}
+
+@keyframes profilePulse {
+    0% {
+        box-shadow: 0 0 12px 2px rgba(0,255,70,0.25), 0 0 0 0 rgba(0,255,70,0.15);
+        border-color: rgba(0,255,70,0.4);
+    }
+    50% {
+        box-shadow: 0 0 32px 8px rgba(0,255,70,0.45), 0 0 0 8px rgba(0,255,70,0.10);
+        border-color: rgba(0,255,70,0.7);
+    }
+    100% {
+        box-shadow: 0 0 12px 2px rgba(0,255,70,0.25), 0 0 0 0 rgba(0,255,70,0.15);
+        border-color: rgba(0,255,70,0.4);
+    }
+}
+/* Ensure the image container scales properly on mobile */
+@media (max-width: 767px) {
+    .profile-img-container, .profile-img {
+        width: 180px !important;
+        height: 180px !important;
+        max-width: 60% !important;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid rgba(0, 255, 70, 0.4);
+    }
+}
 html {
     background-color: #000;
 }
@@ -10,7 +172,10 @@ html {
     backdrop-filter: blur(12px);
     border: 1px solid rgba(0, 255, 70, 0.2);
     border-radius: 1rem;
-    padding: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin: 0 auto 1.5rem auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -66,9 +231,12 @@ main h1 {
     font-weight: bold;
 }
 
-main h2 {
+
+main h2, main h3, main .section-title {
     font-size: 1rem;
     text-align: center;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
 }
 
 main {
@@ -101,19 +269,59 @@ main {
     margin: 0;
 }
 
+.icons li {
+    display: flex;
+    align-items: center;
+}
+
 @media (min-width: 768px) {
     .icons {
         gap: 1em;
     }
 }
 
+
+
 .download-btn {
     border-radius: 1rem;
-    font-weight: 300;
+    font-weight: bold;
     font-size: 1em;
     padding: 0 1.25rem;
     line-height: 2rem;
     transition: all 0.3s ease;
+    min-height: 48px;
+    min-width: 48px;
+    margin-bottom: 12px;
+    background: rgba(0, 0, 0, 0.4); /* glass panel background */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 70, 0.2);
+    color: #fff;
+    box-shadow: 0 0 16px 2px rgba(0,255,70,0.25), 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 8px rgba(0,255,70,0.6), 0 0 16px rgba(0,255,70,0.3);
+    animation: downloadBtnPulse 2.5s ease-in-out infinite;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes downloadBtnPulse {
+    0% {
+        box-shadow: 0 0 16px 2px rgba(0,255,70,0.25), 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-color: rgba(0,255,70,0.2);
+    }
+    50% {
+        box-shadow: 0 0 32px 8px rgba(0,255,70,0.45), 0 4px 16px rgba(0,255,70,0.10);
+        border-color: rgba(0,255,70,0.7);
+    }
+    100% {
+        box-shadow: 0 0 16px 2px rgba(0,255,70,0.25), 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-color: rgba(0,255,70,0.2);
+    }
 }
 
 .download-btn:hover {
@@ -191,6 +399,9 @@ main {
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
     transform: translateY(20px);
+    min-height: 48px;
+    min-width: 48px;
+    margin-bottom: 8px;
 }
 
 .icons li:nth-child(1) a { animation-delay: 0.1s; }

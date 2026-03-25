@@ -2,7 +2,12 @@ const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d', { alpha: false });
 
 let width, height;
-const fontSize = 32; 
+let fontSize = 32;
+
+// Responsive scaling for mobile: increase fontSize to 40px on screens <480px
+if (window.innerWidth < 480) {
+    fontSize = 40;
+}
 const chars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890';
 
 let mouseX = -1000, mouseY = -1000;
