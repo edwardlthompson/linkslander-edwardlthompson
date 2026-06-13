@@ -33,7 +33,31 @@
 
 ### Parallel
 
-- [x] [AGENT] Verify SRI on Bootstrap CDN links (`site/index.html` — CSS + JS already pinned)
+- [x] [AGENT] Verify SRI on Bootstrap CDN links (`site/index.html` — superseded by local vendoring in code review remediation)
+
+---
+
+## LinksLander — Sprint 3 Code Review Remediation (2026-06-13)
+
+### Phase 1 — Security, CSS, metadata
+
+- [x] [AGENT] Add `rel="noopener noreferrer"` to all external `target="_blank"` links
+- [x] [AGENT] Remove CSS merge stubs; fix Matrix effect comment in `site/css/style.css`
+- [x] [AGENT] Fix OG/meta tags, `browserconfig.xml`, `manifest.json` start_url, sitemap lastmod
+- [x] [AGENT] Add aria-labels for adventure and payment links; fix tooltip init
+
+### Phase 2 — Offline PWA
+
+- [x] [AGENT] Vendor Bootstrap 5.3.3 under `site/vendor/bootstrap-5.3.3/`
+- [x] [AGENT] Expand `site/sw.js` to `matrix-cache-v4` with resilient `Promise.allSettled` install
+- [x] [AGENT] Update `THIRD_PARTY_LICENSES.md`, `docs/THREAT_MODEL.md`, `docs/RUNBOOK.md`, KB-007
+
+### Phase 3 — Polish and tests
+
+- [x] [AGENT] `matrix.js` `updateFontSize()` on resize
+- [x] [AGENT] Prune unused root icon assets; align browserconfig tile paths
+- [x] [AGENT] Extend e2e tests (noopener, local Bootstrap, offline smoke)
+- [x] [AUTO] CI gates: e2e, encoding check
 
 ---
 

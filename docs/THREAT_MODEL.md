@@ -7,7 +7,7 @@
 | Item | Value |
 |------|-------|
 | Project | LinksLander — Edward Lee Thompson Digital Portal |
-| Stack | Vanilla JS static PWA, Bootstrap 5 CDN, GitHub Pages |
+| Stack | Vanilla JS static PWA, vendored Bootstrap 5.3.3, GitHub Pages |
 | Methodology | STRIDE (OWASP ASVS adapted for static client-only site) |
 
 ## Trust Boundaries
@@ -15,7 +15,7 @@
 ```text
 [Visitor Browser] --> [GitHub Pages CDN] --> [Static files in site/]
         |                      |
-   Service Worker cache    jsDelivr Bootstrap CDN
+   Service Worker cache    Vendored Bootstrap (site/vendor/)
         |
    External link targets (Telegram, PayPal, etc.)
 ```
@@ -35,7 +35,7 @@ No backend, API, database, or user authentication.
 
 ## Top Abuse Cases
 
-1. **CDN supply-chain compromise** — Bootstrap loaded from jsDelivr; mitigated by SRI integrity hashes on CSS/JS links
+1. **Vendored dependency drift** — Bootstrap copied under `site/vendor/`; mitigated by Dependabot/manual review cadence and pinning version in `THIRD_PARTY_LICENSES.md`
 2. **Secret leakage** — `.env` or tokens committed; mitigated by Gitleaks pre-commit + `.gitignore`
 3. **Malicious dependency in dev tooling** — npm devDeps for Playwright/Lighthouse; mitigated by Dependabot + lockfiles + CI scans
 4. **Open redirect via external links** — All outbound links are hardcoded `https://` to known platforms; no user-controlled redirects

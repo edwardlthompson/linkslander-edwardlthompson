@@ -24,6 +24,39 @@ test("registers service worker", async ({ page }) => {
   expect(registered).toBe(true);
 });
 
+test("external links use noopener", async ({ page }) => {
+  await page.goto("/");
+  const blankLinks = page.locator('a[target="_blank"]');
+  const count = await blankLinks.count();
+  expect(count).toBeGreaterThan(0);
+
+  for (let i = 0; i < count; i++) {
+    const rel = (await blankLinks.nth(i).getAttribute("rel")) ?? "";
+    expect(rel).toMatch(/noopener/);
+  }
+});
+
+test("loads Bootstrap from local vendor path", async ({ page }) => {
+  const cdnRequests: string[] = [];
+  page.on("request", (req) => {
+    if (req.url().includes("cdn.jsdelivr.net")) cdnRequests.push(req.url());
+  });
+
+  await page.goto("/");
+  await page.waitForLoadState("networkidle");
+
+  expect(cdnRequests).toEqual([]);
+  await expect(page.locator('link[href*="vendor/bootstrap-5.3.3/css/bootstrap.min.css"]')).toHaveCount(1);
+});
+
+test("renders offline after first load", async ({ page, context }) => {
+  await page.goto("/");
+  await page.waitForLoadState("networkidle");
+  await context.setOffline(true);
+  await page.reload();
+  await expect(page.locator("h1.matrix-identity")).toBeVisible();
+});
+
 test("passes accessibility audit", async ({ page }) => {
   await page.goto("/");
   const results = await new AxeBuilder({ page }).analyze();

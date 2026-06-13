@@ -64,3 +64,12 @@
 | **Cause** | `strictNullChecks` + `document.getElementById` return type includes null |
 | **Fix** | Assign narrowed ref at module scope: `const root = document.getElementById('root')!` or guard once |
 | **Prevention** | Module-level `const root = app` pattern in `examples/web/src/main.ts` |
+
+### KB-007 — Vendored Bootstrap + service worker cache list
+
+| Field | Detail |
+|-------|--------|
+| **Symptom** | Offline reload shows unstyled page or missing icons; Bootstrap 404 in Network tab |
+| **Cause** | Bootstrap was CDN-only; `sw.js` ASSETS list incomplete or `cache.addAll()` failed silently on one bad path |
+| **Fix** | Vendor Bootstrap under `site/vendor/bootstrap-5.3.3/`; list all runtime assets in `sw.js`; use `Promise.allSettled` on install; bump `CACHE_NAME` when asset set changes |
+| **Prevention** | After adding images or vendor files, grep `site/index.html` for `src=` / `href=` and sync `ASSETS`; run offline smoke in `site/e2e/site.spec.ts` |

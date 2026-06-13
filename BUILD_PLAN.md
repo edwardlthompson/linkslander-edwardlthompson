@@ -25,7 +25,7 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 2 ó Ongoing Maintenance (active)
+## Sprint 2 ù Ongoing Maintenance (active)
 
 ### Weekly (recurring)
 
@@ -44,6 +44,8 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 |------|-------|-------|
 | Split `site/css/style.css` into modules | AGENT | Align with AGENTS.md 250-line view limit |
 | GitHub Release tag `v2.0.0` | HUMAN | After formal release approval |
+
+Code review remediation (Phases 1ñ3) is complete ó see [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
 
 ---
 

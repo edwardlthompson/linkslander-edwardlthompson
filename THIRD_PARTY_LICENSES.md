@@ -1,19 +1,19 @@
 # Third-Party Licenses
 
-> Dependency and CDN attribution for LinksLander.
+> Dependency attribution for LinksLander.
 
 ## Project License
 
 This project is licensed under the MIT License. See [`LICENSE`](LICENSE).
 
-## Runtime Dependencies (CDN — not npm locked)
+## Runtime Dependencies (vendored in `site/`)
 
-| Dependency | Version | Source | License |
-|------------|---------|--------|---------|
-| Bootstrap CSS | 5.3.3 | jsDelivr CDN | MIT |
-| Bootstrap JS Bundle | 5.3.3 | jsDelivr CDN | MIT |
+| Dependency | Version | Location | License |
+|------------|---------|----------|---------|
+| Bootstrap CSS | 5.3.3 | `site/vendor/bootstrap-5.3.3/css/bootstrap.min.css` | MIT |
+| Bootstrap JS Bundle | 5.3.3 | `site/vendor/bootstrap-5.3.3/js/bootstrap.bundle.min.js` | MIT |
 
-SRI integrity hashes are set on both CDN `<link>` and `<script>` tags in `site/index.html`.
+Bootstrap is vendored locally (not loaded from CDN) for offline PWA reliability. Update via Dependabot/manual review; bump `site/sw.js` cache version when upgrading.
 
 ## Brand Icon Assets
 

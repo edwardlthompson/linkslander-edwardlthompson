@@ -4,10 +4,11 @@ const ctx = canvas.getContext('2d', { alpha: false });
 let width, height;
 let fontSize = 32;
 
-// Responsive scaling for mobile: increase fontSize to 40px on screens <480px
-if (window.innerWidth < 480) {
-    fontSize = 40;
+function updateFontSize() {
+  fontSize = window.innerWidth < 480 ? 40 : 32;
 }
+
+updateFontSize();
 const chars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890';
 
 let mouseX = -1000, mouseY = -1000;
@@ -35,6 +36,7 @@ function playWhoosh() {
 }
 
 function resize() {
+    updateFontSize();
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
     const cols = Math.ceil(width / (fontSize * 1.6));

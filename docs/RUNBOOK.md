@@ -11,7 +11,15 @@ Static PWA — no backend endpoints. Verify:
 | Site loads | `curl -I https://edwardlthompson.com` | `200 OK` |
 | Custom domain | `site/CNAME` contains `edwardlthompson.com` | Matches DNS |
 | Service worker | DevTools → Application → Service Workers | Registered, no errors |
-| Offline mode | DevTools → Network → Offline, reload | Page renders from cache |
+| Offline mode | DevTools → Network → Offline, reload | Page renders from cache (layout, icons, Bootstrap from SW) |
+
+### Offline verification (post-deploy)
+
+1. Open https://edwardlthompson.com in Chrome or Edge
+2. DevTools → **Application** → confirm service worker registered (`matrix-cache-v4`)
+3. DevTools → **Network** → check **Offline**
+4. Hard reload — identity heading, profile image, and link grid should render without network
+5. Confirm Bootstrap styles present (grid layout, buttons); no unstyled HTML fallback
 | CI site tests | `cd site && npm run test:e2e` | All pass |
 
 ## Deploy
