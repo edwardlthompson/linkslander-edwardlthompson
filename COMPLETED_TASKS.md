@@ -18,7 +18,6 @@
 
 - [x] [HUMAN] Set GitHub repo About from `docs/GITHUB_ABOUT.md`
 - [x] [HUMAN] Configure `.template-update.json` interval (`weekly`)
-- [ ] [HUMAN] Install pre-commit hooks locally (optional)
 
 ---
 
@@ -35,15 +34,34 @@
 ### Parallel
 
 - [x] [AGENT] Verify SRI on Bootstrap CDN links (`site/index.html` — CSS + JS already pinned)
-- [ ] [AGENT] Split `site/css/style.css` into modules (deferred — future refactor)
 
 ---
 
-## LinksLander — Sprint 2 Maintenance (2026-06-13, partial)
+## LinksLander — Sprint 2 Maintenance (2026-06-13)
 
 - [x] [AUTO] Template update check (`scripts/check-template-updates.ps1`) — no upstream update
-- [x] [AUTO] Trivy + CodeQL + CI green on `main` @ `a70776b`
+- [x] [AUTO] Trivy + CodeQL + CI matrix green after merges (verified @ `a70776b`)
 - [x] [AGENT] Dependabot review — 0 open alerts, 0 open PRs, `npm audit` clean
+- [x] [HUMAN] Initial CVE triage pass (2026-06-13: 0 alerts)
+
+---
+
+## LinksLander — Milestone Gates (Sprint 0–1 sign-off, 2026-06-13)
+
+### Automated
+
+- [x] [AUTO] Regression tests: zero failures (CI `site-pwa` + `web` jobs green)
+- [x] [AUTO] Static analysis and vulnerability scans clean (Trivy + CodeQL green)
+- [x] [AUTO] Workflow action refs validated (`scripts/validate-workflow-actions.sh`)
+- [x] [AUTO] UTF-8 encoding check clean (`scripts/check-file-encoding.sh`)
+- [x] [AUTO] Lockfiles present and CI uses locked installs (`npm ci`)
+- [x] [AUTO] `TEMPLATE_INDEX.json` complete (`scripts/validate-template-index.sh`)
+
+### Human
+
+- [x] [HUMAN] Zero open Critical/High Dependabot alerts (verified 2026-06-13)
+- [x] [HUMAN] CHANGELOG.md updated (Keep a Changelog format — v2.0.0 entry)
+- [x] [HUMAN] `THIRD_PARTY_LICENSES.md` reviewed for distribution
 
 ---
 
