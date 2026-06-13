@@ -23,7 +23,13 @@
 - **Alternatives considered:** System preference theming; manual toggle — both rejected per maintainer preference.
 - **Consequences:** Simpler CSS; dead `.theme-toggle-btn` rules removed as cleanup only.
 
-### 2026-06-13 — Site vs docs directory split
+### 2026-06-13 — Sprint 0–1 sign-off
+- **Status:** Accepted
+- **Context:** Bootstrap adoption and site hardening milestones completed; all required CI workflows green.
+- **Decision:** Archive Sprint 0 and Sprint 1 to `COMPLETED_TASKS.md`; activate Sprint 2 ongoing maintenance.
+- **Alternatives considered:** Keep sprints open in BUILD_PLAN — rejected (clutters active board).
+- **Consequences:** Sprint 3 backlog holds CSS refactor and optional `v2.0.0` release tag.
+
 - **Status:** Accepted
 - **Context:** GitHub Pages published from `docs/` conflicted with template agent documentation path.
 - **Decision:** Move published PWA to `site/`; deploy via GitHub Actions; reserve `docs/` for agent docs.

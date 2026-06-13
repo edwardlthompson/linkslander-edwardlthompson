@@ -7,7 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.2.1] - 2026-06-13
+## [2.0.0] - 2026-06-13
+
+### Added
+
+- agent-project-bootstrap v0.2.1 scaffolding (Cursor rules, CI guardrails, workspace memory, scripts)
+- Published PWA relocated to `site/` with GitHub Actions Pages deploy (`.github/workflows/pages.yml`)
+- `site/` Playwright e2e + Lighthouse CI harness (`site-pwa` CI job)
+- Repository ruleset **main branch protection** with required Security Scan, CodeQL, and CI checks
+- ADR-0002 documenting `site/` vs `docs/` split and always-dark UI policy
+
+### Changed
+
+- `docs/` reserved for agent documentation; live site served from `site/`
+- README merged with template sections (BUILD_PLAN labels, update checker, security triage)
+- CodeQL limited to `javascript-typescript` (web-only stack)
+- Service worker cache manifest aligned with actual assets (`matrix-cache-v3`)
+
+### Removed
+
+- Dead `.theme-toggle-btn` CSS (no theme toggle feature)
+- Pruned python/android/lightroom stacks and related CI jobs
+
+### Security
+
+- Dependabot alerts and security updates enabled
+- Private vulnerability reporting enabled
+- Bootstrap 5.3.3 CDN loaded with SRI integrity hashes
+
+## [0.2.1] - 2026-06-13 (template upstream history)
 
 ### Added
 

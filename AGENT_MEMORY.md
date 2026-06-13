@@ -57,7 +57,7 @@ High-performance interactive personal landing page and PWA featuring a custom Ma
 
 | Date | Milestone | What worked | What to improve |
 |------|-----------|-------------|-----------------|
-| 2026-06-13 | Bootstrap adoption | Template scaffold + site/ split | Split large CSS file in future sprint |
+| 2026-06-13 | Sprint 0–1 complete | Bootstrap + CI/site hardening; ruleset protection | CSS module split deferred to Sprint 3 |
 
 ## Template Provenance
 

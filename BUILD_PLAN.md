@@ -25,67 +25,58 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 0 ù Bootstrap Adoption
+## Sprint 0 ù Bootstrap Adoption ? COMPLETE
 
-### Sequential (must complete in order)
-
-1. [x] [HUMAN] Switch GitHub Pages source to GitHub Actions; enable Dependabot alerts + private vulnerability reporting
-2. [x] [HUMAN] Branch protection on `main` (CI, Security Scan, CodeQL required)
-3. [x] [AGENT] Import template scaffolding; prune non-web stacks
-4. [x] [AGENT] Move site to `site/`; add `pages.yml` workflow
-5. [x] [AGENT] Customize memory files, ADR-0002, RUNBOOK, THREAT_MODEL
-6. [x] [AUTO] `validate-bootstrap.sh`, encoding check, template index check pass
-7. [ ] [HUMAN] Approve Sprint 0 after all workflows green on `main`
-
-### Parallel (safe after Sequential step 5)
-
-| Task | Owner | Isolated scope |
-|------|-------|----------------|
-| Set GitHub repo About from `docs/GITHUB_ABOUT.md` | HUMAN | GitHub Settings |
-| Configure `.template-update.json` interval | HUMAN | `.template-update.json` |
-| Install pre-commit hooks locally | HUMAN | local dev |
+> Archived 2026-06-13. See `COMPLETED_TASKS.md` ? LinksLander Sprint 0.
 
 ---
 
-## Sprint 1 ù Site Hardening
+## Sprint 1 ù Site Hardening ? COMPLETE
 
-### Sequential (must complete in order)
-
-1. [x] [AGENT] Fix SW cache manifest + restore missing image assets
-2. [x] [AGENT] Add `site/` Playwright + Lighthouse CI harness
-3. [x] [AGENT] Remove dead `.theme-toggle-btn` CSS (cleanup only ù no theme feature)
-4. [x] [AUTO] `site-pwa` + `web` CI jobs green
-5. [x] [HUMAN] Verify live site at edwardlthompson.com after Pages Actions deploy
-
-### Parallel (safe after Sequential step 2)
-
-| Task | Owner | Isolated scope |
-|------|-------|----------------|
-| Add SRI to remaining CDN links if missing | AGENT | `site/index.html` |
-| Split `site/css/style.css` into modules | AGENT | `site/css/**` (future refactor) |
+> Archived 2026-06-13. See `COMPLETED_TASKS.md` ? LinksLander Sprint 1.
+>
+> **Deferred:** Split `site/css/style.css` into modules (future refactor sprint).
 
 ---
 
-## Sprint 2 ù Ongoing Maintenance
+## Sprint 2 ù Ongoing Maintenance (active)
 
 ### Weekly (recurring)
 
 - [ ] [HUMAN] Run weekly CVE triage pass per `docs/SECURITY_TRIAGE.md` (recommended: Monday)
-- [ ] [AGENT] Apply Dependabot dependency bumps and open PRs as needed
-- [ ] [AUTO] Trivy + CodeQL + CI matrix green after merges
-- [ ] [AUTO] Template update check (`scripts/check-template-updates.ps1`)
+- [ ] [AGENT] Apply Dependabot dependency bumps and open PRs as needed (none pending as of 2026-06-13)
+- [x] [AUTO] Trivy + CodeQL + CI matrix green after merges (verified @ `a70776b`)
+- [x] [AUTO] Template update check (`scripts/check-template-updates.ps1`) ù no upstream update
+
+### Optional
+
+- [ ] [HUMAN] Install pre-commit hooks locally (`pip install pre-commit && pre-commit install`)
 
 ---
 
 ## Milestone Gates
 
-- [ ] [AUTO] Regression tests: zero failures
-- [ ] [AUTO] Static analysis and vulnerability scans clean
-- [ ] [AUTO] Workflow action refs validated (`scripts/validate-workflow-actions.sh`)
-- [ ] [AUTO] UTF-8 encoding check clean (`scripts/check-file-encoding.sh`)
-- [ ] [AUTO] Lockfiles present and CI uses locked installs (`npm ci`)
-- [ ] [AUTO] `TEMPLATE_INDEX.json` complete (`scripts/validate-template-index.sh`)
-- [ ] [HUMAN] Weekly CVE triage completed within last 7 days
-- [ ] [HUMAN] Zero open Critical/High Dependabot alerts (or documented exception)
-- [ ] [HUMAN] CHANGELOG.md updated (Keep a Changelog format)
-- [ ] [HUMAN] `THIRD_PARTY_LICENSES.md` reviewed for distribution
+### Automated (Sprint 0ù1 sign-off)
+
+- [x] [AUTO] Regression tests: zero failures (CI `site-pwa` + `web` jobs green)
+- [x] [AUTO] Static analysis and vulnerability scans clean (Trivy + CodeQL green)
+- [x] [AUTO] Workflow action refs validated (`scripts/validate-workflow-actions.sh`)
+- [x] [AUTO] UTF-8 encoding check clean (`scripts/check-file-encoding.sh`)
+- [x] [AUTO] Lockfiles present and CI uses locked installs (`npm ci`)
+- [x] [AUTO] `TEMPLATE_INDEX.json` complete (`scripts/validate-template-index.sh`)
+
+### Human (release / ongoing)
+
+- [x] Weekly CVE triage completed within last 7 days (initial pass 2026-06-13: 0 alerts)
+- [x] [HUMAN] Zero open Critical/High Dependabot alerts (verified 2026-06-13)
+- [x] [HUMAN] CHANGELOG.md updated (Keep a Changelog format)
+- [x] [HUMAN] `THIRD_PARTY_LICENSES.md` reviewed for distribution
+
+---
+
+## Future ù Sprint 3 (backlog)
+
+| Task | Owner | Notes |
+|------|-------|-------|
+| Split `site/css/style.css` into modules | AGENT | Align with AGENTS.md 250-line view limit |
+| GitHub Release tag `v2.0.0` | HUMAN | After formal release approval |
