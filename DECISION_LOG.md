@@ -30,8 +30,8 @@
 - **Alternatives considered:** Keep sprints open in BUILD_PLAN — rejected (clutters active board).
 - **Consequences:** Sprint 3 backlog holds CSS refactor and optional `v2.0.0` release tag.
 
+### 2026-06-13 — Site vs docs directory split
 - **Status:** Accepted
-- **Context:** GitHub Pages published from `docs/` conflicted with template agent documentation path.
-- **Decision:** Move published PWA to `site/`; deploy via GitHub Actions; reserve `docs/` for agent docs.
+- **Context:** GitHub Pages published from `docs/` conflicted with template agent documentation path.- **Decision:** Move published PWA to `site/`; deploy via GitHub Actions; reserve `docs/` for agent docs.
 - **Alternatives considered:** Agent docs in `guide/` — rejected (template path deviation).
 - **Consequences:** See ADR-0002 at `docs/adr/0002-site-architecture.md`.
