@@ -36,9 +36,9 @@
 - [x] No proprietary closed-source SDKs in production path
 - [x] Opt-in only telemetry (none collected); see `docs/PRIVACY.md`
 - [x] Secrets excluded from VCS (Gitleaks pre-commit)
-- [ ] Dependency vulnerability scanning enabled (CodeQL + Trivy + Dependabot) — `[HUMAN]` enable alerts
+- [x] Dependency vulnerability scanning enabled (CodeQL + Trivy + Dependabot)
 - [x] Input validation at all data boundaries (static site; no user input)
-- [ ] `SECURITY.md` and private vulnerability reporting enabled — `[HUMAN]`
+- [x] `SECURITY.md` and private vulnerability reporting enabled
 
 ## Persistent Context
 

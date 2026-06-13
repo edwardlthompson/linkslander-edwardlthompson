@@ -25,16 +25,16 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 0 ó Bootstrap Adoption
+## Sprint 0 ù Bootstrap Adoption
 
 ### Sequential (must complete in order)
 
-1. [ ] [HUMAN] Switch GitHub Pages source to GitHub Actions; enable Dependabot alerts + private vulnerability reporting
-2. [ ] [HUMAN] Branch protection on `main` (CI, Security Scan, CodeQL required)
+1. [x] [HUMAN] Switch GitHub Pages source to GitHub Actions; enable Dependabot alerts + private vulnerability reporting
+2. [x] [HUMAN] Branch protection on `main` (CI, Security Scan, CodeQL required)
 3. [x] [AGENT] Import template scaffolding; prune non-web stacks
 4. [x] [AGENT] Move site to `site/`; add `pages.yml` workflow
 5. [x] [AGENT] Customize memory files, ADR-0002, RUNBOOK, THREAT_MODEL
-6. [ ] [AUTO] `validate-bootstrap.sh`, encoding check, template index check pass
+6. [x] [AUTO] `validate-bootstrap.sh`, encoding check, template index check pass
 7. [ ] [HUMAN] Approve Sprint 0 after all workflows green on `main`
 
 ### Parallel (safe after Sequential step 5)
@@ -47,15 +47,15 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 1 ó Site Hardening
+## Sprint 1 ù Site Hardening
 
 ### Sequential (must complete in order)
 
 1. [x] [AGENT] Fix SW cache manifest + restore missing image assets
 2. [x] [AGENT] Add `site/` Playwright + Lighthouse CI harness
-3. [x] [AGENT] Remove dead `.theme-toggle-btn` CSS (cleanup only ó no theme feature)
-4. [ ] [AUTO] `site-pwa` + `web` CI jobs green
-5. [ ] [HUMAN] Verify live site at edwardlthompson.com after Pages Actions deploy
+3. [x] [AGENT] Remove dead `.theme-toggle-btn` CSS (cleanup only ù no theme feature)
+4. [x] [AUTO] `site-pwa` + `web` CI jobs green
+5. [x] [HUMAN] Verify live site at edwardlthompson.com after Pages Actions deploy
 
 ### Parallel (safe after Sequential step 2)
 
@@ -66,7 +66,7 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 2 ó Ongoing Maintenance
+## Sprint 2 ù Ongoing Maintenance
 
 ### Weekly (recurring)
 
