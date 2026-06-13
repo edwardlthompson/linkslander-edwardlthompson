@@ -1,0 +1,112 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  encoding-check:
+    name: File Encoding (UTF-8)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check text files are UTF-8
+        run: bash scripts/check-file-encoding.sh
+
+  file-limits:
+    name: File Size Budgets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check file line limits
+        run: bash scripts/check-file-limits.sh
+
+  validate-index:
+    name: Validate Template Index
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate TEMPLATE_INDEX.json paths
+        run: bash scripts/validate-template-index.sh
+
+
+  workflow-actions:
+    name: Validate Workflow Action Refs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Verify action tags and SHAs resolve on GitHub
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/validate-workflow-actions.sh
+
+  validate-bootstrap:
+    name: Validate Bootstrap Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check Sprint 0 artifacts exist
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/validate-bootstrap.sh
+
+  web:
+    name: Web — Lint, Test, Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples/web
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: examples/web/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test
+      - run: npm run lighthouse
+      - name: License compliance (web)
+        working-directory: ${{ github.workspace }}
+        run: bash scripts/check-license-compliance.sh web
+
+  site-pwa:
+    name: Site — PWA E2E and Lighthouse
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - run: npm run lighthouse
+
+  template-update-check:
+    name: Template Update Check
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check for upstream template updates
+        run: bash scripts/check-template-updates.sh --verbose

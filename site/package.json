@@ -1,0 +1,21 @@
+{
+  "name": "linkslander-site",
+  "private": true,
+  "license": "MIT",
+  "version": "2.0.0",
+  "scripts": {
+    "start": "serve . -l 4321",
+    "test:e2e": "playwright test",
+    "lighthouse": "lhci autorun"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.49.1",
+    "serve": "^14.2.4"
+  },
+  "overrides": {
+    "tmp": ">=0.2.6",
+    "uuid": ">=11.1.1"
+  }
+}

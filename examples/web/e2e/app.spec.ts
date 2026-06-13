@@ -1,0 +1,20 @@
+import { test, expect } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
+
+test("renders golden path heading", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "Hello, FOSS!" })).toBeVisible();
+  await expect(page.getByTestId("status")).toContainText("Golden Path PWA");
+});
+
+test("passes accessibility audit", async ({ page }) => {
+  await page.goto("/");
+  const results = await new AxeBuilder({ page }).analyze();
+  expect(results.violations).toEqual([]);
+});
+
+test("layout structure is stable", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("main")).toBeVisible();
+  await expect(page.locator("h1")).toHaveCSS("color", "rgb(233, 69, 96)");
+});

@@ -1,42 +1,101 @@
-# Edward Lee Thompson – Digital Portal V2.0
+# LinksLander — Edward Lee Thompson Digital Portal
 
-A high-performance, interactive personal landing page and PWA. This portal features a custom-built Matrix-style physics engine, glassmorphism UI, and offline accessibility.
+A high-performance, interactive personal landing page and PWA at [edwardlthompson.com](https://edwardlthompson.com). Features a custom Matrix-style physics engine, glassmorphism UI, and offline accessibility.
 
-## 🚀 Advanced Features
+Bootstrapped with [agent-project-bootstrap](https://github.com/edwardlthompson/agent-project-bootstrap) v0.2.1 for Cursor agent workflows, CI guardrails, and FOSS compliance.
 
-* **Persistent 3D-Grid Engine:** A custom HTML5 Canvas background where characters stay in fixed 3D space, revealed only by falling "data drops."
-* **Gravitational Singularity:** The background reacts to cursor movement, physically warping and "swallowing" data characters near the pointer.
-* **Tactile Interaction:** Clicking triggers a high-velocity "Ripple" shockwave with synchronized "Whoosh" audio feedback.
-* **PWA Core:** Fully installable as a standalone app on iOS and Android with offline caching via Service Workers.
-* **Retro-Tech Aesthetic:** CRT-style scanlines, phosphor-green color grading, and wide-body terminal typography.
-* **Dual-Contact vCard:** Integrated .vcf download with primary (+1-787) and secondary (+1-469) line support.
+## Features
 
-## 🛠️ Tech Stack
-* **Engine:** Vanilla JavaScript / HTML5 Canvas API
-* **Audio:** Web Audio API (OscillatorNode/GainNode)
-* **UI:** Bootstrap 5 + Custom CSS Glassmorphism
-* **PWA:** Service Worker (Cache-First Strategy) + Web App Manifest
+- **Persistent 3D-Grid Engine:** Custom HTML5 Canvas background with gravitational cursor interaction and click ripples
+- **PWA Core:** Installable on iOS/Android with offline caching via Service Workers
+- **Retro-Tech Aesthetic:** CRT scanlines, phosphor-green grading, always-dark theme
+- **Dual-Contact vCard:** Integrated `.vcf` download with primary and secondary phone lines
 
-## 📱 Mobile Optimization
-* **Thumb-Friendly:** All touch targets meet 48x48px accessibility standards.
-* **Dynamic Scaling:** Profile and Name panels scale proportionally for mobile devices.
-* **Battery Conscious:** Optimized render loop for stable frame rates.
+## Tech Stack
 
----
-**Maintained by Edward Lee Thompson.**
+| Layer | Technology |
+|-------|------------|
+| Engine | Vanilla JavaScript / HTML5 Canvas |
+| UI | Bootstrap 5.3.3 (CDN) + custom CSS |
+| PWA | Service Worker + Web App Manifest |
+| Hosting | GitHub Pages (Actions deploy from `site/`) |
+
+## Repository Layout
+
+| Path | Purpose |
+|------|---------|
+| `site/` | Published PWA (GitHub Pages artifact) |
+| `docs/` | Agent documentation (`START_HERE.md`, runbooks) |
+| `examples/web/` | Golden Path Vite+TS stub (template CI) |
+| `scripts/` | Validation, init, update checker |
+
+## Quick Start (Development)
+
+```bash
+# Serve production site locally
+cd site && npm ci && npm start
+
+# Run e2e + Lighthouse on site/
+cd site && npm run test:e2e && npm run lighthouse
+
+# Golden Path web example
+cd examples/web && npm ci && npm test && npm run build
+```
+
+## Agent Bootstrap
+
+Open Cursor and paste:
+
+```
+Read @docs/START_HERE.md and @docs/INITIALIZATION_PROMPT.md.
+Follow Section 8 Startup Sequence.
+Use BUILD_PLAN.md Sequential lane first; respect AGENT/HUMAN/ADB/AUTO labels.
+```
+
+## BUILD_PLAN Labels
+
+| Label | Owner | When to use |
+|-------|-------|-------------|
+| `AGENT` | Cursor Agent | Code, docs, scaffolding, tests, CI |
+| `HUMAN` | Human developer | Approvals, credentials, GitHub settings |
+| `AUTO` | CI/scripts | GitHub Actions, Dependabot, pre-commit |
+
+```bash
+grep '\[AGENT\]' BUILD_PLAN.md
+grep '\[HUMAN\]' BUILD_PLAN.md
+```
+
+## Template Update Checker
+
+Configure in [`.template-update.json`](.template-update.json). Manual check:
+
+```powershell
+pwsh scripts/check-template-updates.ps1
+```
+
+When a new upstream template version is available, see [`docs/UPGRADING_FROM_TEMPLATE.md`](docs/UPGRADING_FROM_TEMPLATE.md).
+
+## GitHub CI Gate
+
+After pushing workflow or dependency changes to `main`:
+
+```powershell
+pwsh scripts/check-github-ci.ps1 -WaitSeconds 300
+```
+
+Required workflows: **CI**, **Security Scan**, **CodeQL**, **Deploy GitHub Pages**.
+
+## Security
+
+Enable Dependabot alerts: **Settings → Code security and analysis**. Weekly CVE triage: [`docs/SECURITY_TRIAGE.md`](docs/SECURITY_TRIAGE.md). Report vulnerabilities via [`SECURITY.md`](SECURITY.md).
 
 ## Customization
-- To update contact links or add new platforms, edit `docs/index.html` and add the appropriate icon to `docs/img/`.
-- To change the Matrix background effect, glassmorphism, or color scheme, edit `docs/js/matrix.js` and `docs/css/style.css`.
 
-## Credits
-- All app icons are official assets from their respective brands.
-- Built with [Bootstrap 5](https://getbootstrap.com/) and custom CSS.
+- Update contact links: edit `site/index.html` and add icons to `site/img/`
+- Matrix background / styling: edit `site/js/matrix.js` and `site/css/style.css`
 
-## Recent Improvements
-- Removed theme toggle; site is now always dark mode.
-- Fixed Matrix z-index and glassmorphism for better readability and accessibility.
-- Debounced Matrix resize for smoother performance.
-- Cleaned up merge artifacts and ensured no missing asset references.
+## License
 
-**Created and maintained by Edward Lee Thompson.**
+MIT — see [`LICENSE`](LICENSE). Third-party attribution: [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
+
+**Maintained by Edward Lee Thompson.**

@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Edward Lee Thompson
+N:Thompson;Edward Lee;;;
+EMAIL;TYPE=INTERNET;TYPE=HOME:EdwardLeeThompson@gmail.com
+TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+17879394174
+TEL;TYPE=WORK,VOICE;VALUE=uri:tel:+14694764376
+ORG:I Heart PR Tours
+TITLE:Tour Guide
+BDAY:19830523
+item1.URL:www.EdwardLThompson.com
+item1.X-ABLabel:PROFILE
+PHOTO:https://lh3.googleusercontent.com/contacts/AG6tpzGjcQyrNSW6CeIHQE6XBD
+ yXTo94qxlUPBqsYlKJsEfCtyq_rdvQ
+CATEGORIES:myContacts,starred
+END:VCARD
