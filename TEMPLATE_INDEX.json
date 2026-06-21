@@ -94,6 +94,13 @@
       "owner": "maintainer"
     },
     {
+      "path": "scripts/enable-pages-https.sh",
+      "purpose": "Enable GitHub Pages Enforce HTTPS when custom domain is HTTPS-eligible",
+      "read_when": "release",
+      "update_when": "milestone_boundary",
+      "owner": "maintainer"
+    },
+    {
       "path": "docs/INITIALIZATION_PROMPT.md",
       "purpose": "Verbatim project initialization prompt for Cursor agents",
       "read_when": "bootstrap_session_start",
