@@ -46,7 +46,7 @@ test("loads Bootstrap from local vendor path", async ({ page }) => {
   await page.waitForLoadState("networkidle");
 
   expect(cdnRequests).toEqual([]);
-  await expect(page.locator('link[href*="vendor/bootstrap-5.3.3/css/bootstrap.min.css"]')).toHaveCount(1);
+  await expect(page.locator('link[rel="stylesheet"][href*="vendor/bootstrap-5.3.3/css/bootstrap.min.css"]')).toHaveCount(1);
 });
 
 test("renders offline after first load", async ({ page, context }) => {
