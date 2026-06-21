@@ -1,50 +1,46 @@
 # Changelog
 
-All notable changes to this template will be documented in this file.
+All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Added
-
-- Template parity upgrade to `agent-project-bootstrap` v0.11.1 (Cursor batch commands, design tokens, repo hygiene gates, release-please)
-- CI jobs: repo-hygiene, feature-gate (web), upgrade-simulation, PR coverage comment
-- Workflows: `weekly-health-check`, `release-please`, `scorecard`, `stale`, `dependabot-automerge`
-
-### Changed
-
-- `.template-version` bumped from `0.2.1` to `0.11.1`; `TEMPLATE_INDEX.json` pruned for web-only child repo
-- `examples/web` synced with template Golden Path (About/settings modules, undici pin for jsdom)
-
-## [2.0.0] - 2026-06-13
+## [2.0.0] - 2026-06-21
 
 ### Added
 
-- agent-project-bootstrap v0.2.1 scaffolding (Cursor rules, CI guardrails, workspace memory, scripts)
-- Published PWA relocated to `site/` with GitHub Actions Pages deploy (`.github/workflows/pages.yml`)
-- `site/` Playwright e2e + Lighthouse CI harness (`site-pwa` CI job)
+- agent-project-bootstrap scaffolding (Cursor rules, CI guardrails, workspace memory, scripts)
+- Published PWA in `site/` with GitHub Actions Pages deploy and custom domain
+- `site/` Playwright e2e (7 tests) + Lighthouse CI harness (`site-pwa` job)
 - Repository ruleset **main branch protection** with required Security Scan, CodeQL, and CI checks
 - ADR-0002 documenting `site/` vs `docs/` split and always-dark UI policy
+- Vendored Bootstrap 5.3.3 under `site/vendor/` for offline PWA reliability
+- Service worker `matrix-cache-v5` with resilient per-asset caching
+- Template parity upgrade to `agent-project-bootstrap` v0.11.1 (batch commands, design tokens, repo hygiene)
+- CI jobs: repo-hygiene, feature-gate, upgrade-simulation; workflows: release-please, scorecard, stale
+- CSS split into six modules under `site/css/modules/` (base, glass, identity, icons, responsive, animations)
+- Automated app releases via Release Please + GitHub Release SBOM workflow
 
 ### Changed
 
 - `docs/` reserved for agent documentation; live site served from `site/`
-- README merged with template sections (BUILD_PLAN labels, update checker, security triage)
 - CodeQL limited to `javascript-typescript` (web-only stack)
-- Service worker cache manifest aligned with actual assets (`matrix-cache-v3`)
+- Bootstrap loaded from local vendor path (no CDN runtime dependency)
+- `.release-please-manifest.json` tracks app semver; `.template-version` tracks upstream template only
 
 ### Removed
 
-- Dead `.theme-toggle-btn` CSS (no theme toggle feature)
+- Dead `.theme-toggle-btn` CSS and legacy root icon duplicates
 - Pruned python/android/lightroom stacks and related CI jobs
+- Monolithic `site/css/style.css` (replaced by modules)
 
 ### Security
 
 - Dependabot alerts and security updates enabled
 - Private vulnerability reporting enabled
-- Bootstrap 5.3.3 CDN loaded with SRI integrity hashes
+- `rel="noopener noreferrer"` on all external `target="_blank"` links
 
 ## [0.2.1] - 2026-06-13 (template upstream history)
 
@@ -80,63 +76,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - License script: --excludePrivatePackages for private stub packages
 - Encoding: normalize UTF-16 index.html and style.css; extend encoding scan to .html/.css
 
-## [0.2.0] - 2026-06-12
-
-### Added
-
-- `scripts/check-file-encoding.sh` — UTF-8 enforcement in CI and pre-commit
-- `.env.example` — documented environment variable stub
-- `examples/web/package-lock.json` and `examples/python/uv.lock` — reproducible locked installs
-- Build Verification Gate in `INITIALIZATION_PROMPT.md` Section 7 (Sprint 0 + release)
-- `PROMPT_LIBRARY.md` entries: bootstrap verification, security triage, SBOM audit, build verification
-- Secret rotation procedure in `docs/RUNBOOK.md`
-- Android operations checklist in `modules/android/MODULE.md`
-- Release workflow `workflow_dispatch` for maintainer dry-run
-- Web Vitest coverage budget (90%) matching Python example
-
-### Changed
-
-- Normalized ~46 UTF-16 corrupted files to UTF-8
-- `scripts/validate-bootstrap.sh` — encoding, index, lockfile, and LICENSE checks
-- `scripts/check-license-compliance.sh` — strict fail on disallowed licenses; stack-scoped CI steps
-- `TEMPLATE_INDEX.json` — added LICENSE, scripts, dependency-review, destructive-ops, `.env.example`; version 0.2.0
-- `.github/CODEOWNERS` — `@[PROJECT_OWNER]` placeholder; init scripts replace during Sprint 0
-- `docs/SECURITY_TRIAGE.md` — private vulnerability reporting in setup
-- `docs/UPGRADING_FROM_TEMPLATE.md` — cherry-pick rows for new scripts/workflows
-- `BUILD_PLAN.md` — encoding, lockfiles, Build Verification Gate in Sprint 0 and Milestone Gates
-- `README.md` — links THREAT_MODEL, PRIVACY, RUNBOOK, THIRD_PARTY_LICENSES, LICENSE
-- CI: license check after locked installs; `uv sync --locked`; encoding-check job first
-- `docs/MAINTAINING_THE_TEMPLATE.md` — release dry-run steps
-- Init scripts — CODEOWNERS replacement, GITHUB_ABOUT.md draft, update checker config
-
-### Human-only (not automated)
-
-- Enable Dependabot alerts + private vulnerability reporting on GitHub
-- Branch protection on `main` with required CI checks (`encoding-check`, `validate-bootstrap`)
-- Replace `@[PROJECT_OWNER]` in CODEOWNERS with real GitHub username
-- Paste GitHub About description from `docs/GITHUB_ABOUT.md`
-
-## [0.1.0] - 2026-06-12
-
-### Added
-
-- Verbatim Project Initialization Prompt (`docs/INITIALIZATION_PROMPT.md`)
-- Agent routing: `docs/START_HERE.md`, `docs/FOR_AGENTS.md`, `TEMPLATE_INDEX.json`
-- Workspace memory files: `AGENT_MEMORY.md`, `DECISION_LOG.md`, `KNOWLEDGE_BASE.md`, `BUILD_PLAN.md`
-- Multi-stack Golden Path stubs: Web (Vite PWA), Python (uv CLI), Android (FOSS Gradle skeleton)
-- Ecosystem module guides: Android, Web, Python, Lightroom
-- CI/CD guardrails: matrix CI, CodeQL, Trivy, Dependabot, release workflow
-- Template update checker with configurable intervals (`off`, `daily`, `weekly`, `monthly`, `on_session`)
-- Maintainer and consumer docs: `MAINTAINING_THE_TEMPLATE.md`, `UPGRADING_FROM_TEMPLATE.md`
-- Devcontainer, pre-commit hooks, init scripts (bash + PowerShell)
-- `SECURITY.md`, `CODE_OF_CONDUCT.md`, `.github/CODEOWNERS` — community health and responsible disclosure
-- `docs/THREAT_MODEL.md`, `docs/PRIVACY.md`, `docs/RUNBOOK.md` — threat model, privacy-by-design, operations
-- `THIRD_PARTY_LICENSES.md` + `scripts/check-license-compliance.sh` — license compliance
-- `scripts/validate-bootstrap.sh` — Sprint 0 artifact verification in CI
-- `.github/workflows/dependency-review.yml` — PR dependency review (fail on High/Critical)
-- Release workflow: SBOM (CycloneDX) + SLSA build provenance attestation
-- `.cursor/rules/destructive-ops.mdc` — human-in-the-loop gates for destructive agent operations
-
-[0.2.0]: https://github.com/edwardlthompson/agent-project-bootstrap/releases/tag/v0.2.0
-[0.2.1]: https://github.com/edwardlthompson/agent-project-bootstrap/releases/tag/v0.2.1
-[0.1.0]: https://github.com/edwardlthompson/agent-project-bootstrap/releases/tag/v0.1.0
+[2.0.0]: https://github.com/edwardlthompson/linkslander-edwardlthompson/releases/tag/v2.0.0

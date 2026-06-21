@@ -37,6 +37,23 @@
 
 ---
 
+## LinksLander — v2.0.0 Release (2026-06-21)
+
+- [x] [AGENT] Decouple app semver (manifest + `site/package.json`) from `.template-version` (upstream)
+- [x] [AGENT] Customize `release.yml`, `release-please.yml`, and version sync scripts for child repo
+- [x] [AUTO] GitHub Release `v2.0.0` with SBOM assets via `release.yml`
+- [x] [HUMAN] Backlog cleared — project ready to park
+
+---
+
+## LinksLander — Sprint 3 CSS Modularization (2026-06-21)
+
+- [x] [AGENT] Split `site/css/style.css` into six modules under `site/css/modules/`
+- [x] [AGENT] Update `index.html` link tags and `sw.js` cache (`matrix-cache-v5`)
+- [x] [AUTO] Site e2e 7/7 pass; validate-bootstrap + feature-gate + repo-hygiene green
+
+---
+
 ## LinksLander — Sprint 4 Template Parity v0.11.1 (2026-06-13)
 
 ### Sequential

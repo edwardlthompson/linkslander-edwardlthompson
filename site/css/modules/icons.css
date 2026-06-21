@@ -1,0 +1,109 @@
+/* Social icon grid and brand treatments */
+.icons {
+    gap: 0.75em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.icons li {
+    display: flex;
+    align-items: center;
+}
+
+.icons li a .label {
+    display: none;
+}
+
+.icons .telegram,
+.icons .whatsapp,
+.icons .fb-messenger,
+.icons .discord,
+.icons .phone,
+.icons .email,
+.icons .snapchat,
+.icons .instagram,
+.icons .fb,
+.icons .bereal,
+.icons .rednote,
+.icons .linkedin,
+.icons .youtube,
+.icons .steam,
+.icons .imdb,
+.icons .github,
+.icons .paypal,
+.icons .venmo,
+.icons .bitcoin,
+.icons .ethereum,
+.icons .upwork,
+.icons .IWWYV,
+.icons .gv,
+.icons .tiktok,
+.icons .twitter,
+.icons .tripadvisor {
+    background-color: #e5e7eb !important;
+}
+
+.icons a {
+    color: black;
+}
+
+.icons li a svg, .icons li a img {
+    height: 60%;
+    width: 60%;
+    transition: fill 0.375s ease;
+}
+
+.icons li a {
+    border-radius: 100%;
+    height: 4em;
+    width: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.375s ease;
+    box-shadow: 0rem 0rem 0rem 0.125rem #000000;
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    min-height: 48px;
+    min-width: 48px;
+    margin-bottom: 8px;
+}
+
+.icons li:nth-child(1) a { animation-delay: 0.1s; }
+.icons li:nth-child(2) a { animation-delay: 0.2s; }
+.icons li:nth-child(3) a { animation-delay: 0.3s; }
+.icons li:nth-child(4) a { animation-delay: 0.4s; }
+.icons li:nth-child(5) a { animation-delay: 0.5s; }
+.icons li:nth-child(6) a { animation-delay: 0.6s; }
+.icons li:nth-child(7) a { animation-delay: 0.7s; }
+
+.icons li a:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.icons li a:hover {
+    transform: translateY(0) scale(1.5);
+    box-shadow: 0 8px 32px 0 var(--hover-glow, rgba(0,0,0,0.22)), 0 2px 8px 0 rgba(0,0,0,0.12);
+    background-color: #e5e7eb !important;
+}
+
+.icons a.telegram:hover { --hover-glow: rgba(0, 136, 204, 0.5); }
+.icons a.whatsapp:hover { --hover-glow: rgba(37, 211, 102, 0.5); }
+.icons a.fb-messenger:hover { --hover-glow: rgba(0, 106, 255, 0.5); }
+.icons a.discord:hover { --hover-glow: rgba(88, 101, 242, 0.5); }
+.icons a.snapchat:hover { --hover-glow: rgba(255, 252, 0, 0.5); }
+.icons a.email:hover { --hover-glow: rgba(234, 67, 53, 0.5); }
+.icons a.twitter:hover { --hover-glow: rgba(0, 0, 0, 0.5); }
+.icons a.instagram:hover { --hover-glow: rgba(225, 48, 108, 0.5); }
+.icons a.fb:hover { --hover-glow: rgba(24, 119, 242, 0.5); }
+.icons a.tiktok:hover { --hover-glow: rgba(255, 0, 80, 0.5); }
+.icons a.linkedin:hover { --hover-glow: rgba(10, 102, 194, 0.5); }
+.icons a.youtube:hover { --hover-glow: rgba(255, 0, 0, 0.5); }
+.icons a.github:hover { --hover-glow: rgba(36, 41, 46, 0.5); }

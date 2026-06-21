@@ -26,12 +26,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Verify tag matches .template-version
+      - name: Verify tag matches app release version
         run: |
           TAG="${GITHUB_REF#refs/tags/v}"
-          VERSION=$(tr -d '[:space:]' < .template-version)
+          VERSION=$(python3 -c "import json; print(json.load(open('.release-please-manifest.json'))['.'].strip())")
           if [ "$TAG" != "$VERSION" ]; then
-            echo "Tag v$TAG does not match .template-version ($VERSION)"
+            echo "Tag v$TAG does not match release-please manifest ($VERSION)"
             exit 1
           fi
 
@@ -61,12 +61,12 @@ jobs:
           # SBOM backfill (workflow_dispatch + tag input): build from main, upload to existing tag
           ref: ${{ inputs.tag != '' && github.ref || steps.tag.outputs.tag || github.ref }}
 
-      - name: Finalize release tag from .template-version
+      - name: Finalize release tag from manifest
         if: steps.tag.outputs.tag == ''
         id: tag_ver
-        run: echo "tag=v$(tr -d '[:space:]' < .template-version)" >> "$GITHUB_OUTPUT"
+        run: echo "tag=v$(python3 -c "import json; print(json.load(open('.release-please-manifest.json'))['.'].strip())")" >> "$GITHUB_OUTPUT"
 
-      - name: Verify tag matches .template-version
+      - name: Verify tag matches app release version
         run: |
           if [ -n "${{ inputs.tag }}" ]; then
             EFFECTIVE="${{ inputs.tag }}"
@@ -74,9 +74,9 @@ jobs:
             EFFECTIVE="${{ steps.tag.outputs.tag || steps.tag_ver.outputs.tag }}"
           fi
           TAG="${EFFECTIVE#v}"
-          VERSION=$(tr -d '[:space:]' < .template-version)
+          VERSION=$(python3 -c "import json; print(json.load(open('.release-please-manifest.json'))['.'].strip())")
           if [ "$TAG" != "$VERSION" ]; then
-            echo "Tag v$TAG does not match .template-version ($VERSION)"
+            echo "Tag v$TAG does not match release-please manifest ($VERSION)"
             exit 1
           fi
           echo "EFFECTIVE_TAG=v${VERSION}" >> "$GITHUB_ENV"

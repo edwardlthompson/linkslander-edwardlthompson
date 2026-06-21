@@ -1,0 +1,75 @@
+/* Breakpoints for layout, typography, and icons */
+@media (max-width: 480px) {
+    .matrix-identity {
+        letter-spacing: 1px;
+        font-size: 1.4rem;
+    }
+    .matrix-cta {
+        font-size: 0.95rem;
+    }
+    .profile-img {
+        width: 60px;
+        height: 60px;
+    }
+    main h1 {
+        font-size: 1.25rem;
+    }
+    .icons li a {
+        height: 2.5em;
+        width: 2.5em;
+    }
+    .icons li a svg, .icons li a img {
+        height: 70%;
+        width: 70%;
+    }
+}
+
+@media (max-width: 767px) {
+    .profile-img-container, .profile-img {
+        width: 180px !important;
+        height: 180px !important;
+        max-width: 60% !important;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid rgba(0, 255, 70, 0.4);
+    }
+}
+
+@media (max-width: 768px) {
+    .glass-panel::before {
+        background-size: 100% 6px;
+        opacity: 0.2;
+    }
+    .profile-img {
+        width: 80px;
+        height: 80px;
+    }
+    main h1 {
+        font-size: 1.5rem;
+    }
+    .icons li a {
+        height: 3em;
+        width: 3em;
+    }
+    .icons li a svg, .icons li a img {
+        height: 65%;
+        width: 65%;
+    }
+}
+
+@media (min-width: 576px) {
+    main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    main {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .icons {
+        gap: 1em;
+    }
+}

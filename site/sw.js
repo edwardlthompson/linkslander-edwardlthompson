@@ -1,8 +1,16 @@
-const CACHE_NAME = 'matrix-cache-v4';
+const CACHE_NAME = 'matrix-cache-v5';
+const CSS_MODULES = [
+  'css/modules/base.css',
+  'css/modules/glass.css',
+  'css/modules/identity.css',
+  'css/modules/icons.css',
+  'css/modules/responsive.css',
+  'css/modules/animations.css',
+];
 const ASSETS = [
   './',
   'index.html',
-  'css/style.css',
+  ...CSS_MODULES,
   'js/matrix.js',
   'manifest.json',
   'browserconfig.xml',

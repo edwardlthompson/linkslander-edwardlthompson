@@ -1,0 +1,66 @@
+/* Name card, sections, glass panels, scanlines */
+.name-card {
+    display: block;
+    max-width: fit-content;
+    padding: 12px 20px !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 70, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    text-align: center;
+}
+
+.matrix-panel-body {
+    padding: 12px 20px !important;
+}
+
+.section, .glass-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-panel::before, .section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.15;
+    animation: monitor-flicker 0.1s infinite;
+}
+
+.section > *, .glass-panel > * {
+    position: relative;
+    z-index: 2;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 70, 0.2);
+    border-radius: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0 auto 1.5rem auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}

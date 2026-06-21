@@ -25,19 +25,19 @@ jobs:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
-      - name: Sync template version files on release PR
+      - name: Sync app version on release PR
         if: steps.release.outputs.prs_created == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ fromJSON(steps.release.outputs.pr).number }}
         run: |
           gh pr checkout "$PR_NUMBER"
-          bash scripts/sync-template-version.sh
+          bash scripts/sync-app-version.sh
           if ! git diff --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add .template-version TEMPLATE_INDEX.json README.md AGENT_MEMORY.md
-            git commit -m "chore: sync template version files for release PR"
+            git add site/package.json
+            git commit -m "chore: sync site/package.json version for release PR"
             git push origin HEAD
           fi
 

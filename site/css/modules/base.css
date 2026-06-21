@@ -1,0 +1,44 @@
+/* Layout, canvas, and main content stacking */
+html {
+    background-color: #000;
+}
+
+body, body.text-bg-dark {
+    background: transparent !important;
+}
+
+.text-bg-dark, .cover-container {
+    background: transparent !important;
+}
+
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+main, .cover-container, .container {
+    position: relative;
+    z-index: 1;
+}
+
+main {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+main h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+main h2, main h3, main .section-title {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+}

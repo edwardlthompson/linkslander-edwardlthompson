@@ -74,7 +74,7 @@
     },
     {
       "path": "scripts/check-template-version-sync.sh",
-      "purpose": "Fail when .template-version drifts from release-please manifest",
+      "purpose": "Fail when app manifest or template version files drift",
       "read_when": "validation",
       "update_when": "milestone_boundary",
       "owner": "maintainer"
@@ -82,6 +82,13 @@
     {
       "path": "scripts/sync-template-version.sh",
       "purpose": "Sync version files from .release-please-manifest.json",
+      "read_when": "release",
+      "update_when": "milestone_boundary",
+      "owner": "maintainer"
+    },
+    {
+      "path": "scripts/sync-app-version.sh",
+      "purpose": "Sync site/package.json from release-please manifest (child app releases)",
       "read_when": "release",
       "update_when": "milestone_boundary",
       "owner": "maintainer"

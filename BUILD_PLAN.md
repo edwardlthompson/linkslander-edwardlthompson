@@ -38,15 +38,8 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 3 ? Backlog
-
-| Task | Owner | Notes |
-|------|-------|-------|
-| Split `site/css/style.css` into modules | AGENT | Align with AGENTS.md 250-line view limit |
-| GitHub Release tag `v2.0.0` | HUMAN | After formal release approval |
-
----
-
 ## Archived sprints
 
-Sprint 0?1, Sprint 3 Code Review Remediation, and Sprint 4 Template Parity v0.11.1 are complete. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+All feature sprints complete including **v2.0.0** release. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+
+Future app releases are automated via Release Please on push to `main`.
