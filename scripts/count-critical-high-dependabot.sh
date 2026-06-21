@@ -23,27 +23,22 @@ COUNT="$("$PY" - "$REPO" << 'PY'
 import json, subprocess, sys
 
 repo = sys.argv[1]
-total = 0
-page = 1
-while page <= 50:
-    proc = subprocess.run(
-        ["gh", "api", f"repos/{repo}/dependabot/alerts", "-f", "state=open",
-         "-f", f"per_page=100", "-f", f"page={page}"],
-        capture_output=True, text=True,
-    )
-    if proc.returncode != 0:
-        print("error", file=sys.stderr)
-        raise SystemExit(1)
-    alerts = json.loads(proc.stdout or "[]")
-    if not alerts:
-        break
-    for a in alerts:
-        sev = (a.get("security_vulnerability") or {}).get("severity", "").lower()
-        if sev in ("critical", "high"):
-            total += 1
-    if len(alerts) < 100:
-        break
-    page += 1
+proc = subprocess.run(
+    ["gh", "api", "--paginate", "--slurp",
+     f"repos/{repo}/dependabot/alerts?state=open&per_page=100"],
+    capture_output=True, text=True,
+)
+if proc.returncode != 0:
+    print("error", file=sys.stderr)
+    raise SystemExit(1)
+raw = proc.stdout.strip() or "[]"
+alerts = json.loads(raw)
+if isinstance(alerts, list) and alerts and isinstance(alerts[0], list):
+    alerts = [a for page in alerts for a in page]
+total = sum(
+    1 for a in alerts
+    if (a.get("security_vulnerability") or {}).get("severity", "").lower() in ("critical", "high")
+)
 print(total)
 PY
 )"
