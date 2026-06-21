@@ -37,6 +37,23 @@
 
 ---
 
+## LinksLander — Sprint 4 Template Parity v0.11.1 (2026-06-13)
+
+### Sequential
+
+- [x] [AGENT] Sync template scaffolding from `agent-project-bootstrap` v0.11.1
+- [x] [AGENT] Merge CI for web-only child repo (keep `site-pwa`; add repo-hygiene, feature-gate, upgrade-simulation)
+- [x] [AGENT] Restore LinksLander customizations (`site/`, `pages.yml`, RUNBOOK, THREAT_MODEL, THIRD_PARTY_LICENSES)
+- [x] [AUTO] `validate-bootstrap.sh`, encoding check, e2e + web tests green
+- [ ] [HUMAN] Verify live site after deploy
+
+### Parallel
+
+- [x] [AGENT] Adopt new workflows (weekly-health-check, release-please, scorecard, stale, dependabot-automerge)
+- [x] [AGENT] Update `.template-version` to `0.11.1`; prune `TEMPLATE_INDEX.json` for web stack
+
+---
+
 ## LinksLander — Sprint 3 Code Review Remediation (2026-06-13)
 
 ### Phase 1 — Security, CSS, metadata

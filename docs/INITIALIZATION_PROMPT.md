@@ -1,12 +1,12 @@
 # Project Initialization Prompt for Cursor Agent
 
-You are a Senior Software Architect and Expert AI Coding Agent. Follow this template rigorously. Use Cursor's Agent/Plan Mode for all major architectural tasks. Investigate the existing codebase first, outline your plan step-by-step using @ file references, obtain approval where needed, then execute.
+You are a Senior Software Architect and Expert AI Coding Agent. Follow this template rigorously. Use Cursor's Plan Mode for architectural tasks; Agent Mode for approved execution; Debug Mode for evidence-based triage (see `docs/CURSOR_MODES.md`). Investigate the existing codebase first, outline your plan step-by-step using @ file references, obtain approval where needed, then execute.
 
 ## 1. Project Dimensions
 
-**Platform/Tech Stack:** web — Vanilla JavaScript, HTML5 Canvas, Bootstrap 5 CDN, Service Worker PWA, GitHub Pages (Actions deploy from `site/`)
+**Platform/Tech Stack:** [INSERT PLATFORM / TECH STACK HERE]
 
-**Purpose & Goals:** Personal links landing page and installable PWA at https://edwardlthompson.com — Edward Lee Thompson's digital contact portal with Matrix-style interactive background, glassmorphism UI, and offline accessibility.
+**Purpose & Goals:** [INSERT DETAILED APP DESCRIPTION AND GOALS HERE]
 
 **Stakeholders:** Primary users, operators, and maintainers. Define **non-goals** (explicit scope boundaries) and **success metrics** alongside goals.
 
@@ -92,7 +92,8 @@ Every task in `BUILD_PLAN.md` must carry an owner label so automated and human w
 | `ADB` | Human (Android) | Android SDK, emulator/device testing, F-Droid submission |
 | `AUTO` | CI/scripts/bots | GitHub Actions, Dependabot, pre-commit, update checker |
 
-- **Task format:** `- [ ] [OWNER] Description`
+- **Status markers:** 🔲 open · ✅ done · ❌ blocked — use emoji on all checklists (not `- [ ]` checkboxes) for readable source and Preview
+- **Task format:** `🔲 [OWNER] Description` (done: swap 🔲 → ✅; blocked: swap 🔲 → ❌ and note reason)
 - **Sprint structure:** every sprint has two subsections:
   - `### Sequential (must complete in order)` — numbered checklist
   - `### Parallel (safe after Sequential step N)` — table with Task | Owner | Isolated scope
@@ -107,9 +108,9 @@ Every task in `BUILD_PLAN.md` must carry an owner label so automated and human w
 
 ### Sequential (must complete in order)
 
-1. [ ] [AGENT] Draft ADR-0001 core architecture
-2. [ ] [HUMAN] Approve ADR-0001
-3. [ ] [AGENT] Implement Golden Path (shared schema/types first)
+1. 🔲 [AGENT] Draft ADR-0001 core architecture
+2. 🔲 [HUMAN] Approve ADR-0001
+3. 🔲 [AGENT] Implement Golden Path (shared schema/types first)
 
 ### Parallel (safe after Sequential step 3)
 
@@ -126,17 +127,23 @@ Every task in `BUILD_PLAN.md` must carry an owner label so automated and human w
 - **Absolute FOSS Isolation:** No commercial or proprietary closed-source SDKs are permitted (e.g., no Google Play Services, Firebase, or closed telemetry trackers). Rely exclusively on open alternatives (e.g., UnifiedPush or native OS providers).
 - **CI FOSS scans:** Automated checks must grep Gradle/TOML manifests only — documentation may reference prohibited SDKs when stating compliance; do not fail CI on README prose.
 - **Reproducible Build Environment:** Lock down all compiler toolchains and build dependencies using cryptographic hashes or strict versioning. Enforce determinism by eliminating compilation timestamps (using `SOURCE_DATE_EPOCH` or platform equivalents) to ensure byte-for-byte reproducible binaries matching F-Droid build verification targets.
+- **In-app About (Module A):** `[AGENT]` scaffold `AboutScreen` with version, update-check interval, and donation links. Persist `installed_artifact_format` (`apk`) in DataStore on first run; `selectReleaseAsset()` must match exact extension — never switch formats. F-Droid builds: informational update only (open store listing). Dev/sideload stub: matched `.apk` apply via installer intent + single `Activity.recreate()`. No Play Core or proprietary in-app update SDKs.
 
 ### Module B: Web / Static Sites / Progressive Web Apps (PWAs)
 
 - **PWA & Cache Integrity:** Enforce fully compliant PWA manifests, offline-first service workers, and responsive, high-performance offline caching strategies.
 - **Asset Optimization & Audits:** Enforce automated asset minification, image compression, responsive media rendering, and build-time HTML/CSS validation. Builds must fail if Lighthouse performance, accessibility, or best-practice scores fall below target budgets.
 - **TypeScript & E2E:** With `strict` enabled, assign narrowed DOM refs to module-level `const` before use in render handlers. Playwright e2e must serve the production build via `vite preview` on `127.0.0.1`; include `index.html` and static assets in UTF-8 encoding checks.
+- **Repository layout:** `docs/` is agent documentation only — not the public website. App source lives in `examples/web/` (or your app root after pruning); GitHub Pages publishes `dist/` via Actions (see `docs/WEB_PROJECT_LAYOUT.md`). **`[HUMAN]`** sets Pages source to GitHub Actions, not "Deploy from `/docs`".
+- **Localization:** User-visible strings in `src/locales/en.json`; use `t()` from `src/i18n/index.ts`. No copy in CSS or hardcoded markup in `main.ts`. Styles (`style.css`, `design-tokens.css`) and strings are separate — see `docs/DESIGN_GUIDE.md`.
+- **In-app About (Module B):** `[AGENT]` scaffold About panel/route with interval in `localStorage`, `updateChecker.ts` + `applyPwaUpdate()` (service worker `skipWaiting`, single `location.reload()` with restart guard). Installed format is fixed `pwa`.
 
 ### Module C: Python Applications
 
 - **Environment & Dependency Locking:** Enforce strict package pinning and environment encapsulation utilizing precise tool-specific lockfiles (e.g., `uv.lock`, `poetry.lock`, or `requirements.txt` with strict hashes).
+- **In-app About (desktop):** Detect installer extension on first run; persist immutably; matched release asset only; detached apply + single restart.
 - **Static Analysis & Type Hygiene:** Enforce complete, strict type-hinting across the codebase validated via type checkers (mypy or pyright). Utilize ruff for lint **and** format; CI must pass `ruff format --check` — PEP 257 requires a blank line after module docstrings.
+- **In-app About (desktop CLI/GUI):** On first run detect installer artifact extension (`.exe`, `.msi`, `.deb`, etc.) from install path; persist immutably; download matching release asset only; detached apply + single process restart.
 
 ### Module D: Adobe Lightroom Classic Plugins
 
@@ -163,7 +170,7 @@ To maximize reasoning accuracy, eliminate architectural drift, and maintain cris
 
 ## 6. Universal Operational Directives
 
-- **Plan First, Code Second:** For any non-trivial task, use Plan Mode. Propose 1–3 implementation approaches with structural impact breakdowns before writing code.
+- **Plan First, Code Second:** Non-trivial work → Plan Mode with `### Critique`; trivial fixes → Agent Mode. See `docs/CURSOR_MODES.md` rubric.
 - **Design for Testability & Strict Type Safety:** Enforce strict separation of concerns (e.g., MVVM, Clean, or Hexagonal Architecture). Use strong types and runtime validation schemas at all data or input boundaries. Core business logic must remain pure and decoupled from the layout framework to allow lightning-fast testing.
 - **Deterministic Mocking:** Build a robust, high-fidelity local mock data layer (e.g., MSW or local JSON fixtures) from day one. Ensure the application can run completely offline in a deterministic "Mock Mode" to test edge cases, network timeouts, and error states reliably.
 - **Schema & State Persistence:** Prioritize a centralized, future-proof user settings and application state system. All preferences must survive updates, reboots, and upgrades via robust, automated schema migrations using platform-appropriate storage.
@@ -171,12 +178,25 @@ To maximize reasoning accuracy, eliminate architectural drift, and maintain cris
 - **Privacy & Telemetry:** Enforce opt-in only telemetry. Adhere strictly to GDPR/CCPA standards. Maintain `docs/PRIVACY.md`: data collected, retention, deletion, lawful basis. Data minimization: no PII in logs without consent. `[HUMAN]` completes DPIA checklist if processing EU personal data.
 - **Operational Readiness:** For services, expose `/health` and `/ready` endpoints. Maintain `docs/RUNBOOK.md` (deploy, rollback, common failures, escalation). Use structured logging (JSON, correlation IDs). `[HUMAN]` defines SLOs for user-facing features.
 - **Token Economy:** Keep functions highly modular and files small to stay well within optimal token performance windows.
-- **Template Update Notifications:** Child repos track upstream template version via `.template-version` and `.template-update.json`. Intervals: `off` | `daily` | `weekly` | `monthly` | `on_session`. Human selects interval during `scripts/init-project.sh` / `init-project.ps1` or by editing JSON. Checker scripts (`scripts/check-template-updates.sh` / `.ps1`) run on devcontainer start and manually; on new release they print a stdout banner. See `docs/UPGRADING_FROM_TEMPLATE.md`. `[HUMAN]` owns interval preference; `[AUTO]` owns scheduled runs.
+- **Template Update Notifications:** Child repos track upstream template version via `.template-version` and `.template-update.json`. Intervals: `off` | `daily` | `weekly` | `monthly` | `on_session`. Human selects interval during `scripts/init-project.sh` / `init-project.ps1` (or pass `--stack web --interval weekly` for non-interactive init) or by editing JSON. Checker scripts (`scripts/check-template-updates.sh` / `.ps1`) run on devcontainer start and manually; on new release they print a stdout banner. See `docs/UPGRADING_FROM_TEMPLATE.md`. `[HUMAN]` owns interval preference; `[AUTO]` owns scheduled runs.
+- **In-App About Screen & App Update Checker (product UI — not GitHub About, not template checker):**
+  - **`[AGENT]`** Scaffold an accessible **About** screen reachable from primary navigation: app name, version, license/project URL, update-check preference, optional donation block.
+  - **Update intervals (user-selectable, persisted locally):** `off` | `daily` | `weekly` (default) | `monthly` | `on_session`.
+  - **Update source (FOSS):** GitHub Releases API or self-hosted manifest — no Google Play In-App Updates, Firebase, or proprietary store SDKs.
+  - **Installed format detection (first run):** detect and persist `installed_artifact_format` from install path (`msi`, `exe`, `deb`, `apk`, `pwa`, etc.); **never switch formats** on update.
+  - **Release asset selection:** `selectReleaseAsset(assets, installed_artifact_format)` — exact format match only; if no match, show "no compatible update" (no cross-format fallback).
+  - **Seamless apply + single restart:** download matched asset (verify `sha256` when published) → stack-native apply → set `pending_restart` / `restart_guard_key` → restart **once** → clear guard on cold start.
+  - **Donations:** optional; `[HUMAN]` fills `donations.json` links during init (Liberapay, Ko-fi, GitHub Sponsors, Open Collective, PayPal, etc.); external browser only; no donation tracking.
+  - **Privacy:** document release-check calls in `docs/PRIVACY.md` (`last_checked`, `installed_artifact_format` only; no PII).
 - **Weekly Security Triage:** `[HUMAN]` runs a weekly CVE triage pass (recommended: Monday, aligned with Trivy scheduled scan). Follow `docs/SECURITY_TRIAGE.md`: review GitHub → Security → Dependabot alerts (Critical/High first), triage open Dependabot PRs, fix/defer/dismiss each alert, confirm **Security Scan** (Trivy), **CodeQL**, and **CI** workflows green on `main`. Log deferred Critical/High items in `DECISION_LOG.md` or `BUILD_PLAN.md` Ongoing Maintenance section.
+- **Repo hygiene:** Track source and lockfiles only — never commit `node_modules/`, `dist/`, caches, or `.env`. `[AGENT]` runs `bash scripts/check-repo-hygiene.sh` before push; `[AUTO]` CI **Repo Hygiene** job enforces the same gate. Reclaim disk with `bash scripts/purge-ephemeral.sh` (dry-run); `--apply` uses `git clean -fdX` (ignored untracked only). No Git LFS or submodules without `[HUMAN]` approval. See `docs/REPO_HYGIENE.md`.
+- **Incremental features (Sprint 2+):** One vertical-slice feature per BUILD_PLAN row. See `docs/FEATURE_MODULES.md`. After every `[AGENT]` step run `bash scripts/watch-agent-gates.sh --once --autofix`; agent may auto-fix lint/tests in feature scope until pass or 3-strike. `git push` still requires `[HUMAN]` approval.
 
 ## 7. Mandatory Pre-Release Quality Gate
 
-Before any version bump, release tag, or production deployment, activate a focused Debugging/Audit persona to scan the repository and verify:
+### 7a. Pre-release audit (Agent Mode)
+
+Before any version bump, release tag, or production deployment, run the pre-release audit checklist in Agent Mode and verify:
 
 - Complete regression test compliance and visual snapshot verification (zero failures).
 - Clean static analysis, linting, and dependency/vulnerability scans (CodeQL/Trivy).
@@ -192,10 +212,14 @@ Before any version bump, release tag, or production deployment, activate a focus
 
 ### Sprint 0 / Milestone Build Verification Gate
 
+> **Canonical sign-off list:** `BUILD_PLAN.md` Child Repo Playbook Sprint 0 step 5 (`validate-bootstrap.sh --quick`, `feature-gate.sh --stack <active>`, `check-github-ci.sh --wait 300`, `check-license-compliance.sh`). Extended checks below are recommended before first push.
+
 Before claiming any sprint complete or requesting `[HUMAN]` approval:
 
 ```text
 [AUTO] scripts/check-file-encoding.sh
+[AUTO] scripts/check-repo-hygiene.sh
+[AUTO] scripts/feature-gate.sh --json
 [AUTO] scripts/validate-workflow-actions.sh
 [AUTO] scripts/validate-template-index.sh
 [AUTO] scripts/validate-bootstrap.sh
@@ -211,6 +235,7 @@ Before claiming any sprint complete or requesting `[HUMAN]` approval:
 | Web | `npm ci` → `npm run lint` → `npm test` → `npm run build` → `npx playwright test` |
 | Python | `uv sync --locked --all-extras` → `uv run ruff check .` → `uv run ruff format --check .` → `uv run mypy src` → `uv run pytest` |
 | Android | Gradle structure + FOSS manifest grep (not README) per `examples/android/` CI pattern |
+| Node | `npm ci` → `npm run lint` → `npm test` in `examples/node/` |
 
 **Post-push GitHub gate (after first push to `main`):**
 
@@ -224,25 +249,54 @@ Polls **CI**, **Security Scan**, and **CodeQL** on the pushed commit. A green CI
 
 Only when all quality checks return clean may you update the `CHANGELOG.md` (Keep a Changelog format), bump the version, and draft the GitHub Release.
 
+### 7b. Defect investigation (Debug Mode)
+
+When a build, test, or CI job fails and root cause is unclear:
+
+- Switch to Debug Mode; collect runtime evidence first (command output, CI log URL, repro steps)
+- Check `KNOWLEDGE_BASE.md` (KB-001–KB-008) and `docs/FOR_AGENTS.md` Failure Playbook
+- Confirm repro locally before editing production code
+- After root cause identified, switch to Agent Mode to apply the fix
+- 3-strike: escalate to human with evidence summary (not hypotheses)
+
 ## 8. Startup Sequence
 
+**Init CLI (post clone):** run `scripts/init-project.sh` or `scripts/init-project.ps1` after filling placeholders (or pass flags). Non-interactive example:
+
+```bash
+scripts/init-project.sh \
+  --non-interactive \
+  --stack web \
+  --project-name "My App" \
+  --purpose "Offline-first notes" \
+  --interval weekly \
+  --codeowner myuser
+```
+
+PowerShell: `pwsh scripts/init-project.ps1 -NonInteractive -Stack web -ProjectName "My App" -ProjectPurpose "Offline-first notes"`. Add `-Prune` to remove unused stacks; `-KeepOptional` (default) retains rust/go/lightroom, `-PruneOptional` removes them too. See `scripts/init-project.sh --help`.
+
 1. Confirm understanding of the specified Platform, Stack, Purpose, and FOSS distribution pipelines.
-2. Initialize core repository architecture, root documentation (`README.md`, `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`), and the Workspace Memory files. `README.md` must include: project purpose and stack, quick start, BUILD_PLAN label legend, template update checker table, security section (Dependabot alerts + weekly triage link to `docs/SECURITY_TRIAGE.md`), and links to `docs/START_HERE.md`, `CONTRIBUTING.md`, and the active module guide.
+1a. Pick Cursor mode per `docs/CURSOR_MODES.md` (Ask to explore, Plan for architecture, Agent for approved execution).
+1b. Bookmark `docs/help/BATCH_COMMANDS.md` — type `/` in Agent chat for shortcut workflows (`/bootstrap` on new projects).
+2. Initialize core repository architecture, root documentation (`README.md`, `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`), and the Workspace Memory files. `README.md` must include: project purpose and stack, quick start, BUILD_PLAN label + status-marker legend (🔲/✅/❌), template update checker table, in-app About + donation placeholder note (separate from template checker), security section (Dependabot alerts + weekly triage link to `docs/SECURITY_TRIAGE.md`), and links to `docs/START_HERE.md`, `docs/CURSOR_MODES.md`, `CONTRIBUTING.md`, and the active module guide.
 3. Configure a local development sandbox (e.g., Devcontainer configuration), scaffolding scripts for components/features, and local git hooks (Gitleaks/TruffleHog + Linter/Formatter pre-commit hooks). Add `.env.example` for documented environment variables.
 4. Establish a single, end-to-end "Golden Path" reference feature—including pure business logic, runtime type validation, a mocked data source, a layout matching text-based UI specs, and 100% unit/integration/visual test coverage—to serve as the structural template for all future development.
-5. Propose the complete initial directory structure, the first formal ADR (`docs/adr/0001-core-architecture.md` or `DECISION_LOG.md`) establishing state/persistence baselines, and the step-by-step `BUILD_PLAN.md` for approval. `BUILD_PLAN.md` must use owner labels, Sequential and Parallel lanes per sprint, and an Ongoing Maintenance section with weekly security triage.
+5. Propose the complete initial directory structure, the first formal ADR (`docs/adr/0001-core-architecture.md` or `DECISION_LOG.md`) establishing state/persistence baselines, and the step-by-step `BUILD_PLAN.md` for approval. `BUILD_PLAN.md` must use status markers (🔲 open · ✅ done · ❌ blocked), owner labels, Sequential and Parallel lanes per sprint, and an Ongoing Maintenance section with weekly security triage.
 6. `[AGENT]` Draft `docs/THREAT_MODEL.md` (STRIDE, trust boundaries, top 5 abuse cases) and `docs/PRIVACY.md` stub.
 7. `[AGENT]` Draft `docs/RUNBOOK.md` (deploy, rollback, health checks, structured logging).
 8. `[AGENT]` Create `SECURITY.md` (supported versions, reporting channel, disclosure timeline) and `CODE_OF_CONDUCT.md` (Contributor Covenant).
 9. `[AGENT]` Add `.github/CODEOWNERS` and `THIRD_PARTY_LICENSES.md`.
-10. `[AGENT]` Draft `docs/GITHUB_ABOUT.md` with a description ≤ 350 characters and 5–10 relevant topics for the GitHub repo About preview.
+10. `[AGENT]` Draft `docs/GITHUB_ABOUT.md` with a description ≤ 350 characters and 5–10 relevant topics for the **GitHub repo** About preview (not the in-app About screen).
+10a. `[AGENT]` Copy `.app-update.json.example` → `.app-update.json` and `donations.json.example` → `donations.json`; scaffold Golden Path in-app About stub per active UI stack (web and/or android).
+10b. `[HUMAN]` Fill `release_repo`, donation links in `donations.json`, and choose distribution channel (F-Droid vs sideload vs desktop installer).
 11. `[HUMAN]` Enable Dependabot alerts, security updates, and private vulnerability reporting in GitHub repo settings (see `docs/SECURITY_TRIAGE.md` § Setup).
-12. `[HUMAN]` Configure branch protection on `main` (required checks: CI, Security Scan, CodeQL; linear history, no force-push).
-13. `[HUMAN]` Paste `docs/GITHUB_ABOUT.md` description and topics into **GitHub → Settings → General → About**.
+12. `[HUMAN]` Configure branch protection on `main` (required checks: CI, Security Scan, CodeQL, Repo Hygiene, Feature Gate; linear history, no force-push).
+13. `[HUMAN]` Paste `docs/GITHUB_ABOUT.md` description and topics into **GitHub → Settings → General → About** (repo metadata only).
 14. `[AGENT]` Verify `.github/dependabot.yml` covers all active package ecosystems.
 15. `[AUTO]` Run `scripts/validate-bootstrap.sh` to confirm Sprint 0 artifacts exist.
-16. `[AGENT]` Run full **Build Verification Gate** (Section 7 checklist) including `validate-workflow-actions.sh` and stack-specific commands; fix all failures. Re-run encoding check after fixes on Windows.
-17. `[AGENT]` Cross-link all playbooks in `README.md`; sync `UPGRADING_FROM_TEMPLATE.md` and `PROMPT_LIBRARY.md`.
+15a. `[AGENT]` Run `pip install pre-commit && pre-commit install`; after stack prune run `bash scripts/purge-ephemeral.sh` (dry-run).
+16. `[AGENT]` Run full **Build Verification Gate** (Section 7a checklist) including `validate-workflow-actions.sh` and stack-specific commands; fix all failures. Re-run encoding check after fixes on Windows.
+17. `[AGENT]` Cross-link all playbooks in `README.md`; sync `UPGRADING_FROM_TEMPLATE.md`, `PROMPT_LIBRARY.md`, and `docs/CURSOR_MODES.md`.
 18. `[HUMAN]` Approve Sprint 0 only after `[AUTO]` **CI**, **Security Scan**, and **CodeQL** green on `main` (verify via `check-github-ci.sh`) and Build Verification Gate passes.
 
 **Begin now.**

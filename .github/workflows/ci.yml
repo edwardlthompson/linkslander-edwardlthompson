@@ -31,6 +31,14 @@ jobs:
       - name: Check file line limits
         run: bash scripts/check-file-limits.sh
 
+  repo-hygiene:
+    name: Repo Hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check tracked artifacts and repo config
+        run: bash scripts/check-repo-hygiene.sh
+
   validate-index:
     name: Validate Template Index
     runs-on: ubuntu-latest
@@ -38,7 +46,6 @@ jobs:
       - uses: actions/checkout@v6
       - name: Validate TEMPLATE_INDEX.json paths
         run: bash scripts/validate-template-index.sh
-
 
   workflow-actions:
     name: Validate Workflow Action Refs
@@ -60,6 +67,20 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/validate-bootstrap.sh
 
+  feature-gate:
+    name: Feature Gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+      - name: Install web dependencies
+        working-directory: examples/web
+        run: npm ci
+      - name: Run feature gate (web stack)
+        run: bash scripts/feature-gate.sh --stack web --strict --json
+
   web:
     name: Web — Lint, Test, Build
     runs-on: ubuntu-latest
@@ -77,9 +98,19 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+      - name: Bundle size budget
+        working-directory: ${{ github.workspace }}
+        run: bash scripts/check-bundle-size.sh
       - run: npx playwright install --with-deps chromium
       - run: npx playwright test
       - run: npm run lighthouse
+      - name: Upload web coverage
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-web
+          path: examples/web/coverage/coverage-summary.json
+          if-no-files-found: ignore
       - name: License compliance (web)
         working-directory: ${{ github.workspace }}
         run: bash scripts/check-license-compliance.sh web
@@ -102,6 +133,14 @@ jobs:
       - run: npm run test:e2e
       - run: npm run lighthouse
 
+  upgrade-simulation:
+    name: Template Upgrade Simulation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Simulate child-repo upgrade path
+        run: bash scripts/simulate-template-upgrade.sh
+
   template-update-check:
     name: Template Update Check
     runs-on: ubuntu-latest
@@ -110,3 +149,83 @@ jobs:
       - uses: actions/checkout@v6
       - name: Check for upstream template updates
         run: bash scripts/check-template-updates.sh --verbose
+
+  pr-title:
+    name: Conventional Commits PR Title
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v5.5.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  coverage-comment:
+    name: PR Coverage Summary
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    needs: [web]
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: coverage-*
+          merge-multiple: true
+          path: coverage-artifacts
+      - name: Post coverage summary
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const dir = 'coverage-artifacts';
+            const lines = ['## Coverage summary', ''];
+            if (!fs.existsSync(dir)) {
+              lines.push('_No coverage artifacts uploaded._');
+            } else {
+              for (const file of fs.readdirSync(dir)) {
+                if (!file.endsWith('.json')) continue;
+                const label = file.replace('coverage-summary.json', '').replace(/-$/, '') || 'root';
+                let data;
+                try {
+                  data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+                } catch (err) {
+                  lines.push(`- **${label}**: coverage artifact parse failed (${file})`);
+                  continue;
+                }
+                if (data.total && data.total.lines) {
+                  const pct = data.total.lines.pct;
+                  lines.push(`- **${label}**: ${pct}% lines`);
+                } else if (data.totals) {
+                  lines.push(`- **${label}**: ${data.totals.percent_covered_display} lines`);
+                } else {
+                  lines.push(`- **${label}**: see artifact \`${file}\``);
+                }
+              }
+              if (lines.length === 2) lines.push('_Coverage JSON present but format not recognized._');
+            }
+            lines.push('', '_Codecov integration optional; artifacts retained for 90 days._');
+            const body = lines.join('\n');
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find((c) => c.user.type === 'Bot' && c.body.includes('## Coverage summary'));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

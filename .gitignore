@@ -24,6 +24,7 @@ Thumbs.db
 .vscode/
 *.swp
 .cursor-session-state
+.cursor/agent-progress.json
 
 # Test artifacts
 test-results/
@@ -34,6 +35,21 @@ playwright-report/
 .env
 .env.*
 !.env.example
+
+# Live user configs (examples committed; copies from init)
+.app-update.json
+donations.json
+examples/web/public/app-update.json
+examples/web/public/donations.json
+
+# Node / tooling
+.turbo/
+.parcel-cache/
+*.tsbuildinfo
+
+# Ephemeral agent outputs (examples tracked)
+CODE_REVIEW.md
+RELEASE_NOTES.md
 
 # Logs
 *.log

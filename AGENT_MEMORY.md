@@ -8,8 +8,8 @@
 | Layer | Technology | Version | Notes |
 |-------|-----------|---------|-------|
 | Frontend | Vanilla JavaScript + HTML5 Canvas | — | Custom Matrix physics engine |
-| UI | Bootstrap 5 (CDN) + custom CSS | 5.3.3 | Glassmorphism, always-dark theme |
-| PWA | Service Worker + Web Manifest | — | Cache-first offline strategy |
+| UI | Bootstrap 5 (vendored) + custom CSS | 5.3.3 | `site/vendor/`; glassmorphism, always-dark theme |
+| PWA | Service Worker + Web Manifest | — | Cache-first offline (`matrix-cache-v4`) |
 | Audio | Web Audio API | — | Click ripple feedback |
 | Hosting | GitHub Pages (Actions) | — | Deploy artifact from `site/` |
 | License | MIT | — | Pure FOSS |
@@ -51,16 +51,17 @@ High-performance interactive personal landing page and PWA featuring a custom Ma
 - Always-dark UI (no theme toggle); documented in `DECISION_LOG.md`
 - Max 250 lines per view file, 150 lines per logic file (future refactor target for `site/css/style.css`)
 - Trunk-based development with Conventional Commits
-- Bootstrap loaded via CDN with SRI integrity hashes
+- Bootstrap vendored under `site/vendor/` for offline PWA (see KB-007)
 
 ## Session Retrospectives
 
 | Date | Milestone | What worked | What to improve |
 |------|-----------|-------------|-----------------|
 | 2026-06-13 | Sprint 0–1 complete | Bootstrap + CI/site hardening; ruleset protection | CSS module split deferred to Sprint 3 |
+| 2026-06-13 | Template parity v0.11.1 | Cherry-picked M19–M27 scaffolding; validate-bootstrap green | Pin `undici@7.28.0` for jsdom on Windows |
 
 ## Template Provenance
 
 - **Source template:** `edwardlthompson/agent-project-bootstrap`
-- **Template version:** `0.2.1` (see `.template-version`)
+- **Template version:** `0.11.1` (see `.template-version`)
 - **Last update check:** See `.template-update.json`

@@ -5,11 +5,12 @@ alwaysApply: true
 
 # Core Directives
 
-On session start, read docs/START_HERE.md before any edits.
+On session start, read docs/START_HERE.md, pick Cursor mode via docs/CURSOR_MODES.md, then edit.
 
 ## Plan First, Code Second
 
-- Use Plan Mode for all non-trivial tasks
+- Cursor mode routing: see cursor-modes.mdc and docs/CURSOR_MODES.md
+- Plan Mode for non-trivial tasks; Ask for read-only exploration
 - Include mandatory ### Critique subsection in every plan
 
 ## Read-Before-Write
@@ -20,6 +21,7 @@ On session start, read docs/START_HERE.md before any edits.
 
 - Sequential lane before Parallel lane
 - Respect AGENT, HUMAN, ADB, AUTO labels
+- Status markers: 🔲 open · ✅ done · ❌ blocked (emoji, not `- [ ]` checkboxes — repo-wide; see `BUILD_PLAN.md` legend)
 
 ## 3-Strike Rule
 

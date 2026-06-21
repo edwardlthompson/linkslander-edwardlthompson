@@ -1,8 +1,10 @@
 # Poll GitHub Actions for required workflows on a commit.
-# Usage: scripts/check-github-ci.ps1 [-Ref SHA] [-WaitSeconds 300]
+# Usage: scripts/check-github-ci.ps1 [-Ref SHA] [-WaitSeconds 300] [-Jobs "Repo Hygiene,Feature Gate"] [-SkipWorkflows]
 param(
     [string]$Ref = "",
-    [int]$WaitSeconds = 0
+    [int]$WaitSeconds = 0,
+    [string]$Jobs = "",
+    [switch]$SkipWorkflows
 )
 
 $ErrorActionPreference = "Stop"
@@ -16,6 +18,11 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
 
 if (-not $Ref) { $Ref = "HEAD" }
 $Ref = (git rev-parse $Ref).Trim()
+if ($SkipWorkflows -and -not $Jobs) {
+    Write-Host "ERROR: -SkipWorkflows requires -Jobs"
+    exit 1
+}
+
 $Required = @("CI", "Security Scan", "CodeQL")
 
 $RepoJson = gh repo view --json nameWithOwner 2>$null
@@ -33,26 +40,61 @@ while ($true) {
     $pending = 0
     $failed = 0
 
-    foreach ($wf in $Required) {
-        $run = $runs | Where-Object { $_.workflowName -eq $wf } | Select-Object -First 1
-        if (-not $run) {
-            Write-Host "WAIT ${wf}: no run yet"
-            $pending++
-            continue
-        }
-        switch ($run.conclusion) {
-            "success" { Write-Host "OK   ${wf}: $($run.url)" }
-            { $_ -in @("failure", "cancelled", "timed_out", "action_required") } {
-                Write-Host "FAIL ${wf} ($($run.conclusion)): $($run.url)"
-                $failed++
+    if (-not $SkipWorkflows) {
+        foreach ($wf in $Required) {
+            $wfRuns = @($runs | Where-Object { $_.workflowName -eq $wf })
+            if ($wfRuns.Count -eq 0) {
+                Write-Host "WAIT ${wf}: no run yet"
+                $pending++
+                continue
             }
-            default {
-                if ($run.status -eq "completed") {
+            $run = $wfRuns | Where-Object { $_.conclusion -eq "success" } | Select-Object -First 1
+            if (-not $run) {
+                $run = $wfRuns | Where-Object { $_.status -ne "completed" } | Select-Object -First 1
+            }
+            if (-not $run) {
+                $run = $wfRuns | Select-Object -First 1
+            }
+            switch ($run.conclusion) {
+                "success" { Write-Host "OK   ${wf}: $($run.url)" }
+                { $_ -in @("failure", "cancelled", "timed_out", "action_required") } {
                     Write-Host "FAIL ${wf} ($($run.conclusion)): $($run.url)"
                     $failed++
-                } else {
-                    Write-Host "WAIT ${wf} ($($run.status)): $($run.url)"
+                }
+                default {
+                    if ($run.status -eq "completed") {
+                        Write-Host "FAIL ${wf} ($($run.conclusion)): $($run.url)"
+                        $failed++
+                    } else {
+                        Write-Host "WAIT ${wf} ($($run.status)): $($run.url)"
+                        $pending++
+                    }
+                }
+            }
+        }
+    }
+
+    if ($Jobs) {
+        $ciRun = $runs | Where-Object { $_.workflowName -eq "CI" } | Select-Object -First 1
+        if (-not $ciRun) {
+            Write-Host "WAIT CI jobs: no CI run yet"
+            $pending++
+        } else {
+            $runId = (gh run list --repo $Repo --commit $Ref --workflow CI --json databaseId | ConvertFrom-Json)[0].databaseId
+            $jobData = gh run view $runId --repo $Repo --json jobs | ConvertFrom-Json
+            foreach ($jobName in ($Jobs -split "," | ForEach-Object { $_.Trim() } | Where-Object { $_ })) {
+                $job = $jobData.jobs | Where-Object { $_.name -eq $jobName } | Select-Object -First 1
+                if (-not $job) {
+                    Write-Host "WAIT CI job: $jobName (not found)"
                     $pending++
+                } elseif ($job.conclusion -eq "success") {
+                    Write-Host "OK   CI job: $jobName"
+                } elseif (-not $job.conclusion -or $job.status -ne "completed") {
+                    Write-Host "WAIT CI job: $jobName ($($job.status))"
+                    $pending++
+                } else {
+                    Write-Host "FAIL CI job ${jobName} ($($job.conclusion))"
+                    $failed++
                 }
             }
         }
@@ -63,11 +105,11 @@ while ($true) {
         exit 1
     }
     if ($pending -eq 0) {
-        Write-Host "All $($Required.Count) required workflows passed on GitHub"
+        Write-Host "All required GitHub checks passed"
         exit 0
     }
     if ($WaitSeconds -eq 0 -or (Get-Date) -ge $deadline) {
-        Write-Host "INCOMPLETE: $pending workflow(s) still pending (use -WaitSeconds 300)"
+        Write-Host "INCOMPLETE: $pending workflow(s)/job(s) still pending (use -WaitSeconds 300)"
         exit 1
     }
     Start-Sleep -Seconds 15

@@ -17,9 +17,25 @@ updates:
         patterns: ["*"]
 
   - package-ecosystem: npm
-    directory: /site
+    directory: /examples/node
     schedule:
       interval: weekly
     groups:
-      site-dependencies:
+      node-dependencies:
+        patterns: ["*"]
+
+  - package-ecosystem: pip
+    directory: /examples/python
+    schedule:
+      interval: weekly
+    groups:
+      python-dependencies:
+        patterns: ["*"]
+
+  - package-ecosystem: gradle
+    directory: /examples/android
+    schedule:
+      interval: weekly
+    groups:
+      android-dependencies:
         patterns: ["*"]

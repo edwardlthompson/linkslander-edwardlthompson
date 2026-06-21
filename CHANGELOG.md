@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Template parity upgrade to `agent-project-bootstrap` v0.11.1 (Cursor batch commands, design tokens, repo hygiene gates, release-please)
+- CI jobs: repo-hygiene, feature-gate (web), upgrade-simulation, PR coverage comment
+- Workflows: `weekly-health-check`, `release-please`, `scorecard`, `stale`, `dependabot-automerge`
+
+### Changed
+
+- `.template-version` bumped from `0.2.1` to `0.11.1`; `TEMPLATE_INDEX.json` pruned for web-only child repo
+- `examples/web` synced with template Golden Path (About/settings modules, undici pin for jsdom)
+
 ## [2.0.0] - 2026-06-13
 
 ### Added

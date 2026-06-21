@@ -25,7 +25,7 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 2 ù Ongoing Maintenance (active)
+## Sprint 2 ? Ongoing Maintenance (active)
 
 ### Weekly (recurring)
 
@@ -38,17 +38,15 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 3 ó Backlog
+## Sprint 3 ? Backlog
 
 | Task | Owner | Notes |
 |------|-------|-------|
 | Split `site/css/style.css` into modules | AGENT | Align with AGENTS.md 250-line view limit |
 | GitHub Release tag `v2.0.0` | HUMAN | After formal release approval |
 
-Code review remediation (Phases 1ñ3) is complete ó see [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
-
 ---
 
 ## Archived sprints
 
-Sprint 0 (Bootstrap Adoption) and Sprint 1 (Site Hardening) are complete. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+Sprint 0?1, Sprint 3 Code Review Remediation, and Sprint 4 Template Parity v0.11.1 are complete. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
