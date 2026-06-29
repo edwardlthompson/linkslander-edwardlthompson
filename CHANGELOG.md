@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.0.0...v2.1.0) (2026-06-29)
+
+
+### Added
+
+* **site:** add Language Comparison page and Word Connections link ([8a3dd16](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/8a3dd16399c4aa0b917cb141300d0d0ca9279ef9))
+
+
+### Fixed
+
+* **site:** compress word-connections icon below repo size limit ([535888a](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/535888a50fa7dc35806ed205bb4ac66af31a4291))
+
 ## [Unreleased]
 
 ### Added
