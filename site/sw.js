@@ -1,4 +1,4 @@
-const CACHE_NAME = 'matrix-cache-v5';
+const CACHE_NAME = 'matrix-cache-v7';
 const CSS_MODULES = [
   'css/modules/base.css',
   'css/modules/glass.css',
@@ -10,7 +10,9 @@ const CSS_MODULES = [
 const ASSETS = [
   './',
   'index.html',
+  'word-connections.html',
   ...CSS_MODULES,
+  'css/modules/language-roots.css',
   'js/matrix.js',
   'manifest.json',
   'browserconfig.xml',
@@ -50,6 +52,7 @@ const ASSETS = [
   'img/Venmo.png',
   'img/Bitcoin.webp',
   'img/Ethereum.png',
+  'img/word-connections.png',
 ];
 
 self.addEventListener('install', (e) => {

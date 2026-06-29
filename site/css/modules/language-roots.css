@@ -1,0 +1,173 @@
+/* Word Connections reference table — 7-column parallel layout */
+.roots-page main {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.roots-panel {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 1.5rem auto;
+    padding: 1rem 1.25rem;
+    text-align: left;
+}
+
+.roots-panel h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.roots-intro {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.roots-table-wrapper {
+    overflow: auto;
+    max-height: 70vh;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -0.25rem;
+}
+
+.roots-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.roots-table caption {
+    caption-side: top;
+    padding: 0 0 0.75rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-align: left;
+}
+
+.roots-sticky-head {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.roots-sticky-head th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: rgba(0, 80, 30, 0.98);
+    color: #00ff46;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(0, 255, 70, 0.25);
+    padding: 10px 10px;
+    text-align: left;
+    vertical-align: bottom;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.roots-sticky-col {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: rgba(0, 45, 18, 0.95);
+    min-width: 5.5rem;
+    max-width: 6.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(0, 255, 70, 0.85);
+    vertical-align: top;
+    border: 1px solid rgba(0, 255, 70, 0.2);
+    padding: 10px 8px;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.roots-sticky-head .roots-sticky-col {
+    z-index: 4;
+}
+
+.roots-table td {
+    border: 1px solid rgba(0, 255, 70, 0.15);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.roots-root-row td.root,
+.roots-root-row th.roots-category {
+    font-weight: bold;
+}
+
+.roots-root-row td.root {
+    color: #b8ffd0;
+    font-family: 'Courier New', Courier, monospace;
+    background: rgba(0, 255, 70, 0.06);
+}
+
+.roots-derived-row td {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.roots-group:nth-child(even) .roots-derived-row td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.roots-derived-row td.en-borrowed {
+    color: #9fd4ff;
+    font-style: italic;
+}
+
+.roots-root-row td.en-break,
+.roots-derived-row td.en-break {
+    color: #ffb8b8;
+}
+
+.roots-derived-row td.en-aligned,
+.roots-root-row td.en-aligned {
+    color: #b8ffd0;
+}
+
+.roots-group {
+    border-bottom: 2px solid rgba(0, 255, 70, 0.12);
+}
+
+.roots-note {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 1.25rem;
+    line-height: 1.5;
+}
+
+.roots-back {
+    max-width: 1100px;
+    margin: 0 auto 1rem auto;
+}
+
+@media (max-width: 768px) {
+    .roots-panel h1 {
+        font-size: 1.25rem;
+    }
+
+    .roots-table td,
+    .roots-sticky-head th {
+        padding: 6px 8px;
+        font-size: 0.82rem;
+    }
+
+    .roots-sticky-col {
+        min-width: 4.5rem;
+        font-size: 0.65rem;
+    }
+}

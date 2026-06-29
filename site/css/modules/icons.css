@@ -44,7 +44,8 @@
 .icons .gv,
 .icons .tiktok,
 .icons .twitter,
-.icons .tripadvisor {
+.icons .tripadvisor,
+.icons .word-connections {
     background-color: #e5e7eb !important;
 }
 
@@ -107,3 +108,4 @@
 .icons a.linkedin:hover { --hover-glow: rgba(10, 102, 194, 0.5); }
 .icons a.youtube:hover { --hover-glow: rgba(255, 0, 0, 0.5); }
 .icons a.github:hover { --hover-glow: rgba(36, 41, 46, 0.5); }
+.icons a.word-connections:hover { --hover-glow: rgba(0, 255, 70, 0.5); }

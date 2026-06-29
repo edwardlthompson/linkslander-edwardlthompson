@@ -35,3 +35,11 @@
 - **Context:** GitHub Pages published from `docs/` conflicted with template agent documentation path.- **Decision:** Move published PWA to `site/`; deploy via GitHub Actions; reserve `docs/` for agent docs.
 - **Alternatives considered:** Agent docs in `guide/` — rejected (template path deviation).
 - **Consequences:** See ADR-0002 at `docs/adr/0002-site-architecture.md`.
+
+### 2026-06-28 — Language Comparison page (Word Connections)
+- **Status:** Accepted
+- **Context:** Tourists benefit from a side-by-side view of Romance word families vs English/German everyday words; off-topic but frequently shared.
+- **Decision:** Add `site/word-connections.html` with 7-column parallel table (Category, EN, DE, ES, PT, IT, FR), sticky headers, and portal link in **Other**; maintain data via `site/scripts/gen-roots-table.py`.
+- **Alternatives considered:** External hosted page; 4-column Romance-only layout — rejected (on-site PWA offline + German comparison valued).
+- **Consequences:** Service worker `matrix-cache-v7`; 14 site Playwright tests; Release Please minor bump expected.
+
