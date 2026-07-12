@@ -31,7 +31,7 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ### Sequential (remaining)
 
-- 🔲 [HUMAN] A01 Merge Release Please PR #2 — `chore(main): release 2.1.0` (F-001)
+- ✅ [HUMAN] A01 Merge Release Please PR #2 — `chore(main): release 2.1.0` (F-001)
 - 🔲 [HUMAN] A05 Editorial pass on cognate rows in `site/scripts/gen-roots-table.py` (F-005)
 - ✅ [HUMAN] A07 Remove `cunnilingus` etymology row (F-007)
 
