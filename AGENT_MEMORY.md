@@ -9,12 +9,11 @@
 |-------|-----------|---------|-------|
 | Frontend | Vanilla JavaScript + HTML5 Canvas | — | Custom Matrix physics engine |
 | UI | Bootstrap 5 (vendored) + custom CSS | 5.3.3 | `site/vendor/`; glassmorphism, always-dark theme |
-| PWA | Service Worker + Web Manifest | — | Cache-first offline (`matrix-cache-v7`) |
+| PWA | Service Worker + Web Manifest | — | Cache-first offline (`matrix-cache-v8`) |
 | Audio | Web Audio API | — | Click ripple feedback |
 | Hosting | GitHub Pages (Actions) | — | Deploy artifact from `site/` |
 | License | MIT | — | Pure FOSS |
 | Distribution | GitHub Pages | — | https://edwardlthompson.com |
-
 ## Active Modules
 
 - [x] Web / PWA (`modules/web/MODULE.md`)
@@ -29,7 +28,6 @@
 | `site/` | Published PWA (GitHub Pages artifact) |
 | `docs/` | Agent documentation (not publicly served) |
 | `examples/web/` | Golden Path Vite+TS stub for template CI |
-
 ## Threat Model Checklist
 
 - [x] `docs/THREAT_MODEL.md` drafted (STRIDE, trust boundaries, top abuse cases)
@@ -58,8 +56,8 @@ High-performance interactive personal landing page and PWA featuring a custom Ma
 | Date | Milestone | What worked | What to improve |
 |------|-----------|-------------|-----------------|
 | 2026-06-13 | Sprint 0–1 complete | Bootstrap + CI/site hardening; ruleset protection | CSS module split deferred to Sprint 3 |
+| 2026-07-12 | Audit sprint AGENT remediations | Meta/SW/legend/offline e2e; 17 site tests green | Merge Release Please PR #2 (v2.1.0) still [HUMAN] |
 | 2026-06-28 | Language Comparison page | 7-column table + gen script; site e2e 14 tests green | Feature gate web-lint fails under WSL1 bash — use `npm run lint` directly on Windows |
-
 ## Template Provenance
 
 - **Source template:** `edwardlthompson/agent-project-bootstrap`

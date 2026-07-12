@@ -123,6 +123,20 @@
 
 ---
 
+## LinksLander — Audit Sprint AGENT remediation (2026-07-12)
+
+### Sequential (completed)
+
+- ✅ [AGENT] A02 Align Word Connections `og:description` with EN→DE→ES→PT→IT→FR columns
+- ✅ [AGENT] A03 Register service worker on `word-connections.html`
+- ✅ [AGENT] A04 Fix `gen-roots-table.py` docstring (regen-only workflow)
+- ✅ [AGENT] A06 Add English-cell meaning legend (Break / Borrowed / Aligned)
+- ✅ [AGENT] A08 Offline + SW Playwright coverage for Language Comparison; SW `clients.claim` + navigate cache fallback; cache `matrix-cache-v8`
+
+Remaining HUMAN items stay on active `BUILD_PLAN.md` (merge Release Please 2.1.0, cognate editorial, cunnilingus decision).
+
+---
+
 ## Template Maintainer Archive (upstream bootstrap — not LinksLander scope)
 
 <details>

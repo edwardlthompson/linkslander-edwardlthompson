@@ -52,8 +52,12 @@ test("loads Bootstrap from local vendor path", async ({ page }) => {
 test("renders offline after first load", async ({ page, context }) => {
   await page.goto("/");
   await page.waitForLoadState("networkidle");
+  await page.evaluate(async () => {
+    if (!("serviceWorker" in navigator)) return;
+    await navigator.serviceWorker.ready;
+  });
   await context.setOffline(true);
-  await page.reload();
+  await page.reload({ waitUntil: "domcontentloaded" });
   await expect(page.locator("h1.matrix-identity")).toBeVisible();
 });
 
@@ -123,6 +127,42 @@ test("word connections back link returns to portal", async ({ page }) => {
   await page.getByRole("button", { name: /back to portal/i }).click();
   await expect(page).toHaveURL(/\/(index\.html)?$/);
   await expect(page.locator("h1.matrix-identity")).toHaveText("Edward Lee Thompson");
+});
+
+test("word connections shows English column legend", async ({ page }) => {
+  await page.goto("/word-connections.html");
+  const legend = page.getByRole("list", { name: /english column color meanings/i });
+  await expect(legend).toBeVisible();
+  await expect(legend.getByText(/Break/i)).toBeVisible();
+  await expect(legend.getByText(/Borrowed/i)).toBeVisible();
+  await expect(legend.getByText(/Aligned/i)).toBeVisible();
+});
+
+test("word connections registers service worker", async ({ page }) => {
+  await page.goto("/word-connections.html");
+  const registered = await page.evaluate(async () => {
+    if (!("serviceWorker" in navigator)) return false;
+    await navigator.serviceWorker.ready;
+    return (await navigator.serviceWorker.getRegistrations()).length > 0;
+  });
+  expect(registered).toBe(true);
+});
+
+test("word connections renders offline after first load", async ({ page, context }) => {
+  await page.goto("/word-connections.html");
+  await page.waitForLoadState("networkidle");
+  await page.evaluate(async () => {
+    if ("serviceWorker" in navigator) await navigator.serviceWorker.ready;
+  });
+  // Second online visit so the active SW controls the client before offline reload.
+  await page.goto("/word-connections.html");
+  await page.waitForLoadState("networkidle");
+  await page.evaluate(async () => {
+    if ("serviceWorker" in navigator) await navigator.serviceWorker.ready;
+  });
+  await context.setOffline(true);
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await expect(page.getByRole("heading", { name: /Language Comparison/i })).toBeVisible();
 });
 
 test("word connections page passes accessibility audit", async ({ page }) => {

@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Parallel word families across English, Spanish, Portuguese, Italian, French, and German — see how Romance languages keep Latin roots visible while English often breaks the pattern.">
+    <meta name="description" content="Language comparison: English, German, Spanish, Portuguese, Italian, and French word families side by side — Romance languages keep Latin roots visible; English and German often break the pattern.">
     <link rel="canonical" href="https://edwardlthompson.com/word-connections.html">
     <title>Word Connections | Language Comparison</title>
     <meta property="og:title" content="Word Connections | Language Comparison">
-    <meta property="og:description" content="Read English first, then Spanish, Portuguese, Italian, French, and German. Romance languages keep Latin connections clear; English often breaks them.">
+    <meta property="og:description" content="Read English, then German, then Spanish, Portuguese, Italian, and French. Romance languages keep Latin connections clear; English and German often break them.">
     <meta property="og:image" content="https://edwardlthompson.com/img/word-connections.png">
     <meta property="og:url" content="https://edwardlthompson.com/word-connections.html">
     <meta property="og:type" content="website">
@@ -36,9 +36,14 @@
         <div class="section roots-panel glass-panel">
           <h1 class="matrix-identity">Language Comparison</h1>
           <p class="roots-intro"><strong>Read from <em>English</em>, then <em>German</em> — both often hide Latin on the first row.</strong> Scan right through Spanish, Portuguese, Italian, and French to see the word family stay visible. Latin may reappear in English and German borrowings on the rows below.</p>
+          <ul class="roots-legend" aria-label="English column color meanings">
+            <li><span class="en-break">Break</span> — everyday English hides the Latin root</li>
+            <li><span class="en-borrowed">Borrowed</span> — Latin loanword in English</li>
+            <li><span class="en-aligned">Aligned</span> — English visibly matches the Romance root</li>
+          </ul>
 
           <div class="roots-table-wrapper" tabindex="0" role="region" aria-label="Word connections scrollable table">
-            <table class="roots-table" aria-label="Word roots compared across English, Spanish, Portuguese, Italian, French, and German">
+            <table class="roots-table" aria-label="Word roots compared across English, German, Spanish, Portuguese, Italian, and French">
               <thead class="roots-sticky-head">
                 <tr>
                   <th scope="col" class="roots-sticky-col">Category</th>
@@ -152,7 +157,7 @@
 </tbody>
 <tbody class="roots-group" data-sort="5">
   <tr class="roots-root-row">
-    <th scope="row" class="roots-category roots-sticky-col" rowspan="5">Body</th>
+    <th scope="row" class="roots-category roots-sticky-col" rowspan="4">Body</th>
     <td class="root">Tongue</td>
     <td class="root">Zunge</td>
     <td class="root">Lengua</td>
@@ -183,14 +188,6 @@
     <td>sublingual</td>
     <td>sublinguale</td>
     <td>sublingual</td>
-  </tr>
-  <tr class="roots-derived-row">
-    <td class="en-aligned">cunnilingus</td>
-    <td>cunnilingus</td>
-    <td>cunnilingus</td>
-    <td>cunnilingus</td>
-    <td>cunnilingus</td>
-    <td>cunnilingus</td>
   </tr>
 </tbody>
 <tbody class="roots-group" data-sort="6">
@@ -1374,5 +1371,12 @@
     </div>
     <script src="vendor/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="js/matrix.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js');
+        });
+      }
+    </script>
   </body>
 </html>

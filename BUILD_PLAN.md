@@ -12,7 +12,7 @@
 | `ADB` | Human (Android) | Android SDK, emulator/device testing, F-Droid submission |
 | `AUTO` | CI/scripts/bots | GitHub Actions, Dependabot, pre-commit, update checker |
 
-**Task format:** `- [ ] [OWNER] Description`
+**Task format:** `- 🔲 [OWNER] Description` (status: 🔲 open · ✅ done · ❌ blocked)
 
 **Filter by label:**
 
@@ -25,21 +25,32 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint 2 ? Ongoing Maintenance (active)
+## Sprint Audit — 2026-07-12 (active)
 
-### Weekly (recurring)
+> Findings: `CODE_REVIEW.md` (gitignored). AGENT remediation archived in [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
 
-- [ ] [HUMAN] Run weekly CVE triage pass per `docs/SECURITY_TRIAGE.md` (recommended: Monday)
-- [ ] [AGENT] Apply Dependabot dependency bumps and open PRs as needed
+### Sequential (remaining)
 
-### Optional
+- 🔲 [HUMAN] A01 Merge Release Please PR #2 — `chore(main): release 2.1.0` (F-001)
+- 🔲 [HUMAN] A05 Editorial pass on cognate rows in `site/scripts/gen-roots-table.py` (F-005)
+- ✅ [HUMAN] A07 Remove `cunnilingus` etymology row (F-007)
 
-- [ ] [HUMAN] Install pre-commit hooks locally (`pip install pre-commit && pre-commit install`)
+### Parallel
+
+- 🔲 [HUMAN] Run weekly CVE triage pass per `docs/SECURITY_TRIAGE.md`
+- 🔲 [AGENT] Apply Dependabot dependency bumps and open PRs as needed (0 open alerts as of 2026-07-12)
+- 🔲 [HUMAN] Install pre-commit hooks locally (`pip install pre-commit && pre-commit install`)
+
+### Deferred
+
+- F-009 Local feature-gate WSL1 `npx` path — use native npm / WSL2
+- F-010 CSP headers — Cloudflare/Pages preference
+- F-011 Externalize cognate data + CI regen check
 
 ---
 
 ## Archived sprints
 
-All feature sprints complete including **v2.0.0** release. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+All feature sprints complete including **v2.0.0** release and Language Comparison (Word Connections) on `main`. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
 
-Future app releases are automated via Release Please on push to `main`.
+Future app releases are automated via Release Please on push to `main` (open: PR #2 → **v2.1.0**).

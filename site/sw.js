@@ -1,4 +1,4 @@
-const CACHE_NAME = 'matrix-cache-v7';
+const CACHE_NAME = 'matrix-cache-v8';
 const CSS_MODULES = [
   'css/modules/base.css',
   'css/modules/glass.css',
@@ -59,7 +59,7 @@ self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE_NAME).then((cache) =>
       Promise.allSettled(ASSETS.map((url) => cache.add(url)))
-    )
+    ).then(() => self.skipWaiting())
   );
 });
 
@@ -67,7 +67,7 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
-    )
+    ).then(() => self.clients.claim())
   );
 });
 
@@ -80,7 +80,12 @@ self.addEventListener('fetch', (e) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(e.request, copy));
           return res;
         })
-        .catch(() => caches.match(e.request))
+        .catch(async () => {
+          const cached = await caches.match(e.request);
+          if (cached) return cached;
+          const path = new URL(e.request.url).pathname.replace(/^\//, '') || 'index.html';
+          return caches.match(path) || caches.match('./');
+        })
     );
     return;
   }

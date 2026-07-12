@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Generate word-connections table tbody (run once, paste into word-connections.html)."""
+"""Regenerate site/word-connections.html from the groups data below.
+
+Usage (from repo root or site/):
+  python3 site/scripts/gen-roots-table.py
+
+Do not hand-edit the table body in word-connections.html — edit `groups` here, then re-run.
+"""
 from pathlib import Path
 
 groups = [
@@ -27,7 +33,6 @@ groups = [
         ("derived", ["language", "lenguaje", "langage", "linguaggio", "linguagem", "Sprache"], "en-break"),
         ("derived", ["linguist", "lingüista", "linguiste", "linguista", "linguista", "Linguist"], "en-aligned"),
         ("derived", ["sublingual", "sublingual", "sublingual", "sublinguale", "sublingual", "sublingual"], "en-aligned"),
-        ("derived", ["cunnilingus", "cunnilingus", "cunnilingus", "cunnilingus", "cunnilingus", "cunnilingus"], "en-aligned"),
     ]),
     ("Body", [
         ("root", ["Heart", "Corazón", "Cœur", "Cuore", "Coração", "Herz"], "en-break"),
@@ -309,11 +314,11 @@ head = """<!doctype html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Parallel word families across English, Spanish, Portuguese, Italian, French, and German — see how Romance languages keep Latin roots visible while English often breaks the pattern.">
+    <meta name="description" content="Language comparison: English, German, Spanish, Portuguese, Italian, and French word families side by side — Romance languages keep Latin roots visible; English and German often break the pattern.">
     <link rel="canonical" href="https://edwardlthompson.com/word-connections.html">
     <title>Word Connections | Language Comparison</title>
     <meta property="og:title" content="Word Connections | Language Comparison">
-    <meta property="og:description" content="Read English first, then Spanish, Portuguese, Italian, French, and German. Romance languages keep Latin connections clear; English often breaks them.">
+    <meta property="og:description" content="Read English, then German, then Spanish, Portuguese, Italian, and French. Romance languages keep Latin connections clear; English and German often break them.">
     <meta property="og:image" content="https://edwardlthompson.com/img/word-connections.png">
     <meta property="og:url" content="https://edwardlthompson.com/word-connections.html">
     <meta property="og:type" content="website">
@@ -342,9 +347,14 @@ head = """<!doctype html>
         <div class="section roots-panel glass-panel">
           <h1 class="matrix-identity">Language Comparison</h1>
           <p class="roots-intro"><strong>Read from <em>English</em>, then <em>German</em> — both often hide Latin on the first row.</strong> Scan right through Spanish, Portuguese, Italian, and French to see the word family stay visible. Latin may reappear in English and German borrowings on the rows below.</p>
+          <ul class="roots-legend" aria-label="English column color meanings">
+            <li><span class="en-break">Break</span> — everyday English hides the Latin root</li>
+            <li><span class="en-borrowed">Borrowed</span> — Latin loanword in English</li>
+            <li><span class="en-aligned">Aligned</span> — English visibly matches the Romance root</li>
+          </ul>
 
           <div class="roots-table-wrapper" tabindex="0" role="region" aria-label="Word connections scrollable table">
-            <table class="roots-table" aria-label="Word roots compared across English, Spanish, Portuguese, Italian, French, and German">
+            <table class="roots-table" aria-label="Word roots compared across English, German, Spanish, Portuguese, Italian, and French">
               <thead class="roots-sticky-head">
                 <tr>
                   <th scope="col" class="roots-sticky-col">Category</th>
@@ -370,6 +380,13 @@ foot = """
     </div>
     <script src="vendor/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="js/matrix.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js');
+        });
+      }
+    </script>
   </body>
 </html>
 """

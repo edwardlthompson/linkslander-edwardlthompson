@@ -21,8 +21,36 @@
 .roots-intro {
     font-size: 0.95rem;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     text-align: center;
+}
+
+.roots-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.roots-legend .en-break {
+    color: #ffb8b8;
+    font-weight: bold;
+}
+
+.roots-legend .en-borrowed {
+    color: #9fd4ff;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.roots-legend .en-aligned {
+    color: #b8ffd0;
+    font-weight: bold;
 }
 
 .roots-table-wrapper {
