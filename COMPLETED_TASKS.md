@@ -132,8 +132,8 @@
 - ✅ [AGENT] A04 Fix `gen-roots-table.py` docstring (regen-only workflow)
 - ✅ [AGENT] A06 Add English-cell meaning legend (Break / Borrowed / Aligned)
 - ✅ [AGENT] A08 Offline + SW Playwright coverage for Language Comparison; SW `clients.claim` + navigate cache fallback; cache `matrix-cache-v8`
-
-Remaining HUMAN items stay on active `BUILD_PLAN.md` (merge Release Please 2.1.0, cognate editorial, cunnilingus decision).
+- ✅ [HUMAN] A01 Merge Release Please PR #2 — GitHub Release **v2.1.0**
+- ✅ [HUMAN] A07 Remove `cunnilingus` etymology row
 
 ---
 

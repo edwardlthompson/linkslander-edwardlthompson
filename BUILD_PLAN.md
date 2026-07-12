@@ -25,32 +25,22 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ---
 
-## Sprint Audit — 2026-07-12 (active)
+## Sprint 2 — Ongoing Maintenance (active)
 
-> Findings: `CODE_REVIEW.md` (gitignored). AGENT remediation archived in [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+### Weekly (recurring)
 
-### Sequential (remaining)
+- 🔲 [HUMAN] Run weekly CVE triage pass per `docs/SECURITY_TRIAGE.md` (recommended: Monday)
+- 🔲 [AGENT] Apply Dependabot dependency bumps and open PRs as needed
 
-- ✅ [HUMAN] A01 Merge Release Please PR #2 — `chore(main): release 2.1.0` (F-001)
-- 🔲 [HUMAN] A05 Editorial pass on cognate rows in `site/scripts/gen-roots-table.py` (F-005)
-- ✅ [HUMAN] A07 Remove `cunnilingus` etymology row (F-007)
+### Optional
 
-### Parallel
-
-- 🔲 [HUMAN] Run weekly CVE triage pass per `docs/SECURITY_TRIAGE.md`
-- 🔲 [AGENT] Apply Dependabot dependency bumps and open PRs as needed (0 open alerts as of 2026-07-12)
+- 🔲 [HUMAN] Editorial pass on Language Comparison cognate rows (`site/scripts/gen-roots-table.py`)
 - 🔲 [HUMAN] Install pre-commit hooks locally (`pip install pre-commit && pre-commit install`)
-
-### Deferred
-
-- F-009 Local feature-gate WSL1 `npx` path — use native npm / WSL2
-- F-010 CSP headers — Cloudflare/Pages preference
-- F-011 Externalize cognate data + CI regen check
 
 ---
 
 ## Archived sprints
 
-All feature sprints complete including **v2.0.0** release and Language Comparison (Word Connections) on `main`. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+All feature and audit sprints complete through **v2.1.0**. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
 
-Future app releases are automated via Release Please on push to `main` (open: PR #2 → **v2.1.0**).
+Future app releases are automated via Release Please on push to `main`.

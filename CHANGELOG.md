@@ -20,20 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-
-- Service worker cache bumped to `matrix-cache-v8` (Language Comparison legend + SW registration on subpage)
-- Word Connections meta descriptions align with EN→DE→ES→PT→IT→FR column order
-- Language Comparison page registers the PWA service worker and documents English-column color meanings
-- Removed `cunnilingus` etymology row from Language Comparison table
-
-### Added
-
-- **Language Comparison** page (`site/word-connections.html`) — six-language parallel word-family table (English, German, Spanish, Portuguese, Italian, French) with sticky header and category labels
-- Word Connections icon and link in the portal **Other** section (`site/img/word-connections.png`)
-- `site/css/modules/language-roots.css` and `site/scripts/gen-roots-table.py` for table layout and regeneration
-- Playwright e2e tests for the Language Comparison page (including offline + legend coverage)
-
 ## [2.0.0] - 2026-06-21
 
 ### Added
