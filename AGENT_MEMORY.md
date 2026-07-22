@@ -47,7 +47,7 @@ High-performance interactive personal landing page and PWA featuring a custom Ma
 ### Key Constraints
 
 - Always-dark UI (no theme toggle); documented in `DECISION_LOG.md`
-- Max 250 lines per view file, 150 lines per logic file (future refactor target for `site/css/style.css`)
+- Max 300 lines static data / 150 lines pure logic (`docs/FILE_SIZE_GUIDE.md`; future refactor target for `site/css/style.css`)
 - Trunk-based development with Conventional Commits
 - Bootstrap vendored under `site/vendor/` for offline PWA (see KB-007)
 
@@ -58,8 +58,10 @@ High-performance interactive personal landing page and PWA featuring a custom Ma
 | 2026-06-13 | Sprint 0–1 complete | Bootstrap + CI/site hardening; ruleset protection | CSS module split deferred to Sprint 3 |
 | 2026-07-12 | Audit sprint AGENT remediations | Meta/SW/legend/offline e2e; 17 site tests green | Merge Release Please PR #2 (v2.1.0) still [HUMAN] |
 | 2026-06-28 | Language Comparison page | 7-column table + gen script; site e2e 14 tests green | Feature gate web-lint fails under WSL1 bash — use `npm run lint` directly on Windows |
+| 2026-07-21 | FOSS Cursor surface (partial 0.15) | Hooks/skills/agents/worktrees + agent docs; gates green | Full `.template-version` bump + automerge still deferred |
 ## Template Provenance
 
 - **Source template:** `edwardlthompson/agent-project-bootstrap`
-- **Template version:** `0.11.1` (see `.template-version`)
+- **Template version:** `0.11.1` (see `.template-version`) — FOSS Cursor surface (hooks/skills/agents/worktrees) cherry-picked from `v0.15.0` on 2026-07-21; full version bump deferred
 - **Last update check:** See `.template-update.json`
+- **Alignment record:** `docs/BOOTSTRAP_ALIGNMENT.md`

@@ -4,6 +4,7 @@
   "active_modules": [
     "web"
   ],
-  "parallel_scope_note": "Sprint 1 Parallel: Web PWA scope only (`examples/web/**`)",
+  "distribution_tier": "foss",
+  "parallel_scope_note": "Web PWA: prefer non-overlapping scopes across site/**, examples/web/**, and docs/scripts",
   "selected_at": "2026-06-21T20:27:08+00:00"
 }

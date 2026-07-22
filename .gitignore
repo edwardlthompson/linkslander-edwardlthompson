@@ -53,3 +53,7 @@ RELEASE_NOTES.md
 
 # Logs
 *.log
+
+# Live Cursor MCP config (copy from .cursor/mcp.foss.example)
+.cursor/mcp.json
+

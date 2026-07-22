@@ -5,14 +5,15 @@
 3. **Bootstrap mode:** `docs/INITIALIZATION_PROMPT.md`
 4. **Reference mode:** `docs/FOR_AGENTS.md` + `TEMPLATE_INDEX.json`
 5. **Task board:** `BUILD_PLAN.md` (Sequential before Parallel) — status: 🔲 open · ✅ done · ❌ blocked
-6. **Living memory:** update `AGENT_MEMORY.md` only at milestone boundaries
+6. **Parallel dispatch:** parallel-first BUILD_PLAN; `/build` automates HUMAN/ADB first, backlogs failures to `HUMAN_BACKLOG.md`, never halts on human labels — `scripts/build-sprint-status.sh --lane child`
+7. **Living memory:** update `AGENT_MEMORY.md` only at milestone boundaries
 
 > Legacy `.cursorrules` is deprecated. Use `.cursor/rules/*.mdc` and this file instead.
 
 ## Architecture Constraints
 
 - Pure FOSS under MIT license; no proprietary closed-source SDKs in production path
-- Max 250 lines per view file, 150 lines per logic file
+- Max 300 lines per static data file (UI + i18n), 150 lines per pure logic file
 - Strict type safety and runtime validation at all data boundaries
 - Core business logic decoupled from layout framework (MVVM / Clean / Hexagonal)
 - Opt-in only telemetry; GDPR/CCPA compliant
@@ -39,9 +40,35 @@
 
 Activate only the modules matching your stack. See `modules/*/MODULE.md`.
 
+## Cursor FOSS integrations
+
+Shipped in template (see `docs/CURSOR_INTEGRATIONS.md`):
+
+- **Hooks** — `.cursor/hooks.json` enforces destructive-ops + UTF-8 (fail-open; `/push` session override)
+- **Skills (7)** — `.cursor/skills/` progressive-load companions for `/gates`, `/scope`, `/fix`, hygiene, Sprint 0, features, canvas status
+- **Subagents (3)** — `.cursor/agents/` verifier, gate-fixer, explorer
+- **Local compute first** — `.cursor/rules/local-compute.mdc`: This Computer + parallel Task/worktrees/`/best-of-n` before Cloud; multi-core bootstrap checks
+- **Worktrees** — `.cursor/worktrees.json` + fail-soft OS setup (`/worktree`, `/best-of-n`)
+- **Auto-review** — `.cursor/permissions.json` dual layer with hooks
+- **CLI (opt-in)** — `docs/CURSOR_CLI.md` (workflow example lives upstream; not required here)
+- **Optional MCP** — copy `.cursor/mcp.foss.example` → gitignored `.cursor/mcp.json`
+
+Validate: `python3 scripts/agent-run.py check-cursor-hooks -- --smoke`, `python3 scripts/agent-run.py check-cursor-integrations -- --tier foss`
+
+## Cursor Commercial integrations
+
+Hidden on FOSS bootstrap (`distribution_tier: foss` in `.cursor/stack-selection.json`). This child repo stays FOSS — do not activate commercial Cursor surfaces unless a human explicitly changes the tier.
+
 ## Ecosystem-Specific Rules
 
 - **Android:** FOSS only; reproducible builds with `SOURCE_DATE_EPOCH`
 - **Web/PWA:** Offline-first service workers; Lighthouse budget gates
 - **Python:** Strict typing (mypy), ruff lint/format, locked dependencies
 - **Lightroom:** Adobe SDK Lua API only (`Lr*` namespaces)
+
+## LinksLander (this child repo)
+
+- **Stack:** web-only — published PWA in `site/`; Golden Path CI stub in `examples/web/`; module `modules/web`
+- **Not adopted here:** `.cursor-plugin` / packaging `action.yml` (template-maintainer surfaces)
+- **Product constraints:** always-dark UI (no theme toggle) — see `DECISION_LOG.md`
+- **Alignment:** `docs/BOOTSTRAP_ALIGNMENT.md` (template `0.11.1` → FOSS Cursor surface from `v0.15.0`)

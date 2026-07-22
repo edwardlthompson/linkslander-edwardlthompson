@@ -16,6 +16,13 @@
 
 ## Entries
 
+### 2026-07-21 — Partial bootstrap FOSS Cursor surface (0.15.0)
+- **Status:** Accepted
+- **Context:** Child repo was on template `0.11.1`; upstream `agent-project-bootstrap` at `v0.15.0`. Full upgrade deferred; human approved only FOSS Cursor integrations and drifted agent-doc refresh.
+- **Decision:** Adopt FOSS hooks/skills/agents/worktrees/`local-compute` + refresh `AGENTS.md` / `CURSOR_MODES.md` / `FOR_AGENTS.md` with LinksLander notes. Skip commercial Cursor docs, plugin packaging, and Release Please automerge. Keep `.template-version` at `0.11.1` until a fuller upgrade pass.
+- **Alternatives considered:** Full 0.11.1→0.15.0 cherry-pick in one PR — rejected (scope/risk); skip hooks entirely — rejected (human approved item 1).
+- **Consequences:** Agents gain FOSS Cursor surface; `validate-bootstrap --quick` and cursor integration checks green; product `site/` untouched. See `docs/BOOTSTRAP_ALIGNMENT.md`.
+
 ### 2026-06-13 — Always-dark UI (no theme toggle)
 - **Status:** Accepted
 - **Context:** Site previously had a light/dark theme toggle; it was removed for visual consistency with the Matrix aesthetic.
