@@ -60,6 +60,7 @@ High-performance interactive personal landing page and PWA featuring a custom Ma
 | 2026-06-28 | Language Comparison page | 7-column table + gen script; site e2e 14 tests green | Feature gate web-lint fails under WSL1 bash — use `npm run lint` directly on Windows |
 | 2026-07-21 | FOSS Cursor surface (partial 0.15) | Hooks/skills/agents/worktrees + agent docs; gates green | Full `.template-version` bump + automerge still deferred |
 | 2026-07-21 | /push to main (`bc6c091`) | CI/Security/CodeQL green; Node 25 vitest fix; 0 Crit/High alerts | [HUMAN] merge Release Please PR #3 for v2.1.1 |
+| 2026-07-22 | v2.1.1 + v2.1.2 shipped | AUTOMERGE_TOKEN; ruleset CodeQL name; PR #5 auto path | Re-pin npm overrides for High Dependabot; fix automerge `GH_REPO` |
 ## Template Provenance
 
 - **Source template:** `edwardlthompson/agent-project-bootstrap`

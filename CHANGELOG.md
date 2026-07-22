@@ -33,15 +33,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-
-- FOSS Cursor surface from `agent-project-bootstrap` v0.15.0 (hooks, skills, agents, worktrees, local-compute)
-- Agent docs refresh (`AGENTS.md`, `CURSOR_MODES.md`, `FOR_AGENTS.md`) with LinksLander notes
-- `HUMAN_BACKLOG.md` and bootstrap alignment record (`docs/BOOTSTRAP_ALIGNMENT.md`)
-
 ### Fixed
 
-- Vitest/jsdom `localStorage` under Node 25+ via conditional `--no-webstorage` in `examples/web`
+- npm overrides pin `brace-expansion@1.1.16` and `js-yaml@4.3.0` in `site/` and `examples/web/`
+- Release Please auto-merge workflow: set `GH_REPO` so `gh pr merge --auto` works without a checkout
 
 ## [2.1.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.0.0...v2.1.0) (2026-07-12)
 

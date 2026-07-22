@@ -30,6 +30,13 @@
 - **Alternatives considered:** Admin-merge PR #3 from agent — rejected (escalate per `/push` when policy blocks).
 - **Consequences:** Required CI/Security/CodeQL green on `bc6c091`; zero Critical/High Dependabot; v2.1.1 tag pending human merge of PR #3.
 
+### 2026-07-22 — Release Please auto-merge + Dependabot High pins
+- **Status:** Accepted
+- **Context:** Auto-merge enabled; PR #3/#5 blocked by CodeQL check-name mismatch and/or automerge job failing without git checkout; Dependabot High on `brace-expansion` / `js-yaml`.
+- **Decision:** Fix ruleset context to matrix job name; set `AUTOMERGE_TOKEN` from `gh auth`; set `GH_REPO` in automerge workflow; pin npm overrides to `brace-expansion@1.1.16` and `js-yaml@4.3.0` (not open `>=` ranges that jumped to 5.x).
+- **Alternatives considered:** Open-ended `>=` overrides — rejected (resolved to major 5.x). GitHub App token — deferred (PAT secret sufficient for now).
+- **Consequences:** v2.1.1 and v2.1.2 published; future release PRs should auto-queue merge when checks are green.
+
 ### 2026-06-13 — Always-dark UI (no theme toggle)
 - **Status:** Accepted
 - **Context:** Site previously had a light/dark theme toggle; it was removed for visual consistency with the Matrix aesthetic.

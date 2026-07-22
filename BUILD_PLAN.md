@@ -43,6 +43,6 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ## Archived sprints
 
-All feature and audit sprints complete through **v2.1.1**. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+All feature and audit sprints complete through **v2.1.2**. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
 
-Future app releases are automated via Release Please on push to `main`.
+Future app releases are automated via Release Please on push to `main` (auto-merge + `AUTOMERGE_TOKEN`).
