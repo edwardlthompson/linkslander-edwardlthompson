@@ -2,7 +2,7 @@
   "name": "linkslander-site",
   "private": true,
   "license": "MIT",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "scripts": {
     "start": "serve . -l 4321",
     "test:e2e": "playwright test",
