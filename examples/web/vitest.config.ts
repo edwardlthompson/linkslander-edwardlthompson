@@ -1,10 +1,15 @@
 import { defineConfig } from "vitest/config";
 import viteConfig from "./vite.config";
 
+const nodeMajor = Number.parseInt(process.versions.node.split(".")[0] ?? "0", 10);
+// Node 25+ enables a broken native Web Storage stub that blocks jsdom localStorage.
+const execArgv = nodeMajor >= 25 ? ["--no-webstorage"] : [];
+
 export default defineConfig({
   ...viteConfig,
   test: {
     environment: "jsdom",
+    execArgv,
     exclude: ["e2e/**", "node_modules/**"],
     coverage: {
       provider: "v8",

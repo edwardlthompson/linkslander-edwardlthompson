@@ -2,7 +2,7 @@
 
 A high-performance, interactive personal landing page and PWA at [edwardlthompson.com](https://edwardlthompson.com). Features a custom Matrix-style physics engine, glassmorphism UI, and offline accessibility.
 
-Bootstrapped with [agent-project-bootstrap](https://github.com/edwardlthompson/agent-project-bootstrap) v0.2.1 for Cursor agent workflows, CI guardrails, and FOSS compliance.
+Bootstrapped with [agent-project-bootstrap](https://github.com/edwardlthompson/agent-project-bootstrap) (tracked at `.template-version` `0.11.1`; FOSS Cursor surface from `v0.15.0`) for Cursor agent workflows, CI guardrails, and FOSS compliance. See [`docs/BOOTSTRAP_ALIGNMENT.md`](docs/BOOTSTRAP_ALIGNMENT.md).
 
 ## Features
 

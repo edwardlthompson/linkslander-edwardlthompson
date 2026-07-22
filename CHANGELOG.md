@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- FOSS Cursor surface from `agent-project-bootstrap` v0.15.0 (hooks, skills, agents, worktrees, local-compute)
+- Agent docs refresh (`AGENTS.md`, `CURSOR_MODES.md`, `FOR_AGENTS.md`) with LinksLander notes
+- `HUMAN_BACKLOG.md` and bootstrap alignment record (`docs/BOOTSTRAP_ALIGNMENT.md`)
+
+### Fixed
+
+- Vitest/jsdom `localStorage` under Node 25+ via conditional `--no-webstorage` in `examples/web`
+
 ## [2.1.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.0.0...v2.1.0) (2026-07-12)
 
 
@@ -17,8 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * **site:** audit remediations and remove cunnilingus row ([84e0f45](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/84e0f452c082205d52c15848590d51fc8654ca19))
 * **site:** compress word-connections icon below repo size limit ([535888a](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/535888a50fa7dc35806ed205bb4ac66af31a4291))
-
-## [Unreleased]
 
 ## [2.0.0] - 2026-06-21
 
