@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.1](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.1.0...v2.1.1) (2026-07-22)
+
+
+### Fixed
+
+* **web:** restore Vitest localStorage under Node 25+ ([bc6c091](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/bc6c0916e539896646324ac6922bb134cf7309d3))
+
+
+### Changed
+
+* **agents:** adopt FOSS Cursor surface from bootstrap 0.15 ([ae7b0fb](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/ae7b0fb019651bb99a6a5017b5df3249ded74a7f))
+* **docs:** slim BUILD_PLAN after v2.1.0 audit archive ([53c034a](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/53c034a9016555c2e92311a32db58bcaefe8fe47))
+
+
+### Documentation
+
+* mark audit A01 and A07 complete after release merge ([7f76dd2](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/7f76dd256ad792acf82ef4691988ea6e69dcb8e7))
+* record /push milestone and Release Please HUMAN gate ([94c5964](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/94c596471c507b8a9df1f8606b9c67a44286ac54))
+
 ## [Unreleased]
 
 ### Added
