@@ -23,6 +23,13 @@
 - **Alternatives considered:** Full 0.11.1→0.15.0 cherry-pick in one PR — rejected (scope/risk); skip hooks entirely — rejected (human approved item 1).
 - **Consequences:** Agents gain FOSS Cursor surface; `validate-bootstrap --quick` and cursor integration checks green; product `site/` untouched. See `docs/BOOTSTRAP_ALIGNMENT.md`.
 
+### 2026-07-21 — /push FOSS Cursor surface + Node 25 vitest fix
+- **Status:** Accepted
+- **Context:** `/push` after FOSS Cursor adopt; local feature-gate failed on Node 26 due to native Web Storage stub.
+- **Decision:** Ship conditional `--no-webstorage` for Vitest when Node ≥ 25; push `ae7b0fb` + `bc6c091` to `main`. Leave Release Please PR #3 for human merge (branch protection).
+- **Alternatives considered:** Admin-merge PR #3 from agent — rejected (escalate per `/push` when policy blocks).
+- **Consequences:** Required CI/Security/CodeQL green on `bc6c091`; zero Critical/High Dependabot; v2.1.1 tag pending human merge of PR #3.
+
 ### 2026-06-13 — Always-dark UI (no theme toggle)
 - **Status:** Accepted
 - **Context:** Site previously had a light/dark theme toggle; it was removed for visual consistency with the Matrix aesthetic.

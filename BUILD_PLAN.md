@@ -27,20 +27,21 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ## Sprint 2 — Ongoing Maintenance (active)
 
-### Weekly (recurring)
+### Human & device (after automation)
 
+- 🔲 [HUMAN] Merge Release Please PR [#3](https://github.com/edwardlthompson/linkslander-edwardlthompson/pull/3) (`chore(main): release 2.1.1`) — branch protection blocks agent merge (required checks / review)
 - 🔲 [HUMAN] Run weekly CVE triage pass per `docs/SECURITY_TRIAGE.md` (recommended: Monday)
-- 🔲 [AGENT] Apply Dependabot dependency bumps and open PRs as needed
-
-### Optional
-
 - 🔲 [HUMAN] Editorial pass on Language Comparison cognate rows (`site/scripts/gen-roots-table.py`)
 - 🔲 [HUMAN] Install pre-commit hooks locally (`pip install pre-commit && pre-commit install`)
+
+### Weekly (recurring)
+
+- 🔲 [AGENT] Apply Dependabot dependency bumps and open PRs as needed
 
 ---
 
 ## Archived sprints
 
-All feature and audit sprints complete through **v2.1.0**. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+All feature and audit sprints complete through **v2.1.0**. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md). FOSS Cursor surface push landed on `main` (`bc6c091`); app tag **v2.1.1** awaits PR #3 merge.
 
 Future app releases are automated via Release Please on push to `main`.
