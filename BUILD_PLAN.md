@@ -29,7 +29,8 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ### Human & device (after automation)
 
-- 🔲 [HUMAN] Merge Release Please PR [#3](https://github.com/edwardlthompson/linkslander-edwardlthompson/pull/3) (`chore(main): release 2.1.1`) — branch protection blocks agent merge (required checks / review)
+- ✅ [HUMAN] Merge Release Please PR [#3](https://github.com/edwardlthompson/linkslander-edwardlthompson/pull/3) (`v2.1.1` published 2026-07-22)
+- 🔲 [HUMAN] Set repo secret `AUTOMERGE_TOKEN` via `pwsh scripts/setup-automerge-token.ps1` (PAT) so future release PRs auto-run CI and auto-merge
 - 🔲 [HUMAN] Run weekly CVE triage pass per `docs/SECURITY_TRIAGE.md` (recommended: Monday)
 - 🔲 [HUMAN] Editorial pass on Language Comparison cognate rows (`site/scripts/gen-roots-table.py`)
 - 🔲 [HUMAN] Install pre-commit hooks locally (`pip install pre-commit && pre-commit install`)
@@ -42,6 +43,6 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ## Archived sprints
 
-All feature and audit sprints complete through **v2.1.0**. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md). FOSS Cursor surface push landed on `main` (`bc6c091`); app tag **v2.1.1** awaits PR #3 merge.
+All feature and audit sprints complete through **v2.1.1**. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
 
 Future app releases are automated via Release Please on push to `main`.

@@ -13,11 +13,12 @@
   - Block force pushes and branch deletion
   - Required status checks (strict):
     - `Trivy FS Scan` (Security Scan)
-    - `Analyze (javascript-typescript)` (CodeQL)
+    - `Analyze (javascript-typescript) (javascript-typescript)` (CodeQL matrix job name)
     - `Validate Bootstrap Artifacts` (CI)
     - `Web — Lint, Test, Build` (CI)
     - `Site — PWA E2E and Lighthouse` (CI)
   - Reference config: [`.github/ruleset-main-protection.json`](../.github/ruleset-main-protection.json)
+- [x] **Allow auto-merge** — enabled (Settings → General → Pull Requests)
 
 ## Dependabot status (2026-06-13)
 
@@ -27,6 +28,24 @@
 - **Version-update PRs:** none yet (weekly schedule; first bumps expected within 7 days)
 
 ## Remaining (optional / recommended)
+
+### Release Please auto-merge (recommended)
+
+So release PRs merge when checks go green without a human click:
+
+1. Create a classic PAT (`repo` + `workflow`) or fine-grained token (Contents + Pull requests + Workflows) for this repo.
+2. Store it as the repo secret `AUTOMERGE_TOKEN`:
+
+```powershell
+pwsh scripts/setup-automerge-token.ps1
+# or: gh secret set AUTOMERGE_TOKEN
+```
+
+3. Workflows already wired:
+   - [`.github/workflows/release-please-automerge.yml`](../.github/workflows/release-please-automerge.yml) — queues `gh pr merge --auto` for `release-please--*` PRs
+   - [`.github/workflows/release-please.yml`](../.github/workflows/release-please.yml) — uses `AUTOMERGE_TOKEN` when present so PR CI is not stuck in `action_required`
+
+Without the PAT, Release Please PRs from `GITHUB_TOKEN` often need a one-time **Approve and run workflows** click before required checks appear.
 
 ### GitHub Pages Enforce HTTPS toggle (Cloudflare)
 

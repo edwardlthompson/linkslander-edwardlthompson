@@ -31,7 +31,7 @@
         "strict_required_status_checks_policy": true,
         "required_status_checks": [
           { "context": "Trivy FS Scan" },
-          { "context": "Analyze (javascript-typescript)" },
+          { "context": "Analyze (javascript-typescript) (javascript-typescript)" },
           { "context": "Validate Bootstrap Artifacts" },
           { "context": "Web — Lint, Test, Build" },
           { "context": "Site — PWA E2E and Lighthouse" }

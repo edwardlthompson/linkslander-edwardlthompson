@@ -21,14 +21,17 @@ jobs:
       - uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v4
         id: release
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Prefer AUTOMERGE_TOKEN (PAT) so the release PR is not authored solely with
+          # GITHUB_TOKEN — otherwise PR workflows often sit in action_required and never
+          # satisfy required checks for auto-merge.
+          token: ${{ secrets.AUTOMERGE_TOKEN || secrets.GITHUB_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 
       - name: Sync app version on release PR
         if: steps.release.outputs.prs_created == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTOMERGE_TOKEN || secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ fromJSON(steps.release.outputs.pr).number }}
         run: |
           gh pr checkout "$PR_NUMBER"
@@ -44,6 +47,6 @@ jobs:
       - name: Trigger SBOM asset upload
         if: steps.release.outputs.release_created == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.AUTOMERGE_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           gh workflow run release.yml --ref main -f "tag=${{ steps.release.outputs.tag_name }}"

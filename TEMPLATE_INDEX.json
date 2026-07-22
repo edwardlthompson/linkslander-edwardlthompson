@@ -1261,6 +1261,34 @@
       "read_when": "prompt_needed",
       "update_when": "milestone_boundary",
       "owner": "maintainer"
+    },
+    {
+      "path": ".github/workflows/release-please-automerge.yml",
+      "purpose": "Queue auto-merge for Release Please PRs when checks pass",
+      "read_when": "validation",
+      "update_when": "milestone_boundary",
+      "owner": "maintainer"
+    },
+    {
+      "path": "scripts/setup-automerge-token.sh",
+      "purpose": "Set AUTOMERGE_TOKEN repo secret for release/Dependabot merge CI",
+      "read_when": "prompt_needed",
+      "update_when": "milestone_boundary",
+      "owner": "human"
+    },
+    {
+      "path": "scripts/setup-automerge-token.ps1",
+      "purpose": "Windows wrapper to set AUTOMERGE_TOKEN secret",
+      "read_when": "prompt_needed",
+      "update_when": "milestone_boundary",
+      "owner": "human"
+    },
+    {
+      "path": "scripts/merge-release-please-pr.sh",
+      "purpose": "Manually merge or queue Release Please PR",
+      "read_when": "prompt_needed",
+      "update_when": "milestone_boundary",
+      "owner": "maintainer"
     }
   ],
   "modules": {
