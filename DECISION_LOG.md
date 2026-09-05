@@ -64,3 +64,9 @@
 - **Alternatives considered:** External hosted page; 4-column Romance-only layout — rejected (on-site PWA offline + German comparison valued).
 - **Consequences:** Service worker `matrix-cache-v7`; 14 site Playwright tests; Release Please minor bump expected.
 
+### 2026-09-05 — Partial contacts encryption gate (#MyContacts)
+- **Status:** Accepted
+- **Context:** Need shareable access to Direct Contact / Social Networks / contact card without leaving them trivially scrapable on the public Pages document.
+- **Decision:** Encrypt private fragment to AES-GCM payload; auto-unlock via `/#MyContacts`; strip fragment/VCF from Pages artifact; show icon labels; freeze profile avatar (no float, locked aspect-ratio).
+- **Alternatives considered:** Whole-page Staticrypt — rejected (must keep Other/Adventure/Payments public); Cloudflare Access — rejected for this change (dashboard-only, not in-repo FOSS path).
+- **Consequences:** Live-site scrape friction only; git still has plaintext fragment. See `docs/adr/0003-contacts-encryption-gate.md`.

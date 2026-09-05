@@ -4,8 +4,11 @@
   "license": "MIT",
   "version": "2.1.3",
   "scripts": {
-    "start": "serve . -l 4321",
+    "start": "node node_modules/serve/build/main.js . -l 4321",
     "test:e2e": "playwright test",
+    "test:unit": "node scripts/test-contacts-crypto.mjs",
+    "encrypt-contacts": "node scripts/encrypt-contacts.mjs",
+    "test": "npm run test:unit && npm run test:e2e",
     "lighthouse": "lhci autorun"
   },
   "devDependencies": {

@@ -39,6 +39,12 @@ h1, h2, h3, h4, h5, h6, a, .download-btn, .icons li a {
 .profile-img {
     border: 2px solid rgba(0, 255, 70, 0.4);
     box-shadow: 0 0 12px 2px rgba(0,255,70,0.25);
+    width: 180px;
+    height: 180px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .download-btn {
@@ -73,4 +79,61 @@ h1, h2, h3, h4, h5, h6, a, .download-btn, .icons li a {
     border-color: #ffffff;
     color: #000;
     transform: scale(1.05);
+}
+
+
+
+/* Contacts lock panel */
+.contacts-lock {
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+    padding: 1rem 1.25rem;
+    text-align: center;
+}
+
+.contacts-lock-copy,
+.contacts-phrase-label {
+    font-family: 'Courier New', Courier, monospace;
+    color: #e5e7eb;
+}
+
+.contacts-phrase-label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.35rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.contacts-unlock-form {
+    max-width: 320px;
+    margin: 0.75rem auto 0 auto;
+    text-align: left;
+}
+
+.contacts-phrase-input {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 255, 70, 0.35);
+    color: #e5e7eb;
+}
+
+.contacts-phrase-input:focus {
+    border-color: rgba(0, 255, 70, 0.8);
+    box-shadow: 0 0 0 0.2rem rgba(0, 255, 70, 0.15);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+.contacts-unlock-error {
+    color: #ff8a80;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.private-contacts-root[hidden],
+.contacts-lock[hidden] {
+    display: none !important;
 }

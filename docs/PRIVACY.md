@@ -46,3 +46,7 @@ If processing EU personal data:
 ## Contact
 
 Privacy inquiries: see maintainers in `.github/CODEOWNERS` or `SECURITY.md`.
+
+## Contacts gate
+
+Private contact details on the landing page are encrypted at rest in the published static files and revealed only after the visitor uses the share link/phrase. The site still does not collect visitor analytics by default. Payment links under Payments / Tips remain public by product choice.

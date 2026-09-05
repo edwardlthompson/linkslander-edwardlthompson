@@ -23,9 +23,50 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Encrypt private contacts payload
+        working-directory: site
+        run: |
+          npm ci
+          npm run encrypt-contacts
+      - name: Stage Pages artifact without private sources
+        run: |
+          python3 - <<'PY'
+          import shutil
+          from pathlib import Path
+
+          src = Path("site")
+          dst = Path("/tmp/pages-site")
+          if dst.exists():
+              shutil.rmtree(dst)
+          shutil.copytree(
+              src,
+              dst,
+              ignore=shutil.ignore_patterns(
+                  "fragments",
+                  "*.vcf",
+                  "e2e",
+                  "scripts",
+                  "playwright.config.ts",
+                  "package.json",
+                  "package-lock.json",
+                  "node_modules",
+                  "test-results",
+                  "playwright-report",
+              ),
+          )
+          legacy = dst / "img" / "image01.jpg"
+          if legacy.exists():
+              legacy.unlink()
+          print("staged", dst, "entries", len(list(dst.rglob("*"))))
+          PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: site
+          path: /tmp/pages-site
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -8,15 +8,21 @@
         font-size: 0.95rem;
     }
     .profile-img {
-        width: 60px;
-        height: 60px;
+        width: 120px;
+        height: 120px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
     }
     main h1 {
         font-size: 1.25rem;
     }
-    .icons li a {
+    .icons li a .icon-circle {
         height: 2.5em;
         width: 2.5em;
+    }
+    .icons li a .label {
+        font-size: 0.6rem;
     }
     .icons li a svg, .icons li a img {
         height: 70%;
@@ -25,13 +31,14 @@
 }
 
 @media (max-width: 767px) {
-    .profile-img-container, .profile-img {
-        width: 180px !important;
-        height: 180px !important;
-        max-width: 60% !important;
+    .profile-img {
+        width: 160px;
+        height: 160px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
         margin-left: auto;
         margin-right: auto;
-        border: 2px solid rgba(0, 255, 70, 0.4);
     }
 }
 
@@ -41,13 +48,16 @@
         opacity: 0.2;
     }
     .profile-img {
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
     }
     main h1 {
         font-size: 1.5rem;
     }
-    .icons li a {
+    .icons li a .icon-circle {
         height: 3em;
         width: 3em;
     }

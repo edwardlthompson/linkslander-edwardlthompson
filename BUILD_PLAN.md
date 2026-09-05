@@ -27,6 +27,11 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ## Sprint 2 — Ongoing Maintenance (active)
 
+### Feature — Contacts gate + icon labels + static avatar
+
+- ✅ [AGENT] Show one-word labels under icons; lock private Direct Contact / Social / card behind `#MyContacts` AES-GCM gate; static aspect-locked avatar (`img/p.jpg`); Pages artifact strip + SW/docs/e2e updates
+
+
 ### Human & device (after automation)
 
 - ✅ [HUMAN] Merge Release Please PR [#3](https://github.com/edwardlthompson/linkslander-edwardlthompson/pull/3) (`v2.1.1` published 2026-07-22)
