@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.1.3...v2.2.0) (2026-09-05)
+
+
+### Added
+
+* **site:** icon labels, static avatar, and #MyContacts gate ([#13](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/13)) ([bb7a79c](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/bb7a79c2ce6360286df3575b67daa7d765bb6d24))
+* **site:** uniform brand glyphs and portal icon polish ([d860dc0](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/d860dc072664dcb8ae109df4d382c208fc12c863))
+
+
+### Fixed
+
+* **site:** show icon labels and fix Snapchat/TikTok/YouTube sizing ([#14](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/14)) ([c97b7f4](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/c97b7f4f0981eab7fd19314f4e9c05ed298b47f6))
+
+
+### Documentation
+
+* mark portal UI polish done and add KB-008 ([f55e427](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/f55e4273385695ab9d6d5caabd00b1ba26e74404))
+* note v2.1.3 ship and Dependabot High remediation ([eaba40a](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/eaba40afd75c566d8970a0ef4a0737697685455c))
+
 ## [2.1.3](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.1.2...v2.1.3) (2026-07-22)
 
 
