@@ -39,8 +39,12 @@ const committed = JSON.parse(
   readFileSync(join(siteRoot, "js", "contacts.payload.json"), "utf8")
 );
 const html = await ContactsCrypto.decryptContacts(committed, phrase);
-if (!html.includes("matrix-identity") || !html.includes("Direct Contact")) {
+if (!html.includes("download-contact-card") || !html.includes("Direct Contact")) {
   console.error("committed payload decrypt content unexpected");
+  process.exit(1);
+}
+if (html.includes("matrix-identity") || html.includes('src="img/p.jpg"')) {
+  console.error("identity should be public HTML, not in encrypted payload");
   process.exit(1);
 }
 console.log("contacts-crypto tests passed");

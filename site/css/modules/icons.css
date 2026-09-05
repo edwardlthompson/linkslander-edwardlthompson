@@ -1,6 +1,6 @@
-/* Social icon grid and brand treatments */
+/* Social icon grid — uniform app-drawer circles (same size + padding) */
 .icons {
-    gap: 0.85em 1.1em;
+    gap: 1em 1.25em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 5.25em;
+    width: 5.5em;
 }
 
 .icons li a {
@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4em;
+    gap: 0.45em;
     height: auto;
     width: 100%;
     border-radius: 0;
@@ -34,12 +34,13 @@
     min-width: 48px;
     margin-bottom: 0;
     padding: 0;
-    opacity: 1;
+    opacity: 1 !important;
     transform: none;
-    animation: fadeInUp 0.6s ease-out both;
+    animation: none;
     transition: transform 0.375s ease;
 }
 
+/* One plate style for every icon */
 .icons li a .icon-circle {
     border-radius: 100%;
     height: 4em;
@@ -51,87 +52,87 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    box-shadow: 0 0 0 0.125rem #000000;
+    background-color: #000000 !important;
+    box-shadow: 0 0 0 0.125rem #e5e7eb;
     transition: transform 0.375s ease, box-shadow 0.375s ease;
 }
 
-.icons a.telegram .icon-circle,
-.icons a.whatsapp .icon-circle,
-.icons a.fb-messenger .icon-circle,
-.icons a.discord .icon-circle,
-.icons a.phone .icon-circle,
-.icons a.email .icon-circle,
-.icons a.snapchat .icon-circle,
-.icons a.instagram .icon-circle,
-.icons a.fb .icon-circle,
-.icons a.bereal .icon-circle,
-.icons a.rednote .icon-circle,
-.icons a.linkedin .icon-circle,
-.icons a.youtube .icon-circle,
-.icons a.steam .icon-circle,
-.icons a.imdb .icon-circle,
-.icons a.github .icon-circle,
-.icons a.paypal .icon-circle,
-.icons a.venmo .icon-circle,
-.icons a.bitcoin .icon-circle,
-.icons a.ethereum .icon-circle,
-.icons a.upwork .icon-circle,
-.icons a.IWWYV .icon-circle,
-.icons a.gv .icon-circle,
-.icons a.tiktok .icon-circle,
-.icons a.twitter .icon-circle,
-.icons a.tripadvisor .icon-circle,
-.icons a.word-connections .icon-circle {
-    background-color: #e5e7eb !important;
-}
-
+/* Identical glyph budget — no per-brand size exceptions */
 .icons li a .icon-circle svg,
 .icons li a .icon-circle img.icon {
-    height: 72%;
-    width: 72%;
-    max-height: 72%;
-    max-width: 72%;
-    object-fit: contain;
-    object-position: center;
-    transition: fill 0.375s ease;
+    height: 58% !important;
+    width: 58% !important;
+    max-height: 58% !important;
+    max-width: 58% !important;
+    object-fit: contain !important;
+    object-position: center !important;
 }
 
-/* Tiny favicon-derived assets need a larger fill */
-.icons a.youtube .icon-circle img.icon,
-.icons a.tiktok .icon-circle img.icon,
-.icons a.snapchat .icon-circle img.icon {
-    height: 82%;
-    width: 82%;
-    max-height: 82%;
-    max-width: 82%;
+/* IWWYV bitmap seal (IHPRT uses vector heart at default seal size) */
+.icons a.IWWYV .icon-circle img.icon {
+    height: 69% !important;
+    width: 69% !important;
+    max-height: 69% !important;
+    max-width: 69% !important;
 }
 
-.icons li a .label {
+.icons a.tripadvisor .icon-circle img.icon {
+    height: 77% !important;
+    width: 77% !important;
+    max-height: 77% !important;
+    max-width: 77% !important;
+}
+
+/* Call: same plate budget as other marks (handset path is sparse) */
+.icons a.gv .icon-circle img.icon {
+    height: 70% !important;
+    width: 70% !important;
+    max-height: 70% !important;
+    max-width: 70% !important;
+}
+
+/* IMDb wordmark: +15% vs default glyph budget */
+.icons a.imdb .icon-circle img.icon {
+    height: 67% !important;
+    width: 67% !important;
+    max-height: 67% !important;
+    max-width: 67% !important;
+}
+
+/* Yellow marks need an extra dark outline against black plates */
+.icons a.snapchat .icon-circle img.icon,
+.icons a.imdb .icon-circle img.icon {
+    filter:
+        drop-shadow(0 0 0.7px #000)
+        drop-shadow(0.55px 0.55px 0 #000)
+        drop-shadow(-0.55px -0.55px 0 #000)
+        drop-shadow(0.55px -0.55px 0 #000)
+        drop-shadow(-0.55px 0.55px 0 #000);
+}
+
+.icons li a .icon-name {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    position: static !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: 5.5rem;
+    margin: 0;
+    padding: 0;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #e5e7eb;
-    text-shadow: 0 0 5px rgba(0, 255, 70, 0.5), 0 0 10px rgba(0, 255, 70, 0.2);
-    max-width: 5.25rem;
-    line-height: 1.15;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: #f3f4f6 !important;
+    text-shadow: none !important;
+    line-height: 1.2;
     text-align: center;
     white-space: normal;
     overflow: visible;
     word-break: break-word;
-    hyphens: auto;
 }
-
-.icons li:nth-child(1) a { animation-delay: 0.1s; }
-.icons li:nth-child(2) a { animation-delay: 0.2s; }
-.icons li:nth-child(3) a { animation-delay: 0.3s; }
-.icons li:nth-child(4) a { animation-delay: 0.4s; }
-.icons li:nth-child(5) a { animation-delay: 0.5s; }
-.icons li:nth-child(6) a { animation-delay: 0.6s; }
-.icons li:nth-child(7) a { animation-delay: 0.7s; }
 
 .icons li a:focus {
     outline: 2px solid #007bff;
@@ -141,7 +142,7 @@
 .icons li a:focus .icon-circle,
 .icons li a:hover .icon-circle {
     transform: scale(1.12);
-    box-shadow: 0 8px 32px 0 var(--hover-glow, rgba(0,0,0,0.22)), 0 2px 8px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 0 0 0.125rem #e5e7eb, 0 8px 32px 0 var(--hover-glow, rgba(0,0,0,0.22));
 }
 
 .icons li a:hover {
@@ -155,11 +156,13 @@
 .icons a.discord:hover { --hover-glow: rgba(88, 101, 242, 0.5); }
 .icons a.snapchat:hover { --hover-glow: rgba(255, 252, 0, 0.5); }
 .icons a.email:hover { --hover-glow: rgba(234, 67, 53, 0.5); }
-.icons a.twitter:hover { --hover-glow: rgba(0, 0, 0, 0.5); }
+.icons a.twitter:hover { --hover-glow: rgba(255, 255, 255, 0.35); }
 .icons a.instagram:hover { --hover-glow: rgba(225, 48, 108, 0.5); }
 .icons a.fb:hover { --hover-glow: rgba(24, 119, 242, 0.5); }
 .icons a.tiktok:hover { --hover-glow: rgba(255, 0, 80, 0.5); }
 .icons a.linkedin:hover { --hover-glow: rgba(10, 102, 194, 0.5); }
 .icons a.youtube:hover { --hover-glow: rgba(255, 0, 0, 0.5); }
-.icons a.github:hover { --hover-glow: rgba(36, 41, 46, 0.5); }
+.icons a.github:hover { --hover-glow: rgba(255, 255, 255, 0.35); }
 .icons a.word-connections:hover { --hover-glow: rgba(0, 255, 70, 0.5); }
+.icons a.upwork:hover { --hover-glow: rgba(111, 218, 68, 0.5); }
+.icons a.venmo:hover { --hover-glow: rgba(0, 140, 255, 0.5); }

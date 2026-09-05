@@ -86,10 +86,22 @@
     });
   }
 
+  function stripPublicIdentity(scope) {
+    scope.querySelectorAll("img.profile-img, .name-card, h1.matrix-identity").forEach((el) => {
+      const card = el.closest(".name-card");
+      if (card) {
+        card.remove();
+        return;
+      }
+      el.remove();
+    });
+  }
+
   function injectHtml(html) {
     const root = rootEl();
     if (!root) throw new Error("Missing private contacts root");
     const doc = new DOMParser().parseFromString(html, "text/html");
+    stripPublicIdentity(doc.body);
     root.replaceChildren(...Array.from(doc.body.childNodes));
     root.hidden = false;
     hideLock();

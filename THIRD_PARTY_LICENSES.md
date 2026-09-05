@@ -17,7 +17,12 @@ Bootstrap is vendored locally (not loaded from CDN) for offline PWA reliability.
 
 ## Brand Icon Assets
 
-Icons under `site/img/` are official brand assets from their respective platforms, used for link identification only. Not redistributed as standalone products.
+| Asset | Location | License |
+|-------|----------|---------|
+| Simple Icons brand glyphs | `site/img/brands/*.svg` | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) ([simple-icons](https://simpleicons.org)) |
+| Custom / site-specific marks | `site/img/{GV,IWWYV,heart_transparent,word-connections}.*` | Site assets |
+
+Simple Icons glyphs are vendored locally (not CDN) for offline PWA use. Brand names remain trademarks of their owners; marks identify outbound links only.
 
 ## Dev Dependencies (npm)
 

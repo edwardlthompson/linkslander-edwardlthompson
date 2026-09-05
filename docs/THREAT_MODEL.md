@@ -62,8 +62,8 @@ No backend, API, database, or user authentication.
 
 | Item | Detail |
 |------|--------|
-| Goal | Reduce casual scraping/indexing of Direct Contact, Social Networks, profile card, and VCF |
+| Goal | Reduce casual scraping/indexing of Direct Contact, Social Networks, and VCF |
 | Mechanism | PBKDF2 + AES-GCM payload; unlock via `#MyContacts` / phrase form |
-| Not covered | Determined attackers with the phrase, repo collaborators reading `site/fragments/`, direct fetches of opaque `img/p.jpg` if guessed |
+| Not covered | Determined attackers with the phrase, repo collaborators reading `site/fragments/`; public photo/name are intentional |
 | Deploy controls | Pages artifact omits `fragments/` and `*.vcf`; SW does not precache VCF |
 | Human follow-up | Purge Cloudflare cache for legacy `/edward_lee_thompson_.vcf` and old HTML after first gated deploy |

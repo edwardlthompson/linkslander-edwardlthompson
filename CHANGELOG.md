@@ -45,6 +45,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **site:** one-word labels under portal icons
 - **site:** `#MyContacts` AES-GCM gate for Direct Contact / Social Networks / contact card
 - **site:** Pages deploy encrypts contacts payload and strips `fragments/` + `*.vcf` from the artifact
+- **site:** vendored brand glyphs in `site/img/brands/` (Simple Icons + custom marks) on uniform black circular plates
+
+### Changed
+
+- **site:** public identity (photo + name) visible without unlock; contacts remain behind the phrase gate
+- **site:** icon optical sizing polish (IWWYV/IHPRT/IMDb/Call/Venmo/PayPal)
 
 ### Fixed
 

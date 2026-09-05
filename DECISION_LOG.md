@@ -16,6 +16,13 @@
 
 ## Entries
 
+### 2026-09-05 — Uniform brand glyph plates
+- **Status:** Accepted
+- **Context:** User wanted app-drawer style icons: high-contrast glyphs on black circles with labels always visible; outliers (Venmo V, PayPal dual-blue, IHPRT heart flag, Call size, IWWYV/IMDb optical sizing) iterated to lock.
+- **Decision:** Vendor brand SVGs under `site/img/brands/`; CSS uses black plates + light ring + 58% default glyph budget with narrow exceptions (IWWYV, IHPRT, IMDb, Call); SW `matrix-cache-v37`.
+- **Alternatives considered:** Keep multi-color brand circle backgrounds — rejected (user preferred uniform black plates).
+- **Consequences:** Returning visitors need SW update/hard refresh; icon assets are local FOSS/custom marks (see `THIRD_PARTY_LICENSES.md`).
+
 ### 2026-09-05 — Portal UI polish (labels + brand PNGs)
 - **Status:** Accepted
 - **Context:** After `#MyContacts` gate (PR #13), live UI still hid under-icon labels (`opacity: 0` fade) and used tiny Snapchat/TikTok/YouTube `.ico` assets; avatar float persisted for cached clients.

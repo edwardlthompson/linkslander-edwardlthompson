@@ -9,7 +9,7 @@
 |-------|-----------|---------|-------|
 | Frontend | Vanilla JavaScript + HTML5 Canvas | — | Custom Matrix physics engine |
 | UI | Bootstrap 5 (vendored) + custom CSS | 5.3.3 | `site/vendor/`; glassmorphism, always-dark theme |
-| PWA | Service Worker + Web Manifest | — | Cache-first offline (`matrix-cache-v11`) |
+| PWA | Service Worker + Web Manifest | — | Cache-first offline (`matrix-cache-v37`) |
 | Audio | Web Audio API | — | Click ripple feedback |
 | Hosting | GitHub Pages (Actions) | — | Deploy artifact from `site/` |
 | License | MIT | — | Pure FOSS |

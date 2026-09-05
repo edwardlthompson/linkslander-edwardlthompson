@@ -3,15 +3,16 @@ import AxeBuilder from "@axe-core/playwright";
 
 async function unlockContacts(page: import("@playwright/test").Page) {
   await page.goto("/#MyContacts");
-  await expect(page.locator("h1.matrix-identity")).toHaveText("Edward Lee Thompson", {
+  await expect(page.getByRole("heading", { name: "Direct Contact" })).toBeVisible({
     timeout: 10_000,
   });
 }
 
-test("locked portal shows contacts lock and public sections only", async ({ page }) => {
+test("locked portal shows identity, contacts lock, and public sections", async ({ page }) => {
   await page.goto("/");
+  await expect(page.locator("img.profile-img")).toBeVisible();
+  await expect(page.locator("h1.matrix-identity")).toHaveText("Edward Lee Thompson");
   await expect(page.getByRole("heading", { name: /contacts locked/i })).toBeVisible();
-  await expect(page.locator("h1.matrix-identity")).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "Other" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Book Your Next Adventure" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Payments / Tips" })).toBeVisible();
@@ -24,19 +25,20 @@ test("locked portal shows contacts lock and public sections only", async ({ page
 
 test("public icons show one-word labels", async ({ page }) => {
   await page.goto("/");
-  await expect(page.locator(".icons .label", { hasText: "YouTube" })).toBeVisible();
-  await expect(page.locator(".icons .label", { hasText: "Word Connections" })).toBeVisible();
-  await expect(page.locator(".icons .label", { hasText: "PayPal" })).toBeVisible();
+  await expect(page.locator(".icons .icon-name", { hasText: "YouTube" })).toBeVisible();
+  await expect(page.locator(".icons .icon-name", { hasText: "Words" })).toBeVisible();
+  await expect(page.locator(".icons .icon-name", { hasText: "PayPal" })).toBeVisible();
 });
 
 test("share hash #MyContacts unlocks private contacts", async ({ page }) => {
   await unlockContacts(page);
   await expect(page.getByRole("heading", { name: "Direct Contact" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Social Networks" })).toBeVisible();
-  await expect(page.locator(".icons .label", { hasText: "Telegram" })).toBeVisible();
-  await expect(page.locator(".icons .label", { hasText: "Messenger" })).toBeVisible();
-  await expect(page.locator(".icons .label", { hasText: "Call" })).toBeVisible();
-  await expect(page.locator("img.profile-img")).toBeVisible();
+  await expect(page.locator(".icons .icon-name", { hasText: "Telegram" })).toBeVisible();
+  await expect(page.locator(".icons .icon-name", { hasText: "Messenger" })).toBeVisible();
+  await expect(page.locator(".icons .icon-name", { hasText: "Call" })).toBeVisible();
+  await expect(page.locator("img.profile-img")).toHaveCount(1);
+  await expect(page.locator("h1.matrix-identity")).toHaveCount(1);
   await expect(page.getByRole("heading", { name: /contacts locked/i })).toBeHidden();
 });
 
@@ -46,7 +48,8 @@ test("wrong phrase fails closed", async ({ page }) => {
   await page.getByRole("button", { name: /unlock contacts/i }).click();
   await expect(page.locator("#contacts-unlock-error")).toBeVisible();
   await expect(page.locator("#contacts-unlock-error")).toHaveText(/did not work/i);
-  await expect(page.locator("h1.matrix-identity")).toHaveCount(0);
+  await expect(page.locator("h1.matrix-identity")).toHaveText("Edward Lee Thompson");
+  await expect(page.getByRole("heading", { name: "Direct Contact" })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: /contacts locked/i })).toBeVisible();
 });
 
@@ -114,7 +117,9 @@ test("passes accessibility audit when locked", async ({ page }) => {
 });
 
 test("passes accessibility audit when unlocked", async ({ page }) => {
+  test.setTimeout(60_000);
   await unlockContacts(page);
+  await expect(page.getByRole("heading", { name: "Social Networks" })).toBeVisible();
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });

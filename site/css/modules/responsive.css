@@ -27,9 +27,9 @@
         height: 2.75em;
         width: 2.75em;
     }
-    .icons li a .label {
-        font-size: 0.55rem;
-        max-width: 4.25rem;
+    .icons li a .icon-name {
+        font-size: 0.72rem;
+        max-width: 4.5rem;
     }
     .icons li a .icon-circle svg, .icons li a .icon-circle img.icon {
         height: 78%;
