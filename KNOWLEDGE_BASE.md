@@ -73,3 +73,9 @@
 | **Cause** | Bootstrap was CDN-only; `sw.js` ASSETS list incomplete or `cache.addAll()` failed silently on one bad path |
 | **Fix** | Vendor Bootstrap under `site/vendor/bootstrap-5.3.3/`; list all runtime assets in `sw.js`; use `Promise.allSettled` on install; bump `CACHE_NAME` when asset set changes |
 | **Prevention** | After adding images or vendor files, grep `site/index.html` for `src=` / `href=` and sync `ASSETS`; run offline smoke in `site/e2e/site.spec.ts` |
+
+## KB — /ship blocked on PR permissions (2026-09-05)
+
+- **Symptom:** Cloud agent cannot `gh pr create` / REST create PR (`403 Resource not accessible by integration`). Direct `git push origin main` rejected: linear history + 5 required status checks.
+- **Workaround:** Human opens PR from `cursor/labels-gate-avatar-2c87` → `main`, waits for CI, merges (squash/rebase). Then re-run `/ship` or Release Please path.
+- **Local gates:** feature-gate (web/multi after npm ci), license, readme, bootstrap --quick, contacts unit tests — green on the feature branch.
