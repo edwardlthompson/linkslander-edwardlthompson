@@ -95,3 +95,10 @@ Required workflows: **CI**, **Security Scan**, **CodeQL**, **Deploy GitHub Pages
 ## Sign-off
 
 When remaining optional items are done, approve Sprint 0 in [`BUILD_PLAN.md`](../BUILD_PLAN.md).
+
+## After contacts-gate deploy (required once)
+
+1. Confirm `https://edwardlthompson.com/` shows **Contacts Locked** without `#MyContacts`.
+2. Confirm `https://edwardlthompson.com/#MyContacts` unlocks Direct Contact / Social Networks.
+3. Confirm `https://edwardlthompson.com/edward_lee_thompson_.vcf` is **404** (or Cloudflare challenge), not a contact card.
+4. **[HUMAN]** Purge Cloudflare cache for `/`, `/index.html`, and `/edward_lee_thompson_.vcf` (and any old HTML) so edge nodes drop the pre-gate copies.

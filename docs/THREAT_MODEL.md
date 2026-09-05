@@ -29,7 +29,7 @@ No backend, API, database, or user authentication.
 | Spoofing | DNS hijack of edwardlthompson.com | CNAME + HTTPS via GitHub Pages | HUMAN |
 | Tampering | Compromised GitHub repo push | Branch protection, CODEOWNERS, required CI | HUMAN |
 | Repudiation | N/A (no server-side actions) | — | — |
-| Information disclosure | PII in public repo | Contact info is intentionally public; no secrets in VCS | AGENT |
+| Information disclosure | PII in public repo | Direct contact/social details gated behind client-side AES-GCM share phrase; no server secrets in VCS | AGENT |
 | Denial of service | GitHub Pages outage | Monitor health-check workflow | AUTO |
 | Elevation of privilege | Malicious workflow injection | PR review for `.github/`, pinned action SHAs | HUMAN |
 
@@ -57,3 +57,13 @@ No backend, API, database, or user authentication.
 
 - `[HUMAN]` Review at each milestone boundary
 - `[AGENT]` Update when architecture or data flows change (append ADR reference)
+
+## Contacts share-phrase gate
+
+| Item | Detail |
+|------|--------|
+| Goal | Reduce casual scraping/indexing of Direct Contact, Social Networks, profile card, and VCF |
+| Mechanism | PBKDF2 + AES-GCM payload; unlock via `#MyContacts` / phrase form |
+| Not covered | Determined attackers with the phrase, repo collaborators reading `site/fragments/`, direct fetches of opaque `img/p.jpg` if guessed |
+| Deploy controls | Pages artifact omits `fragments/` and `*.vcf`; SW does not precache VCF |
+| Human follow-up | Purge Cloudflare cache for legacy `/edward_lee_thompson_.vcf` and old HTML after first gated deploy |

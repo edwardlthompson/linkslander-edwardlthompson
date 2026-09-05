@@ -129,6 +129,8 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - run: npm ci
+      - run: npm run encrypt-contacts
+      - run: npm run test:unit
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - run: npm run lighthouse

@@ -5,11 +5,10 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Edward Lee Thompson's personal landing page and contact links.">
-    <link rel="preload" as="image" href="img/image01.jpg">
+    <meta name="description" content="Edward Lee Thompson public portal — projects, adventures, and tips.">
     <title>Edward Lee Thompson | Digital Portal</title>
     <meta property="og:title" content="Edward Lee Thompson | Links">
-    <meta property="og:description" content="Enter the Matrix. Personal contact portal and professional links.">
+    <meta property="og:description" content="Enter the Matrix. Public portal for projects, adventures, and tips.">
     <meta property="og:image" content="https://edwardlthompson.com/img/icon-512.png">
     <meta property="og:url" content="https://edwardlthompson.com/">
     <meta property="og:type" content="website">
@@ -37,149 +36,40 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
   <main class="px-3 mb-auto mt-auto justify-content-center">
-    <img class="d-block mx-auto mb-4 profile-img" src="img/image01.jpg" alt="Edward Lee Thompson">
-    <div class="glass-panel name-card mx-auto text-center">
-      <h1 class="matrix-identity">Edward Lee Thompson</h1>
+
+    <div id="contacts-lock" class="section contacts-lock" data-contacts-lock>
+      <h1 class="matrix-header">Contacts Locked</h1>
+      <p class="contacts-lock-copy">Direct contact and social links are encrypted. Open the share link or enter the access phrase.</p>
+      <form id="contacts-unlock-form" class="contacts-unlock-form" novalidate>
+        <label for="contacts-phrase" class="contacts-phrase-label">Access phrase</label>
+        <input id="contacts-phrase" name="phrase" type="password" class="form-control contacts-phrase-input" autocomplete="current-password" aria-describedby="contacts-unlock-error" required>
+        <p id="contacts-unlock-error" class="contacts-unlock-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-sm btn-light mt-2 matrix-cta">Unlock contacts</button>
+      </form>
     </div>
-    <a role="button" class="btn btn-sm btn-light my-3 download-btn matrix-cta" href="edward_lee_thompson_.vcf">Download Contact Card</a>
-    <div class="section">
-      <h2 class="matrix-header">
-        Direct Contact
-      </h2>
-      <ul class="icons">
-      <li>
-        <a class="telegram" href="https://t.me/edwardlthompson" target="_blank" rel="noopener noreferrer" aria-label="Message on Telegram" data-bs-toggle="tooltip" data-bs-title="Telegram">
-          <img src="img/Telegram_Official.png" alt="Telegram" class="icon">
-          <span class="label">Telegram</span>
-        </a>
-      </li>
-      <li>
-        <a class="whatsapp" href="https://wa.me/14694764376" target="_blank" rel="noopener noreferrer" aria-label="Message on WhatsApp" data-bs-toggle="tooltip" data-bs-title="WhatsApp">
-          <img src="img/WhatsApp_Official.png" alt="WhatsApp" class="icon">
-          <span class="label">WhatsApp</span>
-        </a>
-      </li>
-      <li>
-        <a class="fb-messenger" href="https://www.m.me/EdwardLThompson" target="_blank" rel="noopener noreferrer" aria-label="Message on Facebook Messenger" data-bs-toggle="tooltip" data-bs-title="Facebook Messenger">
-          <img src="img/facebook-messenger-2020.svg" alt="FB Messenger" class="icon">
-          <span class="label">Facebook Messenger</span>
-        </a>
-      </li>
-      <li>
-        <a class="discord" href="https://discordapp.com/users/edwardlthompson" target="_blank" rel="noopener noreferrer" aria-label="Connect on Discord" data-bs-toggle="tooltip" data-bs-title="Discord">
-          <img src="img/Discord2.png" alt="Discord" class="icon">
-          <span class="label">Discord</span>
-        </a>
-      </li>
-      <li>
-        <a class="snapchat" href="https://www.snapchat.com/add/edwardlthompson" target="_blank" rel="noopener noreferrer" aria-label="Add on Snapchat" data-bs-toggle="tooltip" data-bs-title="Snapchat">
-          <img src="img/Snapchat_Official.ico" alt="Snapchat" class="icon">
-          <span class="label">Snapchat</span>
-        </a>
-      </li>
-      <li>
-        <a class="gv" href="tel:+17879394174" aria-label="Call +1-787-939-4174" data-bs-toggle="tooltip" data-bs-title="Call +1-787-939-4174">
-          <img src="img/GV.webp" alt="Google Voice" class="icon">
-          <span class="label">+1-787-939-4174</span>
-        </a>
-      </li>
-      <li>
-        <a class="email" href="mailto:EdwardLeeThompson@gmail.com" aria-label="Send an Email" data-bs-toggle="tooltip" data-bs-title="Email">
-          <img src="img/Gmail.png" alt="Gmail" class="icon">
-          <span class="label">Gmail</span>
-        </a>
-      </li>
-    </ul>
-    </div>
-    <div class="section">
-      <h2 class="matrix-header">
-        Social Networks
-      </h2>
-      <ul class="icons">
-      <li>
-        <a class="twitter" href="https://x.com/edleethompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Follow on X" aria-label="Visit X profile">
-          <img src="img/Twitter_Official.png" alt="X" class="icon" loading="lazy">
-          <span class="label">X</span>
-        </a>
-      </li>
-      <li>
-        <a class="instagram" href="https://www.instagram.com/edwardlthompson/" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Follow on Instagram" aria-label="Visit Instagram profile">
-          <img src="img/Instagram_Official.png" alt="Instagram" class="icon" loading="lazy">
-          <span class="label">Instagram</span>
-        </a>
-      </li>
-      <li>
-        <a class="fb" href="https://www.facebook.com/edwardlthompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Connect on Facebook" aria-label="Visit Facebook profile">
-          <img src="img/Facebook_Official.png" alt="Facebook" class="icon" loading="lazy">
-          <span class="label">Facebook</span>
-        </a>
-      </li>
-      <li>
-        <a class="bereal" href="https://bere.al/edwardlthompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Follow on BeReal" aria-label="Visit BeReal profile">
-          <img src="img/BeReal.webp" alt="BeReal" class="icon" loading="lazy">
-          <span class="label">BeReal</span>
-        </a>
-      </li>
-      <li>
-        <a class="tiktok" href="https://www.tiktok.com/@edwardlthompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Follow on TikTok" aria-label="Visit TikTok profile">
-          <img src="img/TikTok_Official2.ico" alt="TikTok" class="icon" loading="lazy">
-          <span class="label">TikTok</span>
-        </a>
-      </li>
-      <li>
-        <a class="rednote" href="https://www.xiaohongshu.com/user/profile/678873620000000008018d5d" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Follow on RedNote" aria-label="Visit RedNote profile">
-          <img src="img/RedNote.png" alt="RedNote" class="icon" loading="lazy">
-          <span class="label">RedNote</span>
-        </a>
-      </li>
-      <li>
-        <a class="linkedin" href="https://www.linkedin.com/in/edwardleethompson/" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Connect on LinkedIn" aria-label="Visit LinkedIn profile">
-          <img src="img/LinkedIn_Official.ico" alt="LinkedIn" class="icon" loading="lazy">
-          <span class="label">LinkedIn</span>
-        </a>
-      </li>
-    </ul>
-    </div>
-    <div class="section">
+    <div id="private-contacts-root" class="private-contacts-root" hidden></div>
+<div class="section">
       <h2 class="matrix-header">
         Other
       </h2>
       <ul class="icons">
       <li>
-        <a class="youtube" href="https://www.youtube.com/c/EdwardLThompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Watch on YouTube" aria-label="Visit YouTube channel">
-          <img src="img/YouTube_Official.ico" alt="YouTube" class="icon" loading="lazy">
-          <span class="label">YouTube</span>
-        </a>
+        <a class="youtube" href="https://www.youtube.com/c/EdwardLThompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Watch on YouTube" aria-label="Visit YouTube channel"><span class="icon-circle"><img src="img/YouTube_Official.ico" alt="" class="icon" loading="lazy"></span><span class="label">YouTube</span></a>
       </li>
       <li>
-        <a class="steam" href="https://steamcommunity.com/id/EdwardLThompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Connect on Steam" aria-label="Visit Steam profile">
-          <img src="img/Steam.png" alt="Steam" class="icon" loading="lazy">
-          <span class="label">Steam</span>
-        </a>
+        <a class="steam" href="https://steamcommunity.com/id/EdwardLThompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Connect on Steam" aria-label="Visit Steam profile"><span class="icon-circle"><img src="img/Steam.png" alt="" class="icon" loading="lazy"></span><span class="label">Steam</span></a>
       </li>
       <li>
-        <a class="imdb" href="https://www.imdb.com/name/nm7708369/" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="View IMDb Profile" aria-label="Visit IMDb profile">
-          <img src="img/IMDb.png" alt="IMDb" class="icon" loading="lazy">
-          <span class="label">IMDb</span>
-        </a>
+        <a class="imdb" href="https://www.imdb.com/name/nm7708369/" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="View IMDb Profile" aria-label="Visit IMDb profile"><span class="icon-circle"><img src="img/IMDb.png" alt="" class="icon" loading="lazy"></span><span class="label">IMDb</span></a>
       </li>
       <li>
-        <a class="upwork" href="https://www.upwork.com/freelancers/~01e38aedf0d82abf4e" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Hire on UpWork" aria-label="Visit UpWork profile">
-          <img src="img/UpWork.png" alt="UpWork" class="icon" loading="lazy">
-          <span class="label">UpWork</span>
-        </a>
+        <a class="upwork" href="https://www.upwork.com/freelancers/~01e38aedf0d82abf4e" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Hire on UpWork" aria-label="Visit UpWork profile"><span class="icon-circle"><img src="img/UpWork.png" alt="" class="icon" loading="lazy"></span><span class="label">UpWork</span></a>
       </li>
       <li>
-        <a class="github" href="https://github.com/edwardlthompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Follow on GitHub" aria-label="Visit GitHub profile">
-          <img src="img/GitHub_Logo.png" alt="GitHub" class="icon" loading="lazy">
-          <span class="label">GitHub</span>
-        </a>
+        <a class="github" href="https://github.com/edwardlthompson" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="Follow on GitHub" aria-label="Visit GitHub profile"><span class="icon-circle"><img src="img/GitHub_Logo.png" alt="" class="icon" loading="lazy"></span><span class="label">GitHub</span></a>
       </li>
       <li>
-        <a class="word-connections" href="word-connections.html" aria-label="Word Connections" data-bs-toggle="tooltip" data-bs-title="Word Connections">
-          <img src="img/word-connections.png" alt="Word Connections" class="icon" loading="lazy">
-          <span class="label">Word Connections</span>
-        </a>
+        <a class="word-connections" href="word-connections.html" aria-label="Word Connections" data-bs-toggle="tooltip" data-bs-title="Word Connections"><span class="icon-circle"><img src="img/word-connections.png" alt="" class="icon" loading="lazy"></span><span class="label">Words</span></a>
       </li>
     </ul>
     </div>
@@ -189,16 +79,10 @@
       </h2>
       <ul class="icons">
       <li>
-        <a class="tripadvisor" href="https://iheartprtours.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit IHPRT tours">
-          <img src="img/heart_transparent.png" alt="TripAdvisor" class="icon" loading="lazy">
-          <span class="label">IHPRT</span>
-        </a>
+        <a class="tripadvisor" href="https://iheartprtours.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit IHPRT tours"><span class="icon-circle"><img src="img/heart_transparent.png" alt="" class="icon" loading="lazy"></span><span class="label">IHPRT</span></a>
       </li>
       <li>
-        <a class="IWWYV" href="https://www.youvacationpr.com/tours" target="_blank" rel="noopener noreferrer" aria-label="Visit IWWYV tours">
-          <img src="img/IWWYV.jpg" alt="IWWYV" class="icon" loading="lazy">
-          <span class="label">IWWYV</span>
-        </a>
+        <a class="IWWYV" href="https://www.youvacationpr.com/tours" target="_blank" rel="noopener noreferrer" aria-label="Visit IWWYV tours"><span class="icon-circle"><img src="img/IWWYV.jpg" alt="" class="icon" loading="lazy"></span><span class="label">IWWYV</span></a>
       </li>
     </ul>
     </div>
@@ -208,39 +92,32 @@
       </h2>
       <ul class="icons">
       <li>
-        <a class="paypal" href="https://paypal.me/EdwardLThompson" target="_blank" rel="noopener noreferrer" aria-label="Send payment via PayPal">
-          <img src="img/PayPal.png" alt="PayPal" class="icon" loading="lazy">
-          <span class="label">PayPal</span>
-        </a>
+        <a class="paypal" href="https://paypal.me/EdwardLThompson" target="_blank" rel="noopener noreferrer" aria-label="Send payment via PayPal"><span class="icon-circle"><img src="img/PayPal.png" alt="" class="icon" loading="lazy"></span><span class="label">PayPal</span></a>
       </li>
       <li>
-        <a class="venmo" href="https://venmo.com/code?user_id=1857304970395648420" target="_blank" rel="noopener noreferrer" aria-label="Send payment via Venmo">
-          <img src="img/Venmo.png" alt="Venmo" class="icon" loading="lazy">
-          <span class="label">Venmo</span>
-        </a>
+        <a class="venmo" href="https://venmo.com/code?user_id=1857304970395648420" target="_blank" rel="noopener noreferrer" aria-label="Send payment via Venmo"><span class="icon-circle"><img src="img/Venmo.png" alt="" class="icon" loading="lazy"></span><span class="label">Venmo</span></a>
       </li>
       <li>
-        <a class="bitcoin" href="bitcoin:bc1qy0pg9ed80mh4y5fvsch6cha7peyuw3cpnqupvx" aria-label="Send Bitcoin payment">
-          <img src="img/Bitcoin.webp" alt="Bitcoin" class="icon" loading="lazy">
-          <span class="label">Bitcoin</span>
-        </a>
+        <a class="bitcoin" href="bitcoin:bc1qy0pg9ed80mh4y5fvsch6cha7peyuw3cpnqupvx" aria-label="Send Bitcoin payment"><span class="icon-circle"><img src="img/Bitcoin.webp" alt="" class="icon" loading="lazy"></span><span class="label">Bitcoin</span></a>
       </li>
       <li>
-        <a class="ethereum" href="ethereum:0xa30444AD1E2F5180EB324A88C8060D3235F106d6" aria-label="Send Ethereum payment">
-          <img src="img/Ethereum.png" alt="Ethereum" class="icon" loading="lazy">
-          <span class="label">Ethereum</span>
-        </a>
+        <a class="ethereum" href="ethereum:0xa30444AD1E2F5180EB324A88C8060D3235F106d6" aria-label="Send Ethereum payment"><span class="icon-circle"><img src="img/Ethereum.png" alt="" class="icon" loading="lazy"></span><span class="label">Ethereum</span></a>
       </li>
     </ul>
     </div>
   </main>
 
+  
+
   <footer class="mt-auto text-white-50">
     <p>© Copyright Edward Lee Thompson 2026. All Rights Reserved.</p>
   </footer>
 </div>
+
 <script src="vendor/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
 <script src="js/matrix.js"></script>
+<script src="js/contacts-crypto.js"></script>
+<script src="js/contacts-gate.js"></script>
 <script>
   document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((el) => new bootstrap.Tooltip(el));
 </script>
@@ -251,5 +128,6 @@
     });
   }
 </script>
+
     </body>
 </html>
