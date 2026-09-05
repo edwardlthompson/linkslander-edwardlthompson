@@ -25,7 +25,7 @@ test("locked portal shows contacts lock and public sections only", async ({ page
 test("public icons show one-word labels", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator(".icons .label", { hasText: "YouTube" })).toBeVisible();
-  await expect(page.locator(".icons .label", { hasText: "Words" })).toBeVisible();
+  await expect(page.locator(".icons .label", { hasText: "Word Connections" })).toBeVisible();
   await expect(page.locator(".icons .label", { hasText: "PayPal" })).toBeVisible();
 });
 
@@ -35,7 +35,7 @@ test("share hash #MyContacts unlocks private contacts", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Social Networks" })).toBeVisible();
   await expect(page.locator(".icons .label", { hasText: "Telegram" })).toBeVisible();
   await expect(page.locator(".icons .label", { hasText: "Messenger" })).toBeVisible();
-  await expect(page.locator(".icons .label", { hasText: "Voice" })).toBeVisible();
+  await expect(page.locator(".icons .label", { hasText: "Call" })).toBeVisible();
   await expect(page.locator("img.profile-img")).toBeVisible();
   await expect(page.getByRole("heading", { name: /contacts locked/i })).toBeHidden();
 });

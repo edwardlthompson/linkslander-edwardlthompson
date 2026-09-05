@@ -1,10 +1,11 @@
 /* Social icon grid and brand treatments */
 .icons {
-    gap: 0.75em 1em;
+    gap: 0.85em 1.1em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    align-items: flex-start;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -14,6 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 5.25em;
 }
 
 .icons li a {
@@ -22,19 +24,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.35em;
+    gap: 0.4em;
     height: auto;
-    width: auto;
+    width: 100%;
     border-radius: 0;
     background: transparent !important;
     box-shadow: none;
     min-height: 48px;
     min-width: 48px;
-    margin-bottom: 4px;
+    margin-bottom: 0;
     padding: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
+    animation: fadeInUp 0.6s ease-out both;
     transition: transform 0.375s ease;
 }
 
@@ -44,9 +46,11 @@
     width: 4em;
     min-height: 48px;
     min-width: 48px;
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     box-shadow: 0 0 0 0.125rem #000000;
     transition: transform 0.375s ease, box-shadow 0.375s ease;
 }
@@ -81,24 +85,44 @@
     background-color: #e5e7eb !important;
 }
 
-.icons li a svg,
-.icons li a img {
-    height: 60%;
-    width: 60%;
+.icons li a .icon-circle svg,
+.icons li a .icon-circle img.icon {
+    height: 72%;
+    width: 72%;
+    max-height: 72%;
+    max-width: 72%;
+    object-fit: contain;
+    object-position: center;
     transition: fill 0.375s ease;
 }
 
+/* Tiny favicon-derived assets need a larger fill */
+.icons a.youtube .icon-circle img.icon,
+.icons a.tiktok .icon-circle img.icon,
+.icons a.snapchat .icon-circle img.icon {
+    height: 82%;
+    width: 82%;
+    max-height: 82%;
+    max-width: 82%;
+}
+
 .icons li a .label {
-    display: block;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.04em;
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #e5e7eb;
     text-shadow: 0 0 5px rgba(0, 255, 70, 0.5), 0 0 10px rgba(0, 255, 70, 0.2);
-    max-width: 5.5rem;
-    line-height: 1.2;
+    max-width: 5.25rem;
+    line-height: 1.15;
     text-align: center;
+    white-space: normal;
+    overflow: visible;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .icons li:nth-child(1) a { animation-delay: 0.1s; }
@@ -116,12 +140,12 @@
 
 .icons li a:focus .icon-circle,
 .icons li a:hover .icon-circle {
-    transform: scale(1.15);
+    transform: scale(1.12);
     box-shadow: 0 8px 32px 0 var(--hover-glow, rgba(0,0,0,0.22)), 0 2px 8px 0 rgba(0,0,0,0.12);
 }
 
 .icons li a:hover {
-    transform: translateY(0);
+    transform: none;
     background: transparent !important;
 }
 

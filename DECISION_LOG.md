@@ -16,6 +16,13 @@
 
 ## Entries
 
+### 2026-09-05 — Portal UI polish (labels + brand PNGs)
+- **Status:** Accepted
+- **Context:** After `#MyContacts` gate (PR #13), live UI still hid under-icon labels (`opacity: 0` fade) and used tiny Snapchat/TikTok/YouTube `.ico` assets; avatar float persisted for cached clients.
+- **Decision:** Force-visible `.label` text matching short hover titles; swap to PNG brand assets; bump SW to `matrix-cache-v11`; keep partial-page encryption payload regen.
+- **Alternatives considered:** Leave tooltips-only — rejected (user wants permanent names under icons).
+- **Consequences:** Returning visitors need SW update/hard refresh; Dependabot High on Playwright transitive `extract-zip`/`undici` remain open (dev-only).
+
 ### 2026-07-21 — Partial bootstrap FOSS Cursor surface (0.15.0)
 - **Status:** Accepted
 - **Context:** Child repo was on template `0.11.1`; upstream `agent-project-bootstrap` at `v0.15.0`. Full upgrade deferred; human approved only FOSS Cursor integrations and drifted agent-doc refresh.
