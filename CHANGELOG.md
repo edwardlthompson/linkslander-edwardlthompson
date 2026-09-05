@@ -40,8 +40,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **site:** one-word labels under portal icons
+- **site:** `#MyContacts` AES-GCM gate for Direct Contact / Social Networks / contact card
+- **site:** Pages deploy encrypts contacts payload and strips `fragments/` + `*.vcf` from the artifact
+
 ### Fixed
 
+- **site:** profile avatar no longer floats; aspect-ratio and object-fit locked for low-DPI displays
 - npm overrides pin `brace-expansion@1.1.16` and `js-yaml@4.3.0` in `site/` and `examples/web/`
 - Release Please auto-merge workflow: set `GH_REPO` so `gh pr merge --auto` works without a checkout
 
