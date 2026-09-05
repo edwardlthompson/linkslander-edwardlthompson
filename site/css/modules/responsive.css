@@ -10,23 +10,33 @@
     .profile-img {
         width: 120px;
         height: 120px;
+        max-width: 120px;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         object-position: center;
+        animation: none !important;
+        transform: none !important;
     }
     main h1 {
         font-size: 1.25rem;
     }
+    .icons li {
+        width: 4.25em;
+    }
     .icons li a .icon-circle {
-        height: 2.5em;
-        width: 2.5em;
+        height: 2.75em;
+        width: 2.75em;
     }
     .icons li a .label {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
+        max-width: 4.25rem;
     }
-    .icons li a svg, .icons li a img {
-        height: 70%;
-        width: 70%;
+    .icons li a .icon-circle svg, .icons li a .icon-circle img.icon {
+        height: 78%;
+        width: 78%;
+        max-height: 78%;
+        max-width: 78%;
+        object-fit: contain;
     }
 }
 
@@ -34,9 +44,12 @@
     .profile-img {
         width: 160px;
         height: 160px;
+        max-width: 160px;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         object-position: center;
+        animation: none !important;
+        transform: none !important;
         margin-left: auto;
         margin-right: auto;
     }
@@ -50,20 +63,26 @@
     .profile-img {
         width: 120px;
         height: 120px;
+        max-width: 120px;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         object-position: center;
+        animation: none !important;
+        transform: none !important;
     }
     main h1 {
         font-size: 1.5rem;
     }
     .icons li a .icon-circle {
-        height: 3em;
-        width: 3em;
+        height: 3.25em;
+        width: 3.25em;
     }
-    .icons li a svg, .icons li a img {
-        height: 65%;
-        width: 65%;
+    .icons li a .icon-circle svg, .icons li a .icon-circle img.icon {
+        height: 75%;
+        width: 75%;
+        max-height: 75%;
+        max-width: 75%;
+        object-fit: contain;
     }
 }
 

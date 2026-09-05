@@ -1,4 +1,4 @@
-const CACHE_NAME = 'matrix-cache-v10';
+const CACHE_NAME = 'matrix-cache-v11';
 const ASSETS = [
   './',
   'index.html',
@@ -40,15 +40,15 @@ const ASSETS = [
   'img/LinkedIn_Official.ico',
   'img/PayPal.png',
   'img/RedNote.png',
-  'img/Snapchat_Official.ico',
+  'img/Snapchat.png',
   'img/Steam.png',
   'img/Telegram_Official.png',
-  'img/TikTok_Official2.ico',
+  'img/TikTok.png',
   'img/Twitter_Official.png',
   'img/UpWork.png',
   'img/Venmo.png',
   'img/WhatsApp_Official.png',
-  'img/YouTube_Official.ico',
+  'img/YT.png',
   'img/facebook-messenger-2020.svg',
   'img/heart_transparent.png',
   'img/word-connections.png',

@@ -21,7 +21,7 @@
 
 .section, .glass-panel {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .glass-panel::before, .section::before {

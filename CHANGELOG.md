@@ -49,6 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **site:** profile avatar no longer floats; aspect-ratio and object-fit locked for low-DPI displays
+- **site:** force visible icon labels; replace tiny Snapchat/TikTok/YouTube favicons with PNGs; SW cache `matrix-cache-v11`
+- **site:** align under-icon names with hover titles (Call, Email, Word Connections)
 - npm overrides pin `brace-expansion@1.1.16` and `js-yaml@4.3.0` in `site/` and `examples/web/`
 - Release Please auto-merge workflow: set `GH_REPO` so `gh pr merge --auto` works without a checkout
 
