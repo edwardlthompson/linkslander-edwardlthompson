@@ -30,6 +30,7 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 ### Feature — Contacts gate + icon labels + static avatar
 
 - ✅ [AGENT] Show one-word labels under icons; lock private Direct Contact / Social / card behind `#MyContacts` AES-GCM gate; static aspect-locked avatar (`img/p.jpg`); Pages artifact strip + SW/docs/e2e updates
+- ✅ [AGENT] Portal UI polish: force-visible labels, Snapchat/TikTok/YouTube PNGs, SW `matrix-cache-v11` (#14)
 
 
 ### Human & device (after automation)

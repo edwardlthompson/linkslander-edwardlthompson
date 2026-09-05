@@ -79,3 +79,12 @@
 - **Symptom:** Cloud agent cannot `gh pr create` / REST create PR (`403 Resource not accessible by integration`). Direct `git push origin main` rejected: linear history + 5 required status checks.
 - **Workaround:** Human opens PR from `cursor/labels-gate-avatar-2c87` → `main`, waits for CI, merges (squash/rebase). Then re-run `/ship` or Release Please path.
 - **Local gates:** feature-gate (web/multi after npm ci), license, readme, bootstrap --quick, contacts unit tests — green on the feature branch.
+
+### KB-008 — Under-icon labels invisible despite `.label` markup
+
+| Field | Detail |
+|-------|--------|
+| **Symptom** | Live portal shows logos only; hover tooltips work; `<span class="label">` present in HTML |
+| **Cause** | `.icons li a` started at `opacity: 0` for fade-in; `.section { overflow: hidden }` clipped labels; tiny `.ico` favicons looked undersized vs PNG peers |
+| **Fix** | Force `opacity: 1` / `display: block` on `.label`; `overflow: visible` on sections; use full PNG assets for Snapchat/TikTok/YouTube; bump `matrix-cache-v11` (#14) |
+| **Prevention** | After label CSS changes, hard-refresh or unregister SW; keep e2e asserts on `.icons .label` text |
