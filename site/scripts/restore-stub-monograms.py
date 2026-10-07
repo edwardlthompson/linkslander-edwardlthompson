@@ -13,7 +13,6 @@ SW = ROOT / "sw.js"
 LETTERS = {
     "agent-project-bootstrap": "AB",
     "hover-icons": "HI",
-    "starrupture-city-planner": "SR",
     "JanusBoot": "JB",
 }
 

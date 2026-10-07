@@ -47,8 +47,7 @@
       "Boot"
     ],
     "Play": [
-      "Gaming",
-      "Planning"
+      "Gaming"
     ],
     "Connect": [
       "Messaging"
@@ -394,22 +393,6 @@
       "releaseStatus": "available",
       "platforms": [
         "Windows"
-      ],
-      "forkOf": null
-    },
-    {
-      "id": "starrupture-city-planner",
-      "name": "StarRupture City Planner",
-      "group": "Play",
-      "category": "Planning",
-      "tagline": "Offline PWA to plan StarRupture city layouts.",
-      "description": "Offline PWA to plan West-to-East StarRupture city layouts from an unlock checklist. FOSS MIT.",
-      "logo": "img/apps/starrupture-city-planner.svg",
-      "repoUrl": "https://github.com/edwardlthompson/starrupture-city-planner",
-      "releasesUrl": "https://github.com/edwardlthompson/starrupture-city-planner/releases",
-      "releaseStatus": "none",
-      "platforms": [
-        "PWA"
       ],
       "forkOf": null
     },

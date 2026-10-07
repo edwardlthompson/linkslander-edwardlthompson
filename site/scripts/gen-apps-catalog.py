@@ -272,18 +272,6 @@ APPS = [
         "forkOf": None,
     },
     {
-        "id": "starrupture-city-planner",
-        "name": "StarRupture City Planner",
-        "group": "Play",
-        "category": "Planning",
-        "letters": "SR",
-        "tagline": "Offline PWA to plan StarRupture city layouts.",
-        "description": "Offline PWA to plan West-to-East StarRupture city layouts from an unlock checklist. FOSS MIT.",
-        "platforms": ["PWA"],
-        "releaseStatus": "none",
-        "forkOf": None,
-    },
-    {
         "id": "Google-Messages-For-Desktop",
         "name": "Google Messages for Desktop",
         "group": "Connect",
@@ -354,7 +342,7 @@ CATEGORY_ORDER = {
     "Health": ["Audit", "Battery"],
     "Vehicle": ["Diagnostics", "HUD"],
     "System": ["Hardware", "Boot"],
-    "Play": ["Gaming", "Planning"],
+    "Play": ["Gaming"],
     "Connect": ["Messaging"],
     "Markets": ["Trading"],
 }

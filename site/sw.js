@@ -1,4 +1,4 @@
-const CACHE_NAME = 'matrix-cache-v45';
+const CACHE_NAME = 'matrix-cache-v46';
 const ASSETS = [
   './',
   'index.html',
@@ -81,7 +81,6 @@ const ASSETS = [
   'img/apps/point-and-shoot.png',
   'img/apps/screen-wakelock-detector.png',
   'img/apps/selfchronicle.png',
-  'img/apps/starrupture-city-planner.svg',
   'img/apps/takein-sms.svg',
   'img/apps/trendalgo-bot.svg',
   'img/apps/vault-organizer.svg',
