@@ -16,6 +16,20 @@
 
 ## Entries
 
+### 2026-10-07 — Dependabot extract-zip High dismissed (no patch)
+- **Status:** Accepted
+- **Context:** `/ship` pre-release gate requires zero open Critical/High Dependabot alerts; `extract-zip` (<=2.0.1) has no `first_patched_version` and is pulled only via `@lhci/cli` → puppeteer (devDependency).
+- **Decision:** Dismiss alerts #31, #32, #39, #40 as `tolerable_risk` with comment; keep monitoring for an upstream patched extract-zip or LHCI bump that drops it. Override `js-yaml@4.3.2` and `undici@7.29.1` in `site/` and `examples/web/`.
+- **Alternatives considered:** Block ship until extract-zip patches — rejected (no upstream fix). Remove LHCI — rejected (Lighthouse gate still used).
+- **Consequences:** Strict triage scripts may still count dismissed alerts as closed; revisit when LHCI/puppeteer upgrades.
+
+### 2026-10-07 — Personal app store (grouped purpose catalog)
+- **Status:** Accepted
+- **Context:** Wanted a public “personal app store” under Other listing every GitHub project except LinksLander, browsable by purpose (not platform), with detail popups and Releases download links.
+- **Decision:** Static `site/apps.html` + `js/apps-catalog.json` with two-tier one-word `group`/`category` taxonomy; Bootstrap modal for details; monogram SVGs under `img/apps/`; `releaseStatus` gates Releases vs repo-only CTA; SW `matrix-cache-v38`.
+- **Alternatives considered:** Live GitHub API catalog — rejected (breaks offline PWA); platform-based categories — rejected (user asked purpose groups).
+- **Consequences:** Catalog is hand-maintained (`site/scripts/gen-apps-catalog.py`); screenshots deferred; returning visitors need SW update.
+
 ### 2026-09-05 — Uniform brand glyph plates
 - **Status:** Accepted
 - **Context:** User wanted app-drawer style icons: high-contrast glyphs on black circles with labels always visible; outliers (Venmo V, PayPal dual-blue, IHPRT heart flag, Call size, IWWYV/IMDb optical sizing) iterated to lock.

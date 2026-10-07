@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" class="h-100 apps-page" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Edward Lee Thompson personal app store — FOSS apps and tools grouped by purpose, with GitHub Releases downloads.">
+    <link rel="canonical" href="https://edwardlthompson.com/apps.html">
+    <title>Apps | Edward Lee Thompson</title>
+    <meta property="og:title" content="Apps | Edward Lee Thompson">
+    <meta property="og:description" content="Browse FOSS apps and tools by purpose. Open a tile for details and GitHub Releases.">
+    <meta property="og:image" content="https://edwardlthompson.com/img/icon-512.png">
+    <meta property="og:url" content="https://edwardlthompson.com/apps.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="preload" as="style" href="vendor/bootstrap-5.3.3/css/bootstrap.min.css">
+    <link href="vendor/bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/modules/base.css" rel="stylesheet">
+    <link href="css/modules/glass.css" rel="stylesheet">
+    <link href="css/modules/identity.css" rel="stylesheet">
+    <link href="css/modules/responsive.css" rel="stylesheet">
+    <link href="css/modules/animations.css" rel="stylesheet">
+    <link href="css/modules/apps-store.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="img/icon-192.png">
+    <link rel="icon" type="image/png" href="img/icon-192.png">
+    <meta name="theme-color" content="#1a331a">
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+
+    <canvas id="matrix" aria-hidden="true"></canvas>
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <main class="px-3 mb-auto mt-auto justify-content-center">
+        <a role="button" class="btn btn-sm btn-light download-btn matrix-cta apps-back" href="index.html">Back to Portal</a>
+
+        <div class="section apps-panel glass-panel">
+          <h1 class="matrix-identity">Apps</h1>
+          <p class="apps-intro">A personal store of FOSS projects — grouped by purpose. Open any tile for details and a link to GitHub Releases.</p>
+          <div id="apps-root" aria-live="polite"></div>
+        </div>
+      </main>
+
+      <footer class="mt-auto text-white-50">
+        <p>© Copyright Edward Lee Thompson 2026. All Rights Reserved.</p>
+      </footer>
+    </div>
+
+    <div class="modal fade apps-modal" id="apps-modal" tabindex="-1" aria-labelledby="apps-modal-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="apps-modal-title">App</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p id="apps-modal-desc"></p>
+            <div id="apps-modal-platforms" class="apps-chips" aria-label="Platforms"></div>
+            <p id="apps-modal-fork" class="apps-fork" hidden></p>
+          </div>
+          <div class="modal-footer">
+            <a id="apps-modal-primary" class="btn btn-sm btn-light matrix-cta" href="#" target="_blank" rel="noopener noreferrer">View releases</a>
+            <a id="apps-modal-repo" class="btn btn-sm btn-outline-light" href="#" target="_blank" rel="noopener noreferrer">View repository</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="vendor/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/apps-store.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js');
+        });
+      }
+    </script>
+  </body>
+</html>

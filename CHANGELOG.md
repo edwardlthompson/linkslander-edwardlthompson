@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+* **site:** personal Apps store page under Other — purpose groups, category tags, detail modal, GitHub Releases CTAs, and repo logos (`apps.html`, SW `matrix-cache-v41`)
+
+### Fixed
+
+* **deps:** bump `js-yaml` / `undici` overrides; dismiss unpatched `extract-zip` High alerts (dev-only `@lhci/cli` transitive)
+
 ## [2.2.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.1.3...v2.2.0) (2026-09-05)
 
 

@@ -1,8 +1,9 @@
-const CACHE_NAME = 'matrix-cache-v37';
+const CACHE_NAME = 'matrix-cache-v41';
 const ASSETS = [
   './',
   'index.html',
   'word-connections.html',
+  'apps.html',
   'manifest.json',
   'browserconfig.xml',
   'robots.txt',
@@ -19,11 +20,14 @@ const ASSETS = [
   'css/modules/icons.css',
   'css/modules/identity.css',
   'css/modules/language-roots.css',
+  'css/modules/apps-store.css',
   'css/modules/responsive.css',
   'js/matrix.js',
   'js/contacts-crypto.js',
   'js/contacts-gate.js',
   'js/contacts.payload.json',
+  'js/apps-catalog.json',
+  'js/apps-store.js',
   'vendor/bootstrap-5.3.3/css/bootstrap.min.css',
   'vendor/bootstrap-5.3.3/js/bootstrap.bundle.min.js',
   'img/brands/call.svg',
@@ -54,6 +58,34 @@ const ASSETS = [
   'img/brands/ethereum.svg',
   'img/brands/tripadvisor.svg',
   'img/brands/words.svg',
+  'img/brands/apps.svg',
+  'img/apps/3d-game-optimizer.svg',
+  'img/apps/AstroAlarm.svg',
+  'img/apps/DevPulse.svg',
+  'img/apps/ExpeditionGauge.png',
+  'img/apps/Google-Messages-For-Desktop.svg',
+  'img/apps/HermesLauncher.png',
+  'img/apps/JanusBoot.svg',
+  'img/apps/MultiAppShare-.png',
+  'img/apps/OBDForge.png',
+  'img/apps/OpenShouter.png',
+  'img/apps/QRaft.svg',
+  'img/apps/QuickMediaIngest.png',
+  'img/apps/SyncMark.png',
+  'img/apps/aetherfeed.svg',
+  'img/apps/agent-project-bootstrap.svg',
+  'img/apps/chromaflow.svg',
+  'img/apps/continuum-calendar.png',
+  'img/apps/hover-icons.svg',
+  'img/apps/linear-trend-spotter.svg',
+  'img/apps/noclip-auto.svg',
+  'img/apps/point-and-shoot.png',
+  'img/apps/screen-wakelock-detector.png',
+  'img/apps/selfchronicle.png',
+  'img/apps/starrupture-city-planner.svg',
+  'img/apps/takein-sms.svg',
+  'img/apps/trendalgo-bot.svg',
+  'img/apps/vault-organizer.svg',
 ];
 
 self.addEventListener('install', (e) => {
@@ -95,4 +127,3 @@ self.addEventListener('fetch', (e) => {
     caches.match(e.request).then((res) => res || fetch(e.request))
   );
 });
-

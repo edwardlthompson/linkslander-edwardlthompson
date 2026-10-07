@@ -1,0 +1,500 @@
+{
+  "groupOrder": [
+    "Build",
+    "Daily",
+    "Knowledge",
+    "Create",
+    "Health",
+    "Vehicle",
+    "System",
+    "Play",
+    "Connect",
+    "Markets"
+  ],
+  "categoryOrder": {
+    "Build": [
+      "Agents"
+    ],
+    "Daily": [
+      "Inbox",
+      "Calendar",
+      "Alarms",
+      "Speech",
+      "Sharing"
+    ],
+    "Knowledge": [
+      "Bookmarks",
+      "Memory",
+      "Notes",
+      "Feeds"
+    ],
+    "Create": [
+      "Camera",
+      "Ingest",
+      "Editing",
+      "Icons",
+      "Codes"
+    ],
+    "Health": [
+      "Audit",
+      "Battery"
+    ],
+    "Vehicle": [
+      "Diagnostics",
+      "HUD"
+    ],
+    "System": [
+      "Hardware",
+      "Boot"
+    ],
+    "Play": [
+      "Gaming",
+      "Planning"
+    ],
+    "Connect": [
+      "Messaging"
+    ],
+    "Markets": [
+      "Trading"
+    ]
+  },
+  "apps": [
+    {
+      "id": "agent-project-bootstrap",
+      "name": "Agent Project Bootstrap",
+      "group": "Build",
+      "category": "Agents",
+      "tagline": "Cursor agent bootstrap for FOSS projects.",
+      "description": "GitHub template for bootstrapping FOSS projects with Cursor agents: labeled BUILD_PLAN sprints, CI guardrails, Dependabot triage, and Golden Path stubs for Web, Python, and Android.",
+      "logo": "img/apps/agent-project-bootstrap.svg",
+      "repoUrl": "https://github.com/edwardlthompson/agent-project-bootstrap",
+      "releasesUrl": "https://github.com/edwardlthompson/agent-project-bootstrap/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Template"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "HermesLauncher",
+      "name": "Hermes Launcher",
+      "group": "Daily",
+      "category": "Inbox",
+      "tagline": "Home-screen inbox for notifications, news, and podcasts.",
+      "description": "FOSS Android home-screen inbox. Cards for notifications, news, and podcasts dismiss only via X. Local vault, MIT licensed.",
+      "logo": "img/apps/HermesLauncher.png",
+      "repoUrl": "https://github.com/edwardlthompson/HermesLauncher",
+      "releasesUrl": "https://github.com/edwardlthompson/HermesLauncher/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "continuum-calendar",
+      "name": "Continuum Calendar",
+      "group": "Daily",
+      "category": "Calendar",
+      "tagline": "Rolling-week calendar with Google sync.",
+      "description": "FOSS cross-platform calendar: Tauri desktop plus Android, rolling week view, Continuum brand, optional Google sync.",
+      "logo": "img/apps/continuum-calendar.png",
+      "repoUrl": "https://github.com/edwardlthompson/continuum-calendar",
+      "releasesUrl": "https://github.com/edwardlthompson/continuum-calendar/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Desktop",
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "AstroAlarm",
+      "name": "AstroAlarm",
+      "group": "Daily",
+      "category": "Alarms",
+      "tagline": "Alarm clock driven by solar and lunar events.",
+      "description": "FOSS Android astronomical alarm clock with on-device NOAA/Meeus ephemeris, custom clock wheels, lockscreen math unlock, and a day/night widget.",
+      "logo": "img/apps/AstroAlarm.svg",
+      "repoUrl": "https://github.com/edwardlthompson/AstroAlarm",
+      "releasesUrl": "https://github.com/edwardlthompson/AstroAlarm/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "OpenShouter",
+      "name": "OpenShouter",
+      "group": "Daily",
+      "category": "Speech",
+      "tagline": "Speaks the alerts you choose so you can look away.",
+      "description": "FOSS Android TTS that speaks chosen alerts. Built for people who cannot see or read a screen, and for anyone silencing the phone to check it less. No Play Services.",
+      "logo": "img/apps/OpenShouter.png",
+      "repoUrl": "https://github.com/edwardlthompson/OpenShouter",
+      "releasesUrl": "https://github.com/edwardlthompson/OpenShouter/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "MultiAppShare-",
+      "name": "Multi App Share",
+      "group": "Daily",
+      "category": "Sharing",
+      "tagline": "Share one item to many apps in sequence.",
+      "description": "Android utility that shares photos, videos, or text across custom app groups in a guided sequential workflow instead of repeating the share sheet.",
+      "logo": "img/apps/MultiAppShare-.png",
+      "repoUrl": "https://github.com/edwardlthompson/MultiAppShare-",
+      "releasesUrl": "https://github.com/edwardlthompson/MultiAppShare-/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "SyncMark",
+      "name": "SyncMark",
+      "group": "Knowledge",
+      "category": "Bookmarks",
+      "tagline": "Unify bookmarks across browsers; find dead links.",
+      "description": "Local-first cross-browser bookmark unifier with dead-link checking and category suggestions.",
+      "logo": "img/apps/SyncMark.png",
+      "repoUrl": "https://github.com/edwardlthompson/SyncMark",
+      "releasesUrl": "https://github.com/edwardlthompson/SyncMark/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Desktop"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "selfchronicle",
+      "name": "SelfChronicle",
+      "group": "Knowledge",
+      "category": "Memory",
+      "tagline": "Local-first personal memory and living biography.",
+      "description": "Privacy-first personal memory vault that turns exports and notes into a living biography, key facts, and an auditable timeline you own. PWA plus optional Android wrapper.",
+      "logo": "img/apps/selfchronicle.png",
+      "repoUrl": "https://github.com/edwardlthompson/selfchronicle",
+      "releasesUrl": "https://github.com/edwardlthompson/selfchronicle/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "PWA",
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "vault-organizer",
+      "name": "Vault Organizer",
+      "group": "Knowledge",
+      "category": "Notes",
+      "tagline": "Offline Obsidian plugin that auto-tags and files notes.",
+      "description": "Offline Obsidian plugin using local FOSS embeddings to auto-tag, categorize, and folder notes without cloud AI.",
+      "logo": "img/apps/vault-organizer.svg",
+      "repoUrl": "https://github.com/edwardlthompson/vault-organizer",
+      "releasesUrl": "https://github.com/edwardlthompson/vault-organizer/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Obsidian"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "aetherfeed",
+      "name": "AetherFeed",
+      "group": "Knowledge",
+      "category": "Feeds",
+      "tagline": "Encrypted local-first news, podcasts, and booru.",
+      "description": "Local-first encrypted news, podcast, and booru client. Read offline, keep stars and playback private, optionally sync opaque backups. No account, no telemetry.",
+      "logo": "img/apps/aetherfeed.svg",
+      "repoUrl": "https://github.com/edwardlthompson/aetherfeed",
+      "releasesUrl": "https://github.com/edwardlthompson/aetherfeed/releases",
+      "releaseStatus": "none",
+      "platforms": [
+        "Desktop",
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "point-and-shoot",
+      "name": "Point and Shoot",
+      "group": "Create",
+      "category": "Camera",
+      "tagline": "FOSS pro camera for Camera2 devices.",
+      "description": "FOSS professional camera app with HUD controls, LUT workflows, bracketing, and advanced capture pipelines for capable Android Camera2 devices.",
+      "logo": "img/apps/point-and-shoot.png",
+      "repoUrl": "https://github.com/edwardlthompson/point-and-shoot",
+      "releasesUrl": "https://github.com/edwardlthompson/point-and-shoot/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "QuickMediaIngest",
+      "name": "Quick Media Ingest",
+      "group": "Create",
+      "category": "Ingest",
+      "tagline": "Fast media import into dated shoot folders.",
+      "description": "FOSS .NET 8 WPF media importer for photographers. Ingest from SD cards, local drives, and FTP into dated shoot folders.",
+      "logo": "img/apps/QuickMediaIngest.png",
+      "repoUrl": "https://github.com/edwardlthompson/QuickMediaIngest",
+      "releasesUrl": "https://github.com/edwardlthompson/QuickMediaIngest/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Windows"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "noclip-auto",
+      "name": "NoClip Auto",
+      "group": "Create",
+      "category": "Editing",
+      "tagline": "Auto-fix highlight and shadow clipping in Lightroom.",
+      "description": "Lightroom Classic plugin that auto-fixes highlight and shadow clipping. FOSS, local-only, Windows and macOS.",
+      "logo": "img/apps/noclip-auto.svg",
+      "repoUrl": "https://github.com/edwardlthompson/noclip-auto",
+      "releasesUrl": "https://github.com/edwardlthompson/noclip-auto/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Lightroom"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "hover-icons",
+      "name": "Hover Icons",
+      "group": "Create",
+      "category": "Icons",
+      "tagline": "Photorealistic 3D icon pack from a YAML catalog.",
+      "description": "FOSS photorealistic 3D icon pack generated from a locked YAML catalog. Same outline in 2D and 3D; tame or neon from one source. MIT code, CC0 assets.",
+      "logo": "img/apps/hover-icons.svg",
+      "repoUrl": "https://github.com/edwardlthompson/hover-icons",
+      "releasesUrl": "https://github.com/edwardlthompson/hover-icons/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Assets"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "QRaft",
+      "name": "QRaft",
+      "group": "Create",
+      "category": "Codes",
+      "tagline": "Custom QR codes for widgets and wallpapers.",
+      "description": "Craft custom QR codes for widgets, lock-screen glance panels, and full-screen wallpapers. Offline F-Droid-friendly Android app.",
+      "logo": "img/apps/QRaft.svg",
+      "repoUrl": "https://github.com/edwardlthompson/QRaft",
+      "releasesUrl": "https://github.com/edwardlthompson/QRaft/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "DevPulse",
+      "name": "DevPulse",
+      "group": "Health",
+      "category": "Audit",
+      "tagline": "See which installed apps still have a heartbeat.",
+      "description": "Local-only Android scanner that checks Play, F-Droid repos, and public forges so you can find stale software, replacements, or repos worth forking.",
+      "logo": "img/apps/DevPulse.svg",
+      "repoUrl": "https://github.com/edwardlthompson/DevPulse",
+      "releasesUrl": "https://github.com/edwardlthompson/DevPulse/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "screen-wakelock-detector",
+      "name": "Screen Wakelock Detector",
+      "group": "Health",
+      "category": "Battery",
+      "tagline": "Find what wakes your screen; mute it locally.",
+      "description": "See the app and channel that wakes your screen, then mute it in one tap. All local, no cloud.",
+      "logo": "img/apps/screen-wakelock-detector.png",
+      "repoUrl": "https://github.com/edwardlthompson/screen-wakelock-detector",
+      "releasesUrl": "https://github.com/edwardlthompson/screen-wakelock-detector/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "OBDForge",
+      "name": "OBDForge",
+      "group": "Vehicle",
+      "category": "Diagnostics",
+      "tagline": "Multi-transport OBD-II live data and diagnostics.",
+      "description": "FOSS Android OBD-II diagnostics with BT/USB/WiFi/Ethernet, OBDLink STN support, live data, and local AI assists. F-Droid friendly.",
+      "logo": "img/apps/OBDForge.png",
+      "repoUrl": "https://github.com/edwardlthompson/OBDForge",
+      "releasesUrl": "https://github.com/edwardlthompson/OBDForge/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "ExpeditionGauge",
+      "name": "Expedition Gauge",
+      "group": "Vehicle",
+      "category": "HUD",
+      "tagline": "Offline-first automotive HUD with record and playback.",
+      "description": "Offline-first automotive HUD with recording, playback, and optional live telemetry. FOSS MIT.",
+      "logo": "img/apps/ExpeditionGauge.png",
+      "repoUrl": "https://github.com/edwardlthompson/ExpeditionGauge",
+      "releasesUrl": "https://github.com/edwardlthompson/ExpeditionGauge/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "chromaflow",
+      "name": "ChromaFlow",
+      "group": "System",
+      "category": "Hardware",
+      "tagline": "Fans, pumps, and lighting in one Linux Mint app.",
+      "description": "Control PC fans, pumps, and lighting from a single Linux Mint desktop app.",
+      "logo": "img/apps/chromaflow.svg",
+      "repoUrl": "https://github.com/edwardlthompson/chromaflow",
+      "releasesUrl": "https://github.com/edwardlthompson/chromaflow/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Linux"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "JanusBoot",
+      "name": "JanusBoot",
+      "group": "System",
+      "category": "Boot",
+      "tagline": "UEFI-first graphical boot manager.",
+      "description": "UEFI-first graphical boot manager built around Limine, ESP settings, and janusbootctl.",
+      "logo": "img/apps/JanusBoot.svg",
+      "repoUrl": "https://github.com/edwardlthompson/JanusBoot",
+      "releasesUrl": "https://github.com/edwardlthompson/JanusBoot/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "UEFI"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "3d-game-optimizer",
+      "name": "3D Game Optimizer",
+      "group": "Play",
+      "category": "Gaming",
+      "tagline": "One-click glasses-free 3D PC gaming hub.",
+      "description": "Hub that streamlines glasses-free 3D PC gaming setup and optimization in one click.",
+      "logo": "img/apps/3d-game-optimizer.svg",
+      "repoUrl": "https://github.com/edwardlthompson/3d-game-optimizer",
+      "releasesUrl": "https://github.com/edwardlthompson/3d-game-optimizer/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Windows"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "starrupture-city-planner",
+      "name": "StarRupture City Planner",
+      "group": "Play",
+      "category": "Planning",
+      "tagline": "Offline PWA to plan StarRupture city layouts.",
+      "description": "Offline PWA to plan West-to-East StarRupture city layouts from an unlock checklist. FOSS MIT.",
+      "logo": "img/apps/starrupture-city-planner.svg",
+      "repoUrl": "https://github.com/edwardlthompson/starrupture-city-planner",
+      "releasesUrl": "https://github.com/edwardlthompson/starrupture-city-planner/releases",
+      "releaseStatus": "none",
+      "platforms": [
+        "PWA"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "Google-Messages-For-Desktop",
+      "name": "Google Messages for Desktop",
+      "group": "Connect",
+      "category": "Messaging",
+      "tagline": "Native desktop window for Google Messages.",
+      "description": "FOSS Electron app for Google Messages for web on Windows, macOS, and Linux. Native window, tray unread badge, OS toasts, and sms/tel/im compose.",
+      "logo": "img/apps/Google-Messages-For-Desktop.svg",
+      "repoUrl": "https://github.com/edwardlthompson/Google-Messages-For-Desktop",
+      "releasesUrl": "https://github.com/edwardlthompson/Google-Messages-For-Desktop/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Desktop"
+      ],
+      "forkOf": "https://github.com/Google-Messages-For-Desktop/Google-Messages-For-Desktop"
+    },
+    {
+      "id": "takein-sms",
+      "name": "TakeIn SMS",
+      "group": "Connect",
+      "category": "Messaging",
+      "tagline": "Google Voice Takeout to Android SMS.",
+      "description": "Windows GUI plus ADB tool that imports Google Voice Takeout archives onto Android as SMS messages.",
+      "logo": "img/apps/takein-sms.svg",
+      "repoUrl": "https://github.com/edwardlthompson/takein-sms",
+      "releasesUrl": "https://github.com/edwardlthompson/takein-sms/releases",
+      "releaseStatus": "none",
+      "platforms": [
+        "Windows",
+        "Android"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "linear-trend-spotter",
+      "name": "Linear Trend Spotter",
+      "group": "Markets",
+      "category": "Trading",
+      "tagline": "Crypto scanner with momentum gates and dashboard.",
+      "description": "Python scanner for liquid exchange-listed coins: volume and momentum gates, uniformity scoring, strategy backtests, and a public JSON dashboard.",
+      "logo": "img/apps/linear-trend-spotter.svg",
+      "repoUrl": "https://github.com/edwardlthompson/linear-trend-spotter",
+      "releasesUrl": "https://github.com/edwardlthompson/linear-trend-spotter/releases",
+      "releaseStatus": "none",
+      "platforms": [
+        "Python",
+        "PWA"
+      ],
+      "forkOf": null
+    },
+    {
+      "id": "trendalgo-bot",
+      "name": "TrendAlgo Bot",
+      "group": "Markets",
+      "category": "Trading",
+      "tagline": "Self-hosted crypto algo bot stack.",
+      "description": "Self-hosted crypto algo stack with Freqtrade, LTS Scanner, portfolio tracker, and AI-recommended strategies.",
+      "logo": "img/apps/trendalgo-bot.svg",
+      "repoUrl": "https://github.com/edwardlthompson/trendalgo-bot",
+      "releasesUrl": "https://github.com/edwardlthompson/trendalgo-bot/releases",
+      "releaseStatus": "available",
+      "platforms": [
+        "Server"
+      ],
+      "forkOf": null
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+/* Personal app store — grouped catalog + detail modal */
+.apps-page main {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.apps-back {
+    max-width: 960px;
+    margin: 0 auto 1rem auto;
+}
+
+.apps-panel {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto 1.5rem auto;
+    padding: 1rem 1.25rem;
+    text-align: left;
+}
+
+.apps-panel h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.apps-intro {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.apps-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.85rem;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.apps-jump a {
+    color: #2cff3b;
+    text-decoration: none;
+}
+
+.apps-jump a:hover,
+.apps-jump a:focus-visible {
+    text-decoration: underline;
+}
+
+.apps-group {
+    margin-bottom: 1.75rem;
+}
+
+.apps-group-title {
+    font-size: 1.35rem;
+    margin: 0 0 0.75rem;
+    text-align: center;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+    gap: 0.75rem;
+}
+
+.apps-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.85rem 0.65rem;
+    border: 1px solid rgba(229, 231, 235, 0.2);
+    border-radius: 0.75rem;
+    background: rgba(0, 0, 0, 0.35);
+    color: #e5e7eb;
+    cursor: pointer;
+    min-height: 48px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.apps-tile:hover,
+.apps-tile:focus-visible {
+    border-color: #2cff3b;
+    box-shadow: 0 0 0 1px rgba(44, 255, 59, 0.35);
+    outline: none;
+}
+
+.apps-tile-logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
+    background: #000;
+    box-shadow: 0 0 0 0.1rem #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.apps-tile-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.apps-tile-tag {
+    display: inline-block;
+    padding: 0.12rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(44, 255, 59, 0.45);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #2cff3b;
+    line-height: 1.2;
+}
+
+.apps-tile-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.25;
+}
+
+.apps-tile-tagline {
+    font-size: 0.78rem;
+    line-height: 1.35;
+    text-align: center;
+    color: rgba(229, 231, 235, 0.75);
+}
+
+.apps-error {
+    text-align: center;
+    color: #f87171;
+    margin: 1rem 0;
+}
+
+.apps-modal .modal-content {
+    background: #0f1a12;
+    color: #e5e7eb;
+    border: 1px solid rgba(44, 255, 59, 0.35);
+}
+
+.apps-modal .modal-header,
+.apps-modal .modal-footer {
+    border-color: rgba(229, 231, 235, 0.15);
+}
+
+.apps-modal .btn-close {
+    filter: invert(1);
+}
+
+.apps-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.75rem 0;
+}
+
+.apps-chip {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(44, 255, 59, 0.45);
+    font-size: 0.75rem;
+    color: #2cff3b;
+}
+
+.apps-fork {
+    font-size: 0.85rem;
+    color: rgba(229, 231, 235, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.apps-fork a {
+    color: #2cff3b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .apps-tile {
+        transition: none;
+    }
+}

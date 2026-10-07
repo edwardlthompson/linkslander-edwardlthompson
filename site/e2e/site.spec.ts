@@ -27,6 +27,7 @@ test("public icons show one-word labels", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator(".icons .icon-name", { hasText: "YouTube" })).toBeVisible();
   await expect(page.locator(".icons .icon-name", { hasText: "Words" })).toBeVisible();
+  await expect(page.locator(".icons .icon-name", { hasText: "Apps" })).toBeVisible();
   await expect(page.locator(".icons .icon-name", { hasText: "PayPal" })).toBeVisible();
 });
 
@@ -128,6 +129,42 @@ test("word connections link in Other section", async ({ page }) => {
   await page.goto("/");
   const link = page.getByRole("link", { name: "Word Connections" });
   await expect(link).toHaveAttribute("href", "word-connections.html");
+});
+
+test("apps store link in Other section", async ({ page }) => {
+  await page.goto("/");
+  const link = page.getByRole("link", { name: "Apps store" });
+  await expect(link).toHaveAttribute("href", "apps.html");
+});
+
+test("apps store shows Build group category tag and modal releases CTA", async ({ page }) => {
+  await page.goto("/apps.html");
+  await expect(page.getByRole("heading", { name: "Build", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Agents", exact: true })).toHaveCount(0);
+  const tile = page.getByRole("button", { name: /Agent Project Bootstrap/i });
+  await expect(tile).toBeVisible();
+  await expect(tile.locator(".apps-tile-tag")).toHaveText("Agents");
+  await expect(tile.locator(".apps-tile-tagline")).not.toHaveText("");
+  await tile.click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole("heading", { name: "Agent Project Bootstrap" })).toBeVisible();
+  await expect(dialog.locator(".apps-chip", { hasText: "Agents" })).toBeVisible();
+  const releases = dialog.getByRole("link", { name: /view releases/i });
+  await expect(releases).toHaveAttribute(
+    "href",
+    "https://github.com/edwardlthompson/agent-project-bootstrap/releases"
+  );
+  await dialog.getByRole("button", { name: /close/i }).click();
+  await expect(dialog).toBeHidden();
+  await expect(tile).toBeFocused();
+});
+
+test("apps store page passes accessibility audit", async ({ page }) => {
+  await page.goto("/apps.html");
+  await expect(page.getByRole("heading", { name: "Build", exact: true })).toBeVisible();
+  const results = await new AxeBuilder({ page }).analyze();
+  expect(results.violations).toEqual([]);
 });
 
 test("word connections page has sticky header and column order", async ({ page }) => {
