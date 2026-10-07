@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.2.0...v2.3.0) (2026-10-07)
+
+
+### Added
+
+* **site:** personal Apps store and dependency override bumps ([94a4db9](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/94a4db9f5f6fc8dbdfa70480a7feb2333c13fe77))
+
+
+### Fixed
+
+* **docs:** remove duplicate CHANGELOG Unreleased section ([7c40c2d](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/7c40c2d74769def3140eaa0e81370c6616968670))
+
 ## [Unreleased]
 
 ### Added
