@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.1](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.3.0...v2.3.1) (2026-10-07)
+
+
+### Fixed
+
+* **site:** remove NoClip Auto from Apps store ([759c855](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/759c85582134b6740ad0ff65cedca50992b366f4))
+* **site:** remove StarRupture City Planner from Apps store ([32da639](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/32da639c41d6eb3863d7c38467b3bd9c1f2b261e))
+* **site:** use agent-project-bootstrap handshake logo ([29ba115](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/29ba115144149e9d36707d5f1f163ef60e5f872a))
+* **site:** use Vault Organizer Cluster Tree logo ([686de25](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/686de2567a3ca30389f8d972087a79e11932072a))
+
 ## [2.3.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.2.0...v2.3.0) (2026-10-07)
 
 
