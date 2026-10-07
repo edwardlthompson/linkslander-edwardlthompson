@@ -88,3 +88,38 @@
 | **Cause** | `.icons li a` started at `opacity: 0` for fade-in; `.section { overflow: hidden }` clipped labels; tiny `.ico` favicons looked undersized vs PNG peers |
 | **Fix** | Force `opacity: 1` / `display: block` on `.label`; `overflow: visible` on sections; use full PNG assets for Snapchat/TikTok/YouTube; bump `matrix-cache-v11` (#14) |
 | **Prevention** | After label CSS changes, hard-refresh or unregister SW; keep e2e asserts on `.icons .label` text |
+
+### KB-009 — Duplicate CHANGELOG Unreleased blocks Release Please
+
+| Field | Detail |
+|-------|--------|
+| **Symptom** | Release Please / changelog CI fails or stalls after `feat` on `main`; two `## [Unreleased]` headings |
+| **Cause** | Manual Unreleased notes left above the Release Please-managed Unreleased section |
+| **Fix** | Keep a single `## [Unreleased]` block; fold notes into it before push (`7c40c2d`) |
+| **Prevention** | Grep CHANGELOG for duplicate Unreleased before `/ship` push |
+
+### KB-010 — WSL1 breaks local Node-based gates on Windows
+
+| Field | Detail |
+|-------|--------|
+| **Symptom** | `feature-gate.sh` / `check-license-compliance.sh` via WSL fail: WSL 1 not supported / cannot find Node |
+| **Cause** | Repo scripts expect WSL2 + Node; Windows host may still run native `npm` gates successfully |
+| **Fix** | Prefer native PowerShell/`npm` under `site/` and `examples/web/` for local verify; rely on GitHub Actions Feature Gate for authoritative stack gate |
+| **Prevention** | Do not treat WSL1 script failure as product regression when CI Feature Gate is green |
+
+### KB-011 — Continuum Calendar logo source
+
+| Field | Detail |
+|-------|--------|
+| **Symptom** | Apps store Continuum tile showed a generic Fastlane calendar glyph |
+| **Cause** | Logo scrape preferred Fastlane metadata art over brand mark |
+| **Fix** | Copy `docs/brand/logo-official.png` from continuum-calendar to `site/img/apps/continuum-calendar.png`; bump SW cache |
+| **Prevention** | Prefer `docs/brand/` / official logo paths in `scripts/fetch-app-logos.py` before Fastlane icons |
+
+## KB — /ship v2.3.0 regress notes (2026-10-07)
+
+- Release Please PR #18 merged; tag `v2.3.0` published; SBOM + winget stub uploaded to release assets.
+- Post-merge Release Please job may fail at "Sync app version on release PR" when no open release PR remains (noise; release already created).
+- Template Upgrade Simulation job green on merge commit `337dc4a`.
+- Remaining open Critical/High Dependabot: `proxy-addr` (#71 site, #63 examples/web), `compression` (#70 site, #62 examples/web), `source-map-js` (#64 examples/web). Open PRs #19–#21 cover proxy-addr + source-map-js; compression bumps still pending.
+

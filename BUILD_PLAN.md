@@ -47,8 +47,10 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 
 ### Weekly (recurring)
 
-- ✅ [AGENT] Clear Dependabot High alerts (`brace-expansion` / `js-yaml` overrides) — 2026-07-22; reopen when new High/Critical appear
-- 🔲 [AGENT] Apply Dependabot dependency bumps and open PRs as needed
+- ❌ [AGENT] Clear Dependabot Critical/High alerts (`proxy-addr`, `compression`, `source-map-js` in site + examples/web) — blocked post-v2.3.0; PRs #19–#21 open for proxy-addr/source-map-js; compression still needs bumps
+- 🔲 [AGENT] Apply Dependabot dependency bumps and open PRs as needed (merge #19–#21; open/merge compression bumps)
+- ✅ [AUTO] Release Please published v2.3.0 (PR #18); SBOM assets on release; Pages deploy + CI/CodeQL/Security Scan green on `337dc4a`
+- ✅ [AUTO] Template Upgrade Simulation passed on v2.3.0 merge
 
 ---
 
