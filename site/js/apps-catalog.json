@@ -65,7 +65,7 @@
       "category": "Agents",
       "tagline": "Cursor agent bootstrap for FOSS projects.",
       "description": "GitHub template for bootstrapping FOSS projects with Cursor agents: labeled BUILD_PLAN sprints, CI guardrails, Dependabot triage, and Golden Path stubs for Web, Python, and Android.",
-      "logo": "img/apps/agent-project-bootstrap.svg",
+      "logo": "img/apps/agent-project-bootstrap.png",
       "repoUrl": "https://github.com/edwardlthompson/agent-project-bootstrap",
       "releasesUrl": "https://github.com/edwardlthompson/agent-project-bootstrap/releases",
       "releaseStatus": "available",

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'matrix-cache-v43';
+const CACHE_NAME = 'matrix-cache-v45';
 const ASSETS = [
   './',
   'index.html',
@@ -73,7 +73,7 @@ const ASSETS = [
   'img/apps/QuickMediaIngest.png',
   'img/apps/SyncMark.png',
   'img/apps/aetherfeed.svg',
-  'img/apps/agent-project-bootstrap.svg',
+  'img/apps/agent-project-bootstrap.png',
   'img/apps/chromaflow.svg',
   'img/apps/continuum-calendar.png',
   'img/apps/hover-icons.svg',
