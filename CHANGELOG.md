@@ -67,28 +67,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * mark audit A01 and A07 complete after release merge ([7f76dd2](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/7f76dd256ad792acf82ef4691988ea6e69dcb8e7))
 * record /push milestone and Release Please HUMAN gate ([94c5964](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/94c596471c507b8a9df1f8606b9c67a44286ac54))
 
-## [Unreleased]
-
-### Added
-
-- **site:** one-word labels under portal icons
-- **site:** `#MyContacts` AES-GCM gate for Direct Contact / Social Networks / contact card
-- **site:** Pages deploy encrypts contacts payload and strips `fragments/` + `*.vcf` from the artifact
-- **site:** vendored brand glyphs in `site/img/brands/` (Simple Icons + custom marks) on uniform black circular plates
-
-### Changed
-
-- **site:** public identity (photo + name) visible without unlock; contacts remain behind the phrase gate
-- **site:** icon optical sizing polish (IWWYV/IHPRT/IMDb/Call/Venmo/PayPal)
-
-### Fixed
-
-- **site:** profile avatar no longer floats; aspect-ratio and object-fit locked for low-DPI displays
-- **site:** force visible icon labels; replace tiny Snapchat/TikTok/YouTube favicons with PNGs; SW cache `matrix-cache-v11`
-- **site:** align under-icon names with hover titles (Call, Email, Word Connections)
-- npm overrides pin `brace-expansion@1.1.16` and `js-yaml@4.3.0` in `site/` and `examples/web/`
-- Release Please auto-merge workflow: set `GH_REPO` so `gh pr merge --auto` works without a checkout
-
 ## [2.1.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.0.0...v2.1.0) (2026-07-12)
 
 
