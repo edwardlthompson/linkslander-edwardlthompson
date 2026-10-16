@@ -430,30 +430,13 @@
       "forkOf": null
     },
     {
-      "id": "linear-trend-spotter",
-      "name": "Linear Trend Spotter",
-      "group": "Markets",
-      "category": "Trading",
-      "tagline": "Crypto scanner with momentum gates and dashboard.",
-      "description": "Python scanner for liquid exchange-listed coins: volume and momentum gates, uniformity scoring, strategy backtests, and a public JSON dashboard.",
-      "logo": "img/apps/linear-trend-spotter.svg",
-      "repoUrl": "https://github.com/edwardlthompson/linear-trend-spotter",
-      "releasesUrl": "https://github.com/edwardlthompson/linear-trend-spotter/releases",
-      "releaseStatus": "none",
-      "platforms": [
-        "Python",
-        "PWA"
-      ],
-      "forkOf": null
-    },
-    {
       "id": "trendalgo-bot",
       "name": "TrendAlgo Bot",
       "group": "Markets",
       "category": "Trading",
       "tagline": "Self-hosted crypto algo bot stack.",
       "description": "Self-hosted crypto algo stack with Freqtrade, LTS Scanner, portfolio tracker, and AI-recommended strategies.",
-      "logo": "img/apps/trendalgo-bot.svg",
+      "logo": "img/apps/trendalgo-bot.png",
       "repoUrl": "https://github.com/edwardlthompson/trendalgo-bot",
       "releasesUrl": "https://github.com/edwardlthompson/trendalgo-bot/releases",
       "releaseStatus": "available",

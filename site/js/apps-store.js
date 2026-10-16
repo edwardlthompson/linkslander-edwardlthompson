@@ -111,7 +111,7 @@
     });
   }
 
-  fetch("js/apps-catalog.json")
+  fetch("js/apps-catalog.json", { cache: "no-store" })
     .then((res) => {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return res.json();

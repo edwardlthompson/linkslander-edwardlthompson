@@ -296,18 +296,6 @@ APPS = [
         "forkOf": None,
     },
     {
-        "id": "linear-trend-spotter",
-        "name": "Linear Trend Spotter",
-        "group": "Markets",
-        "category": "Trading",
-        "letters": "LT",
-        "tagline": "Crypto scanner with momentum gates and dashboard.",
-        "description": "Python scanner for liquid exchange-listed coins: volume and momentum gates, uniformity scoring, strategy backtests, and a public JSON dashboard.",
-        "platforms": ["Python", "PWA"],
-        "releaseStatus": "none",
-        "forkOf": None,
-    },
-    {
         "id": "trendalgo-bot",
         "name": "TrendAlgo Bot",
         "group": "Markets",

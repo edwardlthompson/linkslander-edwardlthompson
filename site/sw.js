@@ -1,4 +1,4 @@
-const CACHE_NAME = 'matrix-cache-v46';
+const CACHE_NAME = 'matrix-cache-v48';
 const ASSETS = [
   './',
   'index.html',
@@ -77,12 +77,11 @@ const ASSETS = [
   'img/apps/chromaflow.svg',
   'img/apps/continuum-calendar.png',
   'img/apps/hover-icons.svg',
-  'img/apps/linear-trend-spotter.svg',
   'img/apps/point-and-shoot.png',
   'img/apps/screen-wakelock-detector.png',
   'img/apps/selfchronicle.png',
   'img/apps/takein-sms.svg',
-  'img/apps/trendalgo-bot.svg',
+  'img/apps/trendalgo-bot.png',
   'img/apps/vault-organizer.svg',
 ];
 
@@ -117,6 +116,21 @@ self.addEventListener('fetch', (e) => {
           const path = new URL(e.request.url).pathname.replace(/^\//, '') || 'index.html';
           return caches.match(path) || caches.match('./');
         })
+    );
+    return;
+  }
+
+  const url = new URL(e.request.url);
+  // Catalog changes often; prefer network so Apps store stays current.
+  if (url.pathname.endsWith('/js/apps-catalog.json') || url.pathname.endsWith('apps-catalog.json')) {
+    e.respondWith(
+      fetch(e.request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(e.request, copy));
+          return res;
+        })
+        .catch(() => caches.match(e.request))
     );
     return;
   }
