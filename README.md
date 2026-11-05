@@ -99,3 +99,10 @@ Enable Dependabot alerts: **Settings → Code security and analysis**. Weekly CV
 MIT — see [`LICENSE`](LICENSE). Third-party attribution: [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
 
 **Maintained by Edward Lee Thompson.**
+
+## What this is not
+
+- A finished commercial product promise
+- A place for secrets or production credentials
+- An unbounded scope — see README goals above
+
