@@ -1,5 +1,71 @@
 # Build Plan
 
+<!-- remaining-tally -->
+**Remaining:** (tally on next sync)
+<!-- /remaining-tally -->
+
+Live board. Canonical shape: agent-project-bootstrap `BUILD_PLAN_TEMPLATE.md`.
+Finished work: [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+
+**Who:** `AGENT` code · `HUMAN` person · `ADB` device · `AUTO` CI/scripts
+**Venue (AGENT only):** `[LOCAL]` This Computer · `[CLOUD]` Cursor Cloud
+**State:** 🔲 open · ✅ done · ❌ blocked
+
+Format: `🔲 [AGENT][LOCAL] Short task — scope: path/prefix`.
+
+### Open PRs (synced)
+
+> Auto-managed. Do not hand-edit inside the markers.
+
+<!-- open-prs-sync:begin -->
+_No open Dependabot or Release Please PRs._
+<!-- open-prs-sync:end -->
+
+### Template gaps (synced)
+
+> Auto-managed. Do not hand-edit inside the markers.
+
+<!-- template-gaps-sync:begin -->
+_No template gaps._
+<!-- template-gaps-sync:end -->
+
+### Waiting on a person
+
+- 🔲 [HUMAN] Run weekly CVE triage pass per `docs/SECURITY_TRIAGE.md` (recommended: Monday)
+- 🔲 [HUMAN] Editorial pass on Language Comparison cognate rows (`site/scripts/gen-roots-table.py`)
+- 🔲 [HUMAN] Install pre-commit hooks locally (`pip install pre-commit && pre-commit install`)
+
+### Local agent (This Computer)
+
+Standing queue for This Computer. Rows: `🔲 [AGENT][LOCAL] … — scope: path`.
+
+<!-- local-agent-lane:begin -->
+**Task format:** `- 🔲 [OWNER] Description` (status: 🔲 open · ✅ done · ❌ blocked)
+- ❌ [AGENT][LOCAL] Clear Dependabot Critical/High alerts (`proxy-addr`, `compression`, `source-map-js` in site + examples/web) — blocked post-v2.3.0; PRs #19–#21 open for proxy-addr/source-map-js; compression still needs bumps
+- 🔲 [AGENT][LOCAL] Apply Dependabot dependency bumps and open PRs as needed (merge #19–#21; open/merge compression bumps)
+<!-- local-agent-lane:end -->
+
+### Cloud agent (Cursor Cloud)
+
+Standing queue for Cursor Cloud. Rows: `🔲 [AGENT][CLOUD] … — scope: path`.
+
+<!-- cloud-agent-lane:begin -->
+_No cloud agent items._
+<!-- cloud-agent-lane:end -->
+
+## Archive
+
+Older sprints: [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
+
+## Preserved source board
+
+Quoted so no prior task is lost. Prefer the lanes above; do not invent work.
+
+<details>
+<summary>Previous board</summary>
+
+# Build Plan
+
 > Prioritized task board with owner labels, Sequential and Parallel lanes per sprint.
 > Move completed items to `COMPLETED_TASKS.md`.
 
@@ -59,3 +125,5 @@ grep '\[HUMAN\]' BUILD_PLAN.md
 All feature and audit sprints complete through **v2.1.3**. See [`COMPLETED_TASKS.md`](COMPLETED_TASKS.md).
 
 Future app releases are automated via Release Please on push to `main` (auto-merge + `AUTOMERGE_TOKEN`).
+
+</details>
