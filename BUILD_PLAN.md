@@ -42,7 +42,6 @@ Standing queue for This Computer. Rows: `🔲 [AGENT][LOCAL] … — scope: path
 <!-- local-agent-lane:begin -->
 **Task format:** `- 🔲 [OWNER] Description` (status: 🔲 open · ✅ done · ❌ blocked)
 - ❌ [AGENT][LOCAL] Clear Dependabot Critical/High alerts (`proxy-addr`, `compression`, `source-map-js` in site + examples/web) — blocked post-v2.3.0; PRs #19–#21 open for proxy-addr/source-map-js; compression still needs bumps
-- 🔲 [AGENT][LOCAL] Apply Dependabot dependency bumps and open PRs as needed (merge #19–#21; open/merge compression bumps)
 <!-- local-agent-lane:end -->
 
 ### Cloud agent (Cursor Cloud)
@@ -52,6 +51,11 @@ Standing queue for Cursor Cloud. Rows: `🔲 [AGENT][CLOUD] … — scope: path`
 <!-- cloud-agent-lane:begin -->
 _No cloud agent items._
 <!-- cloud-agent-lane:end -->
+
+## Ongoing Maintenance
+
+- 🔲 [AGENT] Apply Dependabot dependency bumps and open PRs as needed (merge #19–#21; open/merge compression bumps)
+
 
 ## Archive
 
