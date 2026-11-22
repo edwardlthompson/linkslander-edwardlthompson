@@ -21,7 +21,8 @@
     "tmp": ">=0.2.6",
     "uuid": ">=11.1.1",
     "js-yaml": "4.3.2",
-    "brace-expansion": "1.1.16",
-    "undici": "7.29.1"
+    "brace-expansion": ">=1.1.21",
+    "undici": "7.29.1",
+    "basic-ftp": ">=6.2.4"
   }
 }
