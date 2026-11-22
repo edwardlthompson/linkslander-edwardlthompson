@@ -17,7 +17,7 @@ permissions:
 jobs:
   encoding-check:
     name: File Encoding (UTF-8)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - name: Check text files are UTF-8
@@ -25,7 +25,7 @@ jobs:
 
   file-limits:
     name: File Size Budgets
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - name: Check file line limits
@@ -33,7 +33,7 @@ jobs:
 
   repo-hygiene:
     name: Repo Hygiene
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - name: Check tracked artifacts and repo config
@@ -41,7 +41,7 @@ jobs:
 
   validate-index:
     name: Validate Template Index
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - name: Validate TEMPLATE_INDEX.json paths
@@ -49,7 +49,7 @@ jobs:
 
   workflow-actions:
     name: Validate Workflow Action Refs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - name: Verify action tags and SHAs resolve on GitHub
@@ -59,7 +59,7 @@ jobs:
 
   validate-bootstrap:
     name: Validate Bootstrap Artifacts
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - name: Check Sprint 0 artifacts exist
@@ -69,7 +69,7 @@ jobs:
 
   feature-gate:
     name: Feature Gate
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -83,7 +83,7 @@ jobs:
 
   web:
     name: Web — Lint, Test, Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: examples/web
@@ -117,7 +117,7 @@ jobs:
 
   site-pwa:
     name: Site — PWA E2E and Lighthouse
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: site
@@ -137,7 +137,7 @@ jobs:
 
   upgrade-simulation:
     name: Template Upgrade Simulation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v6
       - name: Simulate child-repo upgrade path
@@ -145,7 +145,7 @@ jobs:
 
   template-update-check:
     name: Template Update Check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     continue-on-error: true
     steps:
       - uses: actions/checkout@v6
@@ -154,7 +154,7 @@ jobs:
 
   pr-title:
     name: Conventional Commits PR Title
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: github.event_name == 'pull_request'
     permissions:
       pull-requests: read
@@ -165,7 +165,7 @@ jobs:
 
   coverage-comment:
     name: PR Coverage Summary
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: github.event_name == 'pull_request'
     needs: [web]
     permissions:
