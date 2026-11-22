@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.1](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.3.0...v2.3.1) (2026-11-22)
+
+
+### Fixed
+
+* **ci:** pin workflows to ubuntu-24.04 for Playwright compatibility ([#39](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/39)) ([9af6283](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/9af6283f262993fea13b65cc296b16a8624fef5f))
+* **deps:** apply security overrides and lockfile updates (examples/web, site) ([#42](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/42)) ([6394cfc](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/6394cfc3f121e43c790f04d7921292f480717833))
+* **deps:** local npm audit fix (examples/web, site) ([#41](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/41)) ([97704d8](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/97704d8934966c9a66754223f545d08e59cc4509))
+* **site:** refresh TrendAlgo logo and drop Linear Trend Spotter ([466ee75](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/466ee7559e1ab56bc08d3d40e656476dc00c4885))
+* **site:** remove NoClip Auto from Apps store ([759c855](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/759c85582134b6740ad0ff65cedca50992b366f4))
+* **site:** remove StarRupture City Planner from Apps store ([32da639](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/32da639c41d6eb3863d7c38467b3bd9c1f2b261e))
+* **site:** use agent-project-bootstrap handshake logo ([29ba115](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/29ba115144149e9d36707d5f1f163ef60e5f872a))
+* **site:** use Vault Organizer Cluster Tree logo ([686de25](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/686de2567a3ca30389f8d972087a79e11932072a))
+
+
+### Changed
+
+* **argus:** Add bootstrap.config.json ([e38e7d3](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/e38e7d30658dd87f190e2aca7f1320b6f225e4c1))
+* **argus:** Add canonical portfolio app icon ([0169178](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/0169178d181383c7919f42fe0ae9c2a7ee56186b))
+* **argus:** Add missing parent-lineage marker files ([76ad249](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/76ad249e8995aa09a1a85375fa17a4fe3dd0f09d))
+* **argus:** Add missing parent-lineage marker files ([#34](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/34)) ([b4c7881](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/b4c7881ba4acbcc6e8f99ef82d72b8c749f18b16))
+* **argus:** Add or improve a "What this is not" section ([13bd8cb](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/13bd8cb60e73e9b000110dc60794e44546969faf))
+* **argus:** Bump .template-version toward parent ([f47f4ea](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/f47f4eac37a3cafe3a80953f732e20a6d01987e5))
+* **argus:** Bump .template-version toward parent ([#33](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/33)) ([6a3bfc9](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/6a3bfc9ad4f50c6eedc164cd129071a813619d59))
+* **argus:** Move agent memory/log files into .agent/ ([672e7d8](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/672e7d8bf9b6e5ca46b78716f76b2c28a01682d8))
+* **argus:** Open parent template lineage bump PR ([48519c7](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/48519c755cc2568c70f564c240b7b9db0dc3f7ad))
+* **argus:** Restructure divergent BUILD_PLAN to APB format ([6da8471](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/6da84713640cc49ef96b19f9e547c26853f4d753))
+* **argus:** sync portfolio chores onto BUILD_PLAN ([ff516fd](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/ff516fdebc4abb3fadc2f17d17471984e89e359f))
+* **deps-dev:** bump compression from 1.8.1 to 1.8.2 in /examples/web ([#24](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/24)) ([90ad95d](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/90ad95db4662b0c54871144c38ac4388f89f2109))
+* **deps-dev:** bump fast-uri from 3.1.7 to 3.1.9 in /site ([#25](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/25)) ([288a79e](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/288a79e7652c9105891639b2e39fc5a1e40f97f0))
+* **deps-dev:** bump proxy-addr from 2.0.7 to 2.0.8 in /examples/web ([#20](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/20)) ([41dc0bd](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/41dc0bdf29df1c0f9c2cbd19aa2fd4f48670d4a4))
+* **deps-dev:** bump vite from 8.0.16 to 8.3.5 in /examples/web ([#23](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/23)) ([213a561](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/213a561843b6069aae52015829c591957c2fa26d))
+* **deps:** bump qs and express in /site ([#26](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/26)) ([6d19242](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/6d19242bc58b087e2751ac5b070e8bf55273a0cb))
+
+
+### Documentation
+
+* **build-plan:** add /build queue section [skip ci] ([838ad8d](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/838ad8d572fdb02922e24f678c39ec4a19eea505))
+
 ## [2.3.0](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.2.0...v2.3.0) (2026-10-07)
 
 
