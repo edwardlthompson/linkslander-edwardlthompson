@@ -131,3 +131,19 @@ All feature and audit sprints complete through **v2.1.3**. See [`COMPLETED_TASKS
 Future app releases are automated via Release Please on push to `main` (auto-merge + `AUTOMERGE_TOKEN`).
 
 </details>
+
+<!-- argus-portfolio-chores:start -->
+## Argus portfolio chores
+
+Synced from argus-runner (2026-11-18). Prefer YOLO maintain on the runner; keep these until cleared.
+
+| Status | Venue | Task |
+|--------|-------|------|
+| 🔲 | `[AUTO][CLOUD]` | Clear open Dependabot alerts |
+
+```text
+Repo: edwardlthompson/linkslander-edwardlthompson
+Merge green Dependabot PRs. Ensure bootstrap.config.json landed on main (PR #37).
+Gate: alerts 0; bootstrap.config.json on main.
+```
+<!-- argus-portfolio-chores:end -->
