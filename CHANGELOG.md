@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.2](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.3.1...v2.3.2) (2026-11-23)
+
+
+### Changed
+
+* **argus:** make BUILD_PLAN rows visible to /build ([#43](https://github.com/edwardlthompson/linkslander-edwardlthompson/issues/43)) ([4985c8c](https://github.com/edwardlthompson/linkslander-edwardlthompson/commit/4985c8cd03e3958f5aab72ce44c0d3e0ab4bcc7f))
+
 ## [2.3.1](https://github.com/edwardlthompson/linkslander-edwardlthompson/compare/v2.3.0...v2.3.1) (2026-11-22)
 
 
